@@ -39,6 +39,8 @@
   `YSAppTool`   
   __打印__  
   `YSPrintTool`  
+  __数据库__  
+  `YSDbTool`  
   
 ## Category
   ### Foundation
