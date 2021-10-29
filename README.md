@@ -1,3 +1,3 @@
-# 鸿蒙课堂
-鸿蒙课堂App架构搭建
+# XJSwiftKit
+使用Swift快速开发一款应用
 
