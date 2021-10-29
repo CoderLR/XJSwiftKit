@@ -1,0 +1,108 @@
+PODS:
+  - Alamofire (5.4.3)
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - FSPagerView (0.8.3)
+  - HandyJSON (5.0.2)
+  - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (6.3.0)
+  - MBProgressHUD (1.2.0)
+  - MJRefresh (3.6.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
+  - ReachabilitySwift (4.3.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
+  - SGQRCode (3.5.0)
+  - SnapKit (5.0.1)
+  - WXSTransition (1.2.1)
+  - ZFPlayer (4.0.1):
+    - ZFPlayer/Core (= 4.0.1)
+  - ZFPlayer/AVPlayer (4.0.1):
+    - ZFPlayer/Core
+  - ZFPlayer/ControlView (4.0.1):
+    - ZFPlayer/Core
+  - ZFPlayer/Core (4.0.1)
+  - ZLPhotoBrowser (4.1.6):
+    - ZLPhotoBrowser/Core (= 4.1.6)
+  - ZLPhotoBrowser/Core (4.1.6)
+
+DEPENDENCIES:
+  - Alamofire
+  - DZNEmptyDataSet (= 1.8.1)
+  - FDFullscreenPopGesture
+  - FMDB (= 2.7.5)
+  - FSPagerView
+  - HandyJSON (= 5.0.2)
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - MBProgressHUD
+  - MJRefresh
+  - NVActivityIndicatorView
+  - ReachabilitySwift (= 4.3.0)
+  - RxCocoa (= 5.0.0)
+  - RxSwift (= 5.0.1)
+  - SGQRCode (= 3.5.0)
+  - SnapKit
+  - WXSTransition (~> 1.2.1)
+  - ZFPlayer (= 4.0.1)
+  - ZFPlayer/AVPlayer (= 4.0.1)
+  - ZFPlayer/ControlView (= 4.0.1)
+  - ZLPhotoBrowser
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
+    - FMDB
+    - FSPagerView
+    - HandyJSON
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - MBProgressHUD
+    - MJRefresh
+    - NVActivityIndicatorView
+    - ReachabilitySwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SGQRCode
+    - SnapKit
+    - WXSTransition
+    - ZFPlayer
+    - ZLPhotoBrowser
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  SGQRCode: d92dd8bd2af665b7e0d76098c5b70e59d2a2609f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  WXSTransition: 0bd758aaa1f5869a908b1bb103c4a9e26ad1d3eb
+  ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
+  ZLPhotoBrowser: 193f779936f49a3f485100009efb8e0b8b3fb2fe
+
+PODFILE CHECKSUM: a17c99874b10876699cfa64df956338fa2dacf77
+
+COCOAPODS: 1.10.0

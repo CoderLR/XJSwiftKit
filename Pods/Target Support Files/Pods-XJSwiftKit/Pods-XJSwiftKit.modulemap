@@ -1,0 +1,6 @@
+framework module Pods_XJSwiftKit {
+  umbrella header "Pods-XJSwiftKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

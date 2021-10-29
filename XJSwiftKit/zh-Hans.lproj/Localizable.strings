@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  XJSwiftKit
+
+  Created by Mr.Yang on 2021/4/14.
+  
+*/
+
+"tabbar_home" = "首页";
+"tabbar_mine" = "我的";

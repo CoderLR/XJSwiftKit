@@ -1,0 +1,6 @@
+framework module WXSTransition {
+  umbrella header "WXSTransition-umbrella.h"
+
+  export *
+  module * { export * }
+}
