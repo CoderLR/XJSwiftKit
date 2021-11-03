@@ -33,6 +33,7 @@ class XJTestLandspaceController: XJBaseViewController {
         self.view.backgroundColor = UIColor.white
         
         closeBtn = UIButton.xj.create(bgColor: UIColor.red, title: "关闭", titleColor: UIColor.white, font: 16)
+        closeBtn.xj.expandSize(size: 10)
         self.view.addSubview(closeBtn)
         closeBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 80, height: 40))

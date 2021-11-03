@@ -70,7 +70,7 @@
     [super scrollViewContentOffsetDidChange:change];
     
     CGPoint point = [change[@"new"] CGPointValue];
-    NSLog(@"%.2f",point.y);
+    //NSLog(@"%.2f",point.y);
     self.pullingY = point.y;
 }
 

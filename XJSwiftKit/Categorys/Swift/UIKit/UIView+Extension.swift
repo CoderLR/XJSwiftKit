@@ -21,6 +21,16 @@ public extension XJExtension where Base: UIView {
                     borderWidth: CGFloat? = nil) -> UIView {
         let view = UIView()
         view.backgroundColor = bgColor
+        if let cornerRadius = cornerRadius {
+            view.layer.cornerRadius = cornerRadius
+            view.layer.masksToBounds = true
+        }
+        if let borderColor = borderColor {
+            view.layer.borderColor = borderColor.cgColor
+        }
+        if let borderWidth = borderWidth {
+            view.layer.borderWidth = borderWidth
+        }
         return view
     }
 }

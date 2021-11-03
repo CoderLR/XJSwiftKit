@@ -308,3 +308,36 @@ public extension XJExtension where Base: UIButton {
         base.contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0, bottom: edgeOffset, right: 0)
     }
 }
+
+// MARK:- 六、Button扩大点击事件
+private var XJUIButtonExpandSizeKey = "XJUIButtonExpandSizeKey"
+public extension UIButton {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        let buttonRect = self.xj.expandRect()
+        if (buttonRect.equalTo(bounds)) {
+            return super.point(inside: point, with: event)
+        }else{
+            return buttonRect.contains(point)
+        }
+    }
+}
+
+public extension XJExtension where Base: UIButton {
+
+    // MARK: 6.1、扩大UIButton的点击区域，向四周扩展10像素的点击范围
+    /// 扩大UIButton的点击区域，向四周扩展10像素的点击范围
+    /// - Parameter size: 向四周扩展像素的点击范围
+    func expandSize(size: CGFloat) {
+        objc_setAssociatedObject(self.base, &XJUIButtonExpandSizeKey, size, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY)
+    }
+
+    fileprivate func expandRect() -> CGRect {
+        let expandSize = objc_getAssociatedObject(self.base, &XJUIButtonExpandSizeKey)
+        if (expandSize != nil) {
+//            return CGRect(x: self.base.bounds.origin.x - (expandSize as! CGFloat), y: self.base.bounds.origin.y - (expandSize as! CGFloat), width: self.base.bounds.size.width + 2 * (expandSize as! CGFloat), height: self.base.bounds.size.height + 2 * (expandSize as! CGFloat))
+            return CGRect(x: self.base.bounds.origin.x - (expandSize as! CGFloat), y: self.base.bounds.origin.y, width: self.base.bounds.size.width + (expandSize as! CGFloat), height: self.base.bounds.size.height)
+        } else {
+            return self.base.bounds
+        }
+    }
+}

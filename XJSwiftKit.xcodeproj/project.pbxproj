@@ -188,6 +188,19 @@
 		361A2F852717C5FE00AC6551 /* XJTestWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2F842717C5FE00AC6551 /* XJTestWebViewController.swift */; };
 		361A2F962717DC7C00AC6551 /* MBProgressHUD+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2F952717DC7C00AC6551 /* MBProgressHUD+Extension.swift */; };
 		361A2FA0271814F500AC6551 /* XJShareConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2F9F271814F500AC6551 /* XJShareConfig.swift */; };
+		3639E2D6272FC9E5004D16B5 /* YSCalendarPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2D5272FC9E5004D16B5 /* YSCalendarPageView.swift */; };
+		3639E2DE272FCFD1004D16B5 /* YSCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2DD272FCFD1004D16B5 /* YSCalendarCell.swift */; };
+		3639E2E3272FD182004D16B5 /* YSDaySeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2E2272FD182004D16B5 /* YSDaySeriesCell.swift */; };
+		3639E2E8272FD347004D16B5 /* XJTestCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */; };
+		3639E2ED2730EC9C004D16B5 /* YSDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2EC2730EC9C004D16B5 /* YSDayModel.swift */; };
+		3639E2F22730ECBA004D16B5 /* YSCalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2F12730ECBA004D16B5 /* YSCalendarConfig.swift */; };
+		3639E2FA2730EDE4004D16B5 /* YSCalendarSeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E2F92730EDE4004D16B5 /* YSCalendarSeriesView.swift */; };
+		3639E30527311A2D004D16B5 /* YSDayPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E30427311A2D004D16B5 /* YSDayPageCell.swift */; };
+		3639E30E2731290B004D16B5 /* icon_calendar_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3639E30A2731290B004D16B5 /* icon_calendar_next@2x.png */; };
+		3639E30F2731290B004D16B5 /* icon_calendar_next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3639E30B2731290B004D16B5 /* icon_calendar_next@3x.png */; };
+		3639E3102731290B004D16B5 /* icon_calendar_last@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3639E30C2731290B004D16B5 /* icon_calendar_last@3x.png */; };
+		3639E3112731290B004D16B5 /* icon_calendar_last@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3639E30D2731290B004D16B5 /* icon_calendar_last@2x.png */; };
+		3639E31927322DE2004D16B5 /* XJTestCalendarViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */; };
 		3650EA1D2722A9A3009874A1 /* XJTestTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */; };
 		369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D127293FEF00BC7798 /* XJSearchViewController.swift */; };
 		369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */; };
@@ -441,6 +454,19 @@
 		361A2F842717C5FE00AC6551 /* XJTestWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestWebViewController.swift; sourceTree = "<group>"; };
 		361A2F952717DC7C00AC6551 /* MBProgressHUD+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+Extension.swift"; sourceTree = "<group>"; };
 		361A2F9F271814F500AC6551 /* XJShareConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJShareConfig.swift; sourceTree = "<group>"; };
+		3639E2D5272FC9E5004D16B5 /* YSCalendarPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSCalendarPageView.swift; sourceTree = "<group>"; };
+		3639E2DD272FCFD1004D16B5 /* YSCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSCalendarCell.swift; sourceTree = "<group>"; };
+		3639E2E2272FD182004D16B5 /* YSDaySeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSDaySeriesCell.swift; sourceTree = "<group>"; };
+		3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestCalendarViewController.swift; sourceTree = "<group>"; };
+		3639E2EC2730EC9C004D16B5 /* YSDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSDayModel.swift; sourceTree = "<group>"; };
+		3639E2F12730ECBA004D16B5 /* YSCalendarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSCalendarConfig.swift; sourceTree = "<group>"; };
+		3639E2F92730EDE4004D16B5 /* YSCalendarSeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSCalendarSeriesView.swift; sourceTree = "<group>"; };
+		3639E30427311A2D004D16B5 /* YSDayPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSDayPageCell.swift; sourceTree = "<group>"; };
+		3639E30A2731290B004D16B5 /* icon_calendar_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_next@2x.png"; sourceTree = "<group>"; };
+		3639E30B2731290B004D16B5 /* icon_calendar_next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_next@3x.png"; sourceTree = "<group>"; };
+		3639E30C2731290B004D16B5 /* icon_calendar_last@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_last@3x.png"; sourceTree = "<group>"; };
+		3639E30D2731290B004D16B5 /* icon_calendar_last@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_last@2x.png"; sourceTree = "<group>"; };
+		3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestCalendarViewController2.swift; sourceTree = "<group>"; };
 		3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTransitionController.swift; sourceTree = "<group>"; };
 		369863D127293FEF00BC7798 /* XJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchViewController.swift; sourceTree = "<group>"; };
 		369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
@@ -666,6 +692,8 @@
 				369B97BB2727EDF600D518E2 /* XJTestLandspaceController.swift */,
 				369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */,
 				36BE42EA272B9914005C1830 /* XJTestBannerViewController.swift */,
+				3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */,
+				3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -700,6 +728,7 @@
 		36102EC6271FBEFF0001FF14 /* YSKit */ = {
 			isa = PBXGroup;
 			children = (
+				3639E2D4272FC9CF004D16B5 /* YSCalendar */,
 				361030CE272177360001FF14 /* Resource */,
 				361030A727215E1D0001FF14 /* YSQRScan */,
 				36102F77271FC9FA0001FF14 /* YSTools */,
@@ -844,6 +873,7 @@
 		361030CE272177360001FF14 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3639E309273128CD004D16B5 /* calendar */,
 				361030CF272177360001FF14 /* refresh */,
 				3610311E272177370001FF14 /* scan */,
 			);
@@ -1074,6 +1104,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3639E2D4272FC9CF004D16B5 /* YSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				3639E2D5272FC9E5004D16B5 /* YSCalendarPageView.swift */,
+				3639E2F92730EDE4004D16B5 /* YSCalendarSeriesView.swift */,
+				3639E2DD272FCFD1004D16B5 /* YSCalendarCell.swift */,
+				3639E30427311A2D004D16B5 /* YSDayPageCell.swift */,
+				3639E2E2272FD182004D16B5 /* YSDaySeriesCell.swift */,
+				3639E2EC2730EC9C004D16B5 /* YSDayModel.swift */,
+				3639E2F12730ECBA004D16B5 /* YSCalendarConfig.swift */,
+			);
+			path = YSCalendar;
+			sourceTree = "<group>";
+		};
+		3639E309273128CD004D16B5 /* calendar */ = {
+			isa = PBXGroup;
+			children = (
+				3639E30D2731290B004D16B5 /* icon_calendar_last@2x.png */,
+				3639E30C2731290B004D16B5 /* icon_calendar_last@3x.png */,
+				3639E30A2731290B004D16B5 /* icon_calendar_next@2x.png */,
+				3639E30B2731290B004D16B5 /* icon_calendar_next@3x.png */,
+			);
+			path = calendar;
+			sourceTree = "<group>";
+		};
 		365A1583262FBE7800A72C49 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1284,7 @@
 				3610313E272177370001FF14 /* pulling_white_14@2x.png in Resources */,
 				3610315A272177370001FF14 /* refreshing_03@2x.png in Resources */,
 				36103159272177370001FF14 /* pulling_10@2x.png in Resources */,
+				3639E30F2731290B004D16B5 /* icon_calendar_next@3x.png in Resources */,
 				36103135272177370001FF14 /* refreshing_white_07@2x.png in Resources */,
 				3610312E272177370001FF14 /* pulling_white_15@2x.png in Resources */,
 				36103165272177370001FF14 /* refreshing_04@2x.png in Resources */,
@@ -1241,6 +1297,7 @@
 				3610314B272177370001FF14 /* pulling_14@2x.png in Resources */,
 				36103139272177370001FF14 /* pulling_white_12@2x.png in Resources */,
 				36103168272177370001FF14 /* pulling_25@2x.png in Resources */,
+				3639E3102731290B004D16B5 /* icon_calendar_last@3x.png in Resources */,
 				36103141272177370001FF14 /* pulling_white_22@2x.png in Resources */,
 				3610315B272177370001FF14 /* refreshing_11@2x.png in Resources */,
 				36103142272177370001FF14 /* refreshing_white_04@2x.png in Resources */,
@@ -1271,6 +1328,7 @@
 				36103129272177370001FF14 /* pulling_white_03@2x.png in Resources */,
 				3610315E272177370001FF14 /* pulling_07@2x.png in Resources */,
 				36103169272177370001FF14 /* pulling_13@2x.png in Resources */,
+				3639E3112731290B004D16B5 /* icon_calendar_last@2x.png in Resources */,
 				3610313F272177370001FF14 /* pulling_white_06@2x.png in Resources */,
 				3610314A272177370001FF14 /* pulling_22@2x.png in Resources */,
 				3610316C272177370001FF14 /* refreshing_10@2x.png in Resources */,
@@ -1303,6 +1361,7 @@
 				36103136272177370001FF14 /* refreshing_white_02@2x.png in Resources */,
 				36103167272177370001FF14 /* refreshing_12@2x.png in Resources */,
 				36103152272177370001FF14 /* pulling_08@2x.png in Resources */,
+				3639E30E2731290B004D16B5 /* icon_calendar_next@2x.png in Resources */,
 				3610316F272177370001FF14 /* qrcode_image_back@2x.png in Resources */,
 				36103160272177370001FF14 /* refreshing_06@2x.png in Resources */,
 				36103150272177370001FF14 /* refreshing_09@2x.png in Resources */,
@@ -1393,6 +1452,7 @@
 				36102FCC2720086C0001FF14 /* Bool+Extension.swift in Sources */,
 				36102F9E272004F00001FF14 /* Bundle+Extension.swift in Sources */,
 				18B4D49B2626DA1000555F1E /* XJUserInfo.swift in Sources */,
+				3639E2F22730ECBA004D16B5 /* YSCalendarConfig.swift in Sources */,
 				36A9A940271E795D00119AF2 /* UIAlertController+Extension.swift in Sources */,
 				36102F22271FBEFF0001FF14 /* YSDatePickerView.swift in Sources */,
 				361A2E782716B40300AC6551 /* XJCentralLog.swift in Sources */,
@@ -1401,6 +1461,7 @@
 				3610301627201DBE0001FF14 /* UISlider+Extension.swift in Sources */,
 				361A2EBB2716C54500AC6551 /* NSArray+Unicode.m in Sources */,
 				36102FDB2720088E0001FF14 /* Float+Extension.swift in Sources */,
+				3639E2D6272FC9E5004D16B5 /* YSCalendarPageView.swift in Sources */,
 				361A2EFC2716C89100AC6551 /* XJSizeTool.swift in Sources */,
 				36D0C8EC27193145008C4013 /* XJRequestConfig.swift in Sources */,
 				361A2F282716CCD400AC6551 /* JXPhotoBrowserAnimatedTransitioning.swift in Sources */,
@@ -1410,6 +1471,7 @@
 				36A9A91B271D6C5500119AF2 /* UIImageView+Extension.swift in Sources */,
 				361A2F2E2716CCD400AC6551 /* JXPhotoBrowserImageCell.swift in Sources */,
 				18B4D4962626D9AC00555F1E /* XJWKWebViewController.swift in Sources */,
+				3639E2E3272FD182004D16B5 /* YSDaySeriesCell.swift in Sources */,
 				36102FBD272007880001FF14 /* URL+Extension.swift in Sources */,
 				361A2F852717C5FE00AC6551 /* XJTestWebViewController.swift in Sources */,
 				361A2E5A2716B25C00AC6551 /* XJFileModel.swift in Sources */,
@@ -1419,6 +1481,8 @@
 				369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */,
 				36102FB32720069F0001FF14 /* FileManager+Extension.swift in Sources */,
 				361A2F2C2716CCD400AC6551 /* JXPhotoBrowserView.swift in Sources */,
+				3639E2FA2730EDE4004D16B5 /* YSCalendarSeriesView.swift in Sources */,
+				3639E2DE272FCFD1004D16B5 /* YSCalendarCell.swift in Sources */,
 				36F520B42718292000759876 /* UILabel+Extension.swift in Sources */,
 				36102FEA272009F20001FF14 /* CLLocation+Extension.swift in Sources */,
 				3610305F27210E490001FF14 /* YSContentSizeTool.swift in Sources */,
@@ -1432,12 +1496,14 @@
 				369B973927267E9700D518E2 /* XJTestViewController.swift in Sources */,
 				3610305527210D080001FF14 /* YSAsyncTool.swift in Sources */,
 				361A2FA0271814F500AC6551 /* XJShareConfig.swift in Sources */,
+				3639E2ED2730EC9C004D16B5 /* YSDayModel.swift in Sources */,
 				36102FAE2720068B0001FF14 /* DispatchQueue+Extension.swift in Sources */,
 				36102FA6272005470001FF14 /* Data+Extension.swift in Sources */,
 				36102FFC272013DD0001FF14 /* NSRange+Extension.swift in Sources */,
 				36102FEF272012E40001FF14 /* NSAttributedString+Extension.swift in Sources */,
 				361A2F2A2716CCD400AC6551 /* JXPhotoBrowserNumberPageIndicator.swift in Sources */,
 				3610304327210B000001FF14 /* YSRegexTool.swift in Sources */,
+				3639E31927322DE2004D16B5 /* XJTestCalendarViewController2.swift in Sources */,
 				36102F70271FBEFF0001FF14 /* YSRefreshHeader.m in Sources */,
 				361A2F312716CCD400AC6551 /* JXPhotoBrowser.swift in Sources */,
 				18B4D5062626E5DA00555F1E /* XJImageConfig.swift in Sources */,
@@ -1488,6 +1554,8 @@
 				36102F79271FCA0E0001FF14 /* YSDateTool.swift in Sources */,
 				3610306E272111170001FF14 /* YSAppTool.swift in Sources */,
 				36A9A955271EA2FA00119AF2 /* UICollectionView+Extension.swift in Sources */,
+				3639E30527311A2D004D16B5 /* YSDayPageCell.swift in Sources */,
+				3639E2E8272FD347004D16B5 /* XJTestCalendarViewController.swift in Sources */,
 				3610306427210F310001FF14 /* YSAlbumTool.swift in Sources */,
 				361A2F252716CCD400AC6551 /* JXPhotoBrowserNoneAnimator.swift in Sources */,
 				18B4D4EF2626E47200555F1E /* XJMineViewController.swift in Sources */,

@@ -97,8 +97,8 @@ class XJBaseViewController: UIViewController {
         btnLeft.setImage(KNavBackImage, for: .normal)
         btnLeft.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
         btnLeft.addTarget(self, action: #selector(backBtnClick(_:)), for: .touchUpInside)
-        let leftBarItem = UIBarButtonItem(customView: btnLeft)
-        self.navigationItem.leftBarButtonItem = leftBarItem
+        let backItem = UIBarButtonItem(customView: btnLeft)
+        self.navigationItem.leftBarButtonItem = backItem
     }
     
     deinit {

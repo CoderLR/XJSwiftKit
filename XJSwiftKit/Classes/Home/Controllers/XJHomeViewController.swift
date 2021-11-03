@@ -13,6 +13,8 @@ import ZLPhotoBrowser
 
 class XJHomeViewController: XJBaseViewController {
     
+    var tableView: UITableView!
+    
     fileprivate var titles: [String] = ["WebView",
                                         "EmptyView",
                                         "ScanQR",
@@ -25,7 +27,9 @@ class XJHomeViewController: XJBaseViewController {
                                         "Camera",
                                         "VideoPlayer",
                                         "Landspce",
-                                        "searchVc"]
+                                        "searchVc",
+                                        "PageCalendar",
+                                        "SeriesCalendar"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +37,14 @@ class XJHomeViewController: XJBaseViewController {
         self.title = "首页"
         
         setupUI()
+        
+        let a: String? = nil
+        let b: String? = "haha"
+        let c = a ?? b
     }
     
     func setupUI() {
-        let tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
@@ -50,6 +58,10 @@ class XJHomeViewController: XJBaseViewController {
         }
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         weak var weakSelf = self
         self.setRefreshHeader(tableView) {
@@ -123,6 +135,12 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 12 {
             let searchVc = XJTestSearchViewController()
             self.pushVC(searchVc)
+        } else if indexPath.row == 13 {
+            let calendarVc = XJTestCalendarViewController()
+            self.pushVC(calendarVc)
+        } else if indexPath.row == 14 {
+            let calendarVc = XJTestCalendarViewController2()
+            self.pushVC(calendarVc)
         }
     }
 }

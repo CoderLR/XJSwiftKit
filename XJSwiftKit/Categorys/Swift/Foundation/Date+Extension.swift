@@ -326,6 +326,18 @@ public extension XJExtension where Base == Date {
         return Calendar.current.date(byAdding: DateComponents(day: 2), to: Date())
     }
     
+    // MARK: 3.2、上月的日期（相对于date的昨天日期）
+    /// 昨天的日期
+    static var lastMonthDate: Date? {
+        return Calendar.current.date(byAdding: DateComponents(month: -1), to: Date())
+    }
+    
+    // MARK: 3.3、下月的日期
+    /// 明天的日期
+    static var nextMonthDate: Date? {
+        return Calendar.current.date(byAdding: DateComponents(month: 1), to: Date())
+    }
+    
     // MARK: 3.6、是否为今天（只比较日期，不比较时分秒）
     /// 是否为今天（只比较日期，不比较时分秒）
     /// - Returns: bool
