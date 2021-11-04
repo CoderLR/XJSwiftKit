@@ -10,9 +10,9 @@ import FSPagerView
 
 class XJTestBannerViewController: XJBaseViewController {
     
-//    fileprivate let imageNames = ["1.jpg","2.jpg","3.jpg"]
-    
-    fileprivate let imageNames = [getUserCover("8488"), getUserCover("4817"), getUserCover("4816")]
+    fileprivate let imageNames = ["https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png",
+                                  "https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png",
+                                  "https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png"]
 
     lazy var pagerView: FSPagerView = {
         let pager = FSPagerView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 240))
@@ -75,18 +75,4 @@ extension XJTestBannerViewController: FSPagerViewDataSource, FSPagerViewDelegate
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pageControl.currentPage = pagerView.currentIndex
     }
-}
-
-// 获取用户封面
-func getUserCover(_ uid: String) -> String {
-    // MD5加密
-    let MD5Str = uid.xj.md5Encrypt()
-    let MD5String = MD5Str as NSString
-    // 截取字符串1
-    let filepath1 = MD5String.substring(to: 2)
-    // 截取字符串2
-    let range = NSRange.init(location: 2, length: 2)
-    let filepath2 = MD5String.substring(with: range)
-    let urlStr_circleCover: String = "https://file.xroom.net/user/\(filepath1)/\(filepath2)/\(uid)/circle.jpg"
-    return urlStr_circleCover
 }

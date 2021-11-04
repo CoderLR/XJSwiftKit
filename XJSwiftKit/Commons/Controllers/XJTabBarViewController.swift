@@ -45,7 +45,7 @@ class XJTabBarViewController: UITabBarController {
         item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Color_333333_333333], for: .normal)
         item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Color_System], for: .selected)
         controller.tabBarItem = item
-        self.tabBar.tintColor = UIColor.yellow
+        self.tabBar.tintColor = Color_System
         let navic = XJNavigationViewController(rootViewController: controller)
         return navic
     }

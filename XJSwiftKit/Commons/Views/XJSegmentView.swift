@@ -21,7 +21,7 @@ class XJSegmentView: UIView {
     let kNormalColor: UIColor = UIColor.black
     
     /// 选中颜色
-    let kSelectColor: UIColor = UIColor.orange
+    let kSelectColor: UIColor = Color_System
     
     /// 显示模式
     var segmentMode: XJSegmentMode = .normal

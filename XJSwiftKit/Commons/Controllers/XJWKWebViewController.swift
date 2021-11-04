@@ -10,24 +10,61 @@ import WebKit
 
 class XJWKWebViewController: XJBaseViewController {
     
-    var webView = WKWebView()
-    var leftbtn = UIButton()
-    var closebtn = UIButton()
-    var rightbtn = UIButton()
-    var webUrl: String = ""
-    private var isPushed: Bool = true
+    /// webView
+    fileprivate lazy var webView: WKWebView = {
+        let config = WKWebViewConfiguration()
+        config.selectionGranularity = WKSelectionGranularity(rawValue: 1)!
+        let webView = WKWebView(frame: CGRect.zero, configuration: config)
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.scrollView.showsVerticalScrollIndicator = false
+        return webView
+    }()
     
-    private lazy var progressView: UIView = {
+    /// 进度条
+    fileprivate lazy var progressView: UIView = {
         let progress = UIView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 2.0))
         progress.backgroundColor = Color_System
         return progress
     }()
     
-    // 控制进度条动画
-    private let barAnimationDuration: CGFloat = 0.27
-    private let fadeAnimationDuration: CGFloat = 0.27
-    private let fadeOutDuration: CGFloat = 0.1
+    /// 返回
+    fileprivate lazy var leftbtn: UIButton = {
+        let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_back")
+        button.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        return button
+    }()
     
+    /// 关闭
+    fileprivate var closebtn: UIButton = {
+        let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_close")
+        button.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        return button
+    }()
+ 
+    /// 分享
+    fileprivate lazy var rightbtn: UIButton = {
+        let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_share")
+        button.addTarget(self, action: #selector(shareAction), for: .touchUpInside)
+        return button
+    }()
+    
+    /// url
+    fileprivate var webUrl: String = ""
+    fileprivate var isPushed: Bool = true
+    
+    /// 控制进度条动画
+    fileprivate let barAnimationDuration: CGFloat = 0.27
+    fileprivate let fadeAnimationDuration: CGFloat = 0.27
+    fileprivate let fadeOutDuration: CGFloat = 0.1
+    
+    /// 接收JS的调用
+    fileprivate var didReceiveJSCallMessage: ((String, Any) -> ())?
+    
+    /// 分享
+    var shareActionBlock: (() -> Void)?
+    
+    /// 初始化
     @objc convenience init(webUrl: String, isPushed: Bool = true) {
         self.init(nibName: nil, bundle: nil)
         self.webUrl = webUrl
@@ -55,33 +92,35 @@ class XJWKWebViewController: XJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.fd_interactivePopDisabled = true
         self.view.backgroundColor = Color_FFFFFF_151515
         
-        setupWebview()
-        setupNavBar()
-        clearCache()
-        loadWebUrl()
-        addObserver()
-        addRefreshHeader()
-    }
-    
-    func setupNavBar() {
+        /// webview
+        self.view.addSubview(webView)
+        webView.snp.makeConstraints({ (make) in
+            make.left.right.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+        })
         
-        leftbtn = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_back")
-        leftbtn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        /// 进度条
+        self.view.addSubview(progressView)
         
-        closebtn = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_close")
-        closebtn.isHidden = !webView.canGoBack
-        closebtn.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
-        self.view.addSubview(closebtn)
-        
+        /// 导航栏
+        closebtn.isHidden = !self.webView.canGoBack
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: leftbtn),
                                                   UIBarButtonItem(customView: closebtn)]
-        
-        rightbtn = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_share")
-        rightbtn.addTarget(self, action: #selector(shareAction), for: .touchUpInside)
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightbtn)]
+        
+        /// 清缓存
+        clearCache()
+        
+        /// 加载地址
+        loadWebUrl()
+        
+        /// 添加监听
+        addObserver()
+        
+        /// 添加下拉刷新
+        addRefreshHeader()
     }
     
     deinit {
@@ -90,20 +129,28 @@ class XJWKWebViewController: XJBaseViewController {
         webView.navigationDelegate = nil
     }
     
+    /// 清除缓存
     private func clearCache() {
         XJCacheTool.clearWebcache()
     }
     
+    /// KVO监听
     private func addObserver() {
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
     }
     
+    /// 移除监听
     private func removeObserver() {
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
         webView.removeObserver(self, forKeyPath: "title")
     }
+}
+
+// MARK: - WebView
+extension XJWKWebViewController {
     
+    /// 加载webview
     func loadWebUrl() {
         let encode_str:String = NSString.init(string: webUrl).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         if webUrl.contains(XJApiUrl ){
@@ -114,6 +161,7 @@ class XJWKWebViewController: XJBaseViewController {
         }
     }
     
+    /// 下拉刷新
     private func addRefreshHeader() {
         weak var weakSelf = self
         self.setRefreshHeader(webView.scrollView) {
@@ -121,36 +169,69 @@ class XJWKWebViewController: XJBaseViewController {
         }
     }
     
+    /// 刷新webview
     func reloadWebView() {
         webView.reload()
     }
-}
-
-// MARK: - UI
-extension XJWKWebViewController {
     
-    func setupWebview() {
-        // webView
-        let config = WKWebViewConfiguration()
-        config.selectionGranularity = WKSelectionGranularity(rawValue: 1)!
-        webView = WKWebView(frame: CGRect.zero, configuration: config)
-        webView.navigationDelegate = self
-        webView.uiDelegate = self
-        webView.scrollView.showsVerticalScrollIndicator = false
-        self.view.addSubview(webView)
+    // MARK: - 交互
+
+    /// JS调用原生
+    /// - Parameter：
+    ///   - funcName: 原生方法名
+    ///   - callBack: JS传来的参数
+    /// JS调用方式：funcName
+    func jsCallNative(_ funcName: String, callBack: ((String, Any) -> ())?) {
+        /*
+         </script>
+         　　var message = {
+         　　　　'method': 'hello',
+         　　　　'param1': 'dada',
+         　　　};
+         　　window.webkit.messageHandlers.funcName.postMessage(message);
+         　　<script>
+        */
+        self.didReceiveJSCallMessage = callBack
+        webView.configuration.userContentController.add(self, name: funcName)
+    }
+    
+    /// 原生调用JS
+    /// - Parameters:
+    ///   - funcName: JS方法名
+    ///   - params: 传给JS的参数
+    func callJSFunc(_ funcName: String, params: [String: String]) {
+        /*
+         　　</script>
+         　　　function funcName(data) {
+         　　　　var obj = eval(data);
+         　　　　alert(obj.name);
+         　　　}
+         　　<script>
+         */
         
-        webView.snp.makeConstraints({ (make) in
-            make.left.right.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-        })
+        var paramsStr = "{"
+        for elem in params {
+            let key = elem.key
+            let value = elem.value
+            paramsStr.append(String(format: "'%@': '%@'", key, value))
+            paramsStr.append(", ")
+        }
+        var paramsStr2 = paramsStr.dropLast(2)
+        paramsStr2.append("}")
         
-        self.view.addSubview(progressView)
+        let callJSStr = funcName + "(" + paramsStr2 + ")"
+        
+        /// 调用jS方法
+        webView.evaluateJavaScript(callJSStr) { (obj, error) in
+            
+        }
     }
 }
 
 // MARK: - Action
 extension XJWKWebViewController {
     
+    /// 关闭
     @objc func closeAction() {
         
         if webView.isLoading { webView.stopLoading() }
@@ -162,6 +243,7 @@ extension XJWKWebViewController {
         }
     }
     
+    /// 返回
     @objc func backAction() {
         if webView.canGoBack {
             webView.goBack()
@@ -172,10 +254,23 @@ extension XJWKWebViewController {
         closebtn.isHidden = !webView.canGoBack
     }
     
+    /// 分享
     @objc func shareAction() {
-        
+        if let shareActionBlock = shareActionBlock {
+            shareActionBlock()
+        }
     }
     
+    /// H5返回按钮
+    func hideH5BackBtn(_ backMeg: String = "close"){
+        let str = "document.getElementsByClassName(\"\(backMeg)\")[0].style.display='none'"
+        webView.evaluateJavaScript(str) {[weak self] (any, error) in
+            guard let self = self else { return }
+            self.popVC()
+        }
+    }
+    
+    /// KVO监听加载进度
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             setProgress(progress: CGFloat(webView.estimatedProgress), animated: true)
@@ -186,12 +281,7 @@ extension XJWKWebViewController {
         }
     }
     
-    func hideH5BackBtn(_ backMeg: String = "close"){
-        let str = "document.getElementsByClassName(\"\(backMeg)\")[0].style.display='none'"
-        webView.evaluateJavaScript(str) { (any, error) in }
-    }
-    
-    // 进度条动画
+    /// 进度条动画
     func setProgress(progress: CGFloat, animated: Bool) {
         let isGrowing = progress > 0.0
         UIView.animate(withDuration: (isGrowing && animated) ? TimeInterval(barAnimationDuration) : 0.0, delay: 0, options: .curveEaseInOut, animations: {
@@ -221,11 +311,30 @@ extension XJWKWebViewController {
 // MARK: WKNavigationDelegate
 extension XJWKWebViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     
+    /// H5交互信息
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("message.name",message.name)
+        print("message.body", message.body)
+        if let didReceiveJSCallMessage = didReceiveJSCallMessage {
+            didReceiveJSCallMessage(message.name, message.body)
+        }
     }
     
+    /// 进程终止
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         self.loadWebUrl()
+    }
+    
+    /// 在发送请求之前，决定是否跳转
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("webview request: \(navigationAction.request.url?.absoluteString ?? "")")
+        decisionHandler(.allow)
+    }
+    
+    /// 在收到响应后，决定是否跳转
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        print("webview response: \(navigationResponse.response.url?.absoluteString ?? "")")
+        decisionHandler(.allow)
     }
     
     /// 开始加载
@@ -250,7 +359,7 @@ extension XJWKWebViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
         print("webView didFail:")
     }
     
-    /// 显示H5的alert
+    /// 警告框 alert
     func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
         print("runJavaScriptAlertPanelWithMessage:" ,message)
@@ -262,9 +371,14 @@ extension XJWKWebViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
         self.present(alert, animated: true, completion: nil)
     }
     
-    /// 显示H5的alert
+    /// 确认框
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         print("runJavaScriptConfirmPanelWithMessage:",message)
         completionHandler(true)
+    }
+    
+    /// 输入框
+    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+        completionHandler(nil)
     }
 }

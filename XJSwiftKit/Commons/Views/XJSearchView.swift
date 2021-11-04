@@ -157,7 +157,7 @@ class XJSearchCell: UICollectionViewCell {
         self.layer.masksToBounds = true
         
         titleLabel = UILabel.xj.create(bgColor: UIColor.clear,
-                          textColor: UIColor.orange,
+                          textColor: Color_System,
                           font: 15,
                           textAlignment: .center,
                           numberOfLines: 1)
