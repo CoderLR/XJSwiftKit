@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: -  定义颜色
 
-public let Color_System = UIColor.orange // App主题色
+public let Color_System = UIColor(named: "Color_System") ?? UIColor.black // App主题色
 
 public let Color_000000_FFFFFF = UIColor(named: "Color_000000_FFFFFF") ?? UIColor.black
 

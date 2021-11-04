@@ -42,8 +42,8 @@ class XJTabBarViewController: UITabBarController {
     func setupTabBarItem(controller: UIViewController, title: String, image: UIImage?, selectedImage: UIImage?) -> UINavigationController{
         
         let item = UITabBarItem(title: title, image:image?.withRenderingMode(.alwaysOriginal), selectedImage: selectedImage?.withRenderingMode(.alwaysOriginal))
-        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
-        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.yellow], for: .selected)
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Color_333333_333333], for: .normal)
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: Color_System], for: .selected)
         controller.tabBarItem = item
         self.tabBar.tintColor = UIColor.yellow
         let navic = XJNavigationViewController(rootViewController: controller)

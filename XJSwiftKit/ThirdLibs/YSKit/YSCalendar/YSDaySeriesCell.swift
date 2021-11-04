@@ -24,7 +24,11 @@ class YSDaySeriesCell: UICollectionViewCell {
                     dayLabel.text = "\(model.day)"
                 }
                 
-                dayChineseLabel.text = model.chineseDay
+                if model.chineseDay == "初一" {
+                    dayChineseLabel.text = model.chineseMonth
+                } else {
+                    dayChineseLabel.text = model.chineseDay
+                }
                 
                 // 当前天颜色
                 if YSCalendarConfig.isCurrentDate(model) &&

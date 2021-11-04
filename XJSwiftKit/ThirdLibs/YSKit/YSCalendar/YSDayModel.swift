@@ -143,7 +143,7 @@ public struct YSDayModel {
     static func getDateList() -> [YSDayModel?] {
         var dayArray: [YSDayModel?] = []
 
-        var currentDate = YSDateTool.dateStringToDate("2021-10-01")
+        var currentDate = YSDateTool.dateStringToDate("\(YSCalendarConfig.startYear)-10-01")
         
         // 当月第一天是星期几
         let dayInWeek = YSDateTool.firstWeekDayInCurrentMonth(date: currentDate)
@@ -159,7 +159,7 @@ public struct YSDayModel {
             dayArray.append(model)
         }
         
-        while YSDateTool.currentYear(date: currentDate) <= 2021 {
+        while YSDateTool.currentYear(date: currentDate) <= YSCalendarConfig.endYear {
             
             // 当月有多少天
             let days = YSDateTool.countOfDaysInCurrentMonth(date: currentDate)

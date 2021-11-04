@@ -132,17 +132,21 @@ extension YSCalendarSeriesView: UIScrollViewDelegate {
             selectedIndex += 1
         }
         
-        if abs(velocity.y) >= 2 {
+        print("selectedIndex = \(selectedIndex)---\(velocity)")
+        
+        if abs(velocity.y) >= 1.0 {
             targetContentOffset.pointee.y = pageHeight * CGFloat(selectedIndex)
         } else {
             targetContentOffset.pointee.y = scrollView.contentOffset.y
-            scrollView .setContentOffset(CGPoint(x: 0, y: pageHeight * CGFloat(selectedIndex)), animated: true)
+            scrollView.setContentOffset(CGPoint(x: 0, y: pageHeight * CGFloat(selectedIndex)), animated: true)
         }
         
-        print("selectedIndex = \(selectedIndex)")
-    
         let dayModel = self.dayModels[KCalendarColum * selectedIndex + 3]
         refreshDateLabel(dayModel)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        print("scrollViewDidEndDragging")
     }
 }
 

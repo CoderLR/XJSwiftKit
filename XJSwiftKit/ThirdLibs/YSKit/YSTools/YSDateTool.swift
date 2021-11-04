@@ -42,7 +42,7 @@ class YSDateTool {
     static func currentChineseYear(date: Date = Date()) -> String {
         let calendar = NSCalendar.init(calendarIdentifier: .chinese)
         let com = calendar?.components([.year], from: date)
-        return numberToChina(yearNum: (com?.year)!)
+        return numberToChina(yearNum: (com?.year)!) + "年"
     }
     
     // MARK: - 农历今月
@@ -240,6 +240,10 @@ class YSDateTool {
     
     // 日数字转汉字
     static func numberToChina(yearNum: Int) -> String {
+        // 以一个天干和一个地支相配，排列起来，天干在前，地支在后，天干由甲起，地支由子起，阳干对阳支，阴干对阴支（阳干不配阴支，阴干不配阳支）
+        // 就会得到六十年一周期的甲子回圈，一般称为“六十甲子”或“花甲子”
+        // 十天干： 甲（jiǎ）、乙（yǐ）、丙（bǐng）、丁（dīng）、戊（wù）、己（jǐ）、庚（gēng）、辛（xīn）、壬（rén）、癸（guǐ）
+        // 十二地支： 子（zǐ）、丑（chǒu）、寅（yín）、卯（mǎo）、辰（chén）、巳（sì）、午（wǔ）、未（wèi）、申（shēn）、酉（yǒu）、戌（xū）、亥（hài）
         let ChinaArray = [ "甲子", "乙丑", "丙寅", "丁卯", "戊辰", "己巳", "庚午", "辛未", "壬申", "癸酉",
                          "甲戌", "乙亥", "丙子", "丁丑", "戊寅", "己卯", "庚辰", "辛己", "壬午", "癸未",
                          "甲申", "乙酉", "丙戌", "丁亥", "戊子", "己丑", "庚寅", "辛卯", "壬辰", "癸巳",
