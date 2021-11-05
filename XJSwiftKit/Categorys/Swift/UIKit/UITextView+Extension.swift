@@ -122,6 +122,43 @@ extension UITextView {
 // MARK:- 二、文本链接的扩展
 public extension XJExtension where Base: UITextView {
     
+    // MARK: 2.0、添加链接文本（链接为空时则表示普通文本）
+    /// UITextView
+    /// - Parameters:
+    ///   - bgColor: 背景颜色
+    ///   - placeholder: 占位符
+    ///   - placeholderFont: 占位符字体
+    ///   - placeholderColor: 占位符颜色
+    ///   - textColor: 文字颜色
+    ///   - tintColor: 光标颜色
+    ///   - font: 字体大小
+    ///   - isEditable: 是否可用编辑
+    /// - Returns: UITextView
+    static func create(frame: CGRect,
+                       bgColor: UIColor = UIColor.white,
+                       placeholder: String? = nil,
+                       placeholderFont: CGFloat = 14,
+                       placeholderColor: UIColor = UIColor.lightGray,
+                       textColor: UIColor = Color_333333_333333,
+                       tintColor: UIColor = Color_System,
+                       font: CGFloat = 14,
+                       isEditable: Bool = true) -> UITextView {
+        let textview = UITextView(frame: frame)
+        textview.backgroundColor = bgColor
+        // placeholder内容
+        if let placeholder = placeholder {
+            textview.placeholder = placeholder
+            textview.placeholdFont = UIFont.systemFont(ofSize: placeholderFont)
+            textview.placeholdColor = placeholderColor
+        }
+        // 是否可用编辑
+        textview.isEditable = isEditable
+        textview.textColor = textColor // 字体颜色
+        textview.tintColor = tintColor // 光标颜色
+        textview.font = UIFont.systemFont(ofSize: font) // 字体大小
+        return textview
+    }
+    
     // MARK: 2.1、添加链接文本（链接为空时则表示普通文本）
     /// 添加链接文本（链接为空时则表示普通文本）
     /// - Parameters:

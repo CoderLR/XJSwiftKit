@@ -21,7 +21,7 @@ class XJHomeViewController: XJBaseViewController {
                                         "Banner",
                                         "Request",
                                         "DatePicker",
-                                        "ShowMessage",
+                                        "TextView",
                                         "SegmentVc",
                                         "Photos",
                                         "Camera",
@@ -41,6 +41,8 @@ class XJHomeViewController: XJBaseViewController {
         let a: String? = nil
         let b: String? = "haha"
         let c = a ?? b
+        
+        print("sqrt = \(sqrt(2))")
     }
     
     func setupUI() {
@@ -111,14 +113,14 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             let banner = XJTestBannerViewController()
             self.pushVC(banner)
         } else if indexPath.row == 4 {
-            REQ.getRequest(XJUserApi.getUserDetail("8488"), BaseEmptyModel.self) { (model, dict) in
-            }
+            REQ.getRequest(XJUserApi.getUserDetail("8488"), BaseEmptyModel.self) { (model, dict) in }
         } else if indexPath.row == 5 {
             YSDatePickerView(mode: .date, date: "2021-10-10",selectDateBlock: { (date) in
                 print("select:\(date)")
             }).show()
         } else if indexPath.row == 6 {
-            self.showText("Show Some Message!")
+            let textVc = XJTestTextViewViewController()
+            self.pushVC(textVc)
         } else if indexPath.row == 7 {
             let sgVc = XJTestSegmentController()
             self.pushVC(sgVc)

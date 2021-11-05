@@ -202,6 +202,8 @@
 		3639E3112731290B004D16B5 /* icon_calendar_last@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3639E30D2731290B004D16B5 /* icon_calendar_last@2x.png */; };
 		3639E31927322DE2004D16B5 /* XJTestCalendarViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */; };
 		3650EA1D2722A9A3009874A1 /* XJTestTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */; };
+		3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */; };
+		3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFED2735107A00475C9F /* XJHeartView.swift */; };
 		369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D127293FEF00BC7798 /* XJSearchViewController.swift */; };
 		369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */; };
 		369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863DB272944CD00BC7798 /* XJSearchView.swift */; };
@@ -468,6 +470,8 @@
 		3639E30D2731290B004D16B5 /* icon_calendar_last@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_calendar_last@2x.png"; sourceTree = "<group>"; };
 		3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestCalendarViewController2.swift; sourceTree = "<group>"; };
 		3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTransitionController.swift; sourceTree = "<group>"; };
+		3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTextViewViewController.swift; sourceTree = "<group>"; };
+		3665CFED2735107A00475C9F /* XJHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartView.swift; sourceTree = "<group>"; };
 		369863D127293FEF00BC7798 /* XJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchViewController.swift; sourceTree = "<group>"; };
 		369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
 		369863DB272944CD00BC7798 /* XJSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchView.swift; sourceTree = "<group>"; };
@@ -686,6 +690,7 @@
 				361A2F842717C5FE00AC6551 /* XJTestWebViewController.swift */,
 				36F520A5271825BE00759876 /* XJTestTableViewController.swift */,
 				3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */,
+				3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */,
 				369B973327267E1500D518E2 /* XJTestSegmentController.swift */,
 				369B973827267E9700D518E2 /* XJTestViewController.swift */,
 				369B97B32727DA9600D518E2 /* XJTestVideoPlayerController.swift */,
@@ -1057,6 +1062,7 @@
 		361A2E862716B73800AC6551 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3665CFED2735107A00475C9F /* XJHeartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1482,6 +1488,7 @@
 				36102FB32720069F0001FF14 /* FileManager+Extension.swift in Sources */,
 				361A2F2C2716CCD400AC6551 /* JXPhotoBrowserView.swift in Sources */,
 				3639E2FA2730EDE4004D16B5 /* YSCalendarSeriesView.swift in Sources */,
+				3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */,
 				3639E2DE272FCFD1004D16B5 /* YSCalendarCell.swift in Sources */,
 				36F520B42718292000759876 /* UILabel+Extension.swift in Sources */,
 				36102FEA272009F20001FF14 /* CLLocation+Extension.swift in Sources */,
@@ -1544,6 +1551,7 @@
 				361A2EBC2716C54500AC6551 /* NSString+Unicode.m in Sources */,
 				3610305A27210D720001FF14 /* YSEKEventTool.swift in Sources */,
 				361A2E662716B2F500AC6551 /* UIView+Extension.swift in Sources */,
+				3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */,
 				18B4D4372626D36C00555F1E /* AppDelegate.swift in Sources */,
 				18B4D5012626E59D00555F1E /* XJTextConfig.swift in Sources */,
 				18B4D4E72626E45E00555F1E /* XJHomeViewController.swift in Sources */,

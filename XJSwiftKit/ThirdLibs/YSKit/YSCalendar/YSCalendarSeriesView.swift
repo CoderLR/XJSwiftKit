@@ -49,6 +49,7 @@ class YSCalendarSeriesView: UICollectionViewCell {
         
     /// 滚动索引
     var selectedIndex: Int = 0
+    var velocityY: CGFloat = 0
     
     /// 日期回调
     var dateSelectChangeBlock: ((YSDayModel) -> ())?
@@ -133,20 +134,29 @@ extension YSCalendarSeriesView: UIScrollViewDelegate {
         }
         
         print("selectedIndex = \(selectedIndex)---\(velocity)")
-        
-        if abs(velocity.y) >= 1.0 {
+        velocityY = abs(velocity.y)
+        if velocityY >= 1.0 {
             targetContentOffset.pointee.y = pageHeight * CGFloat(selectedIndex)
         } else {
             targetContentOffset.pointee.y = scrollView.contentOffset.y
             scrollView.setContentOffset(CGPoint(x: 0, y: pageHeight * CGFloat(selectedIndex)), animated: true)
         }
-        
-        let dayModel = self.dayModels[KCalendarColum * selectedIndex + 3]
-        refreshDateLabel(dayModel)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         print("scrollViewDidEndDragging")
+//        if velocityY < 1.0 {
+//            let dayModel = self.dayModels[KCalendarColum * selectedIndex + 3]
+//            refreshDateLabel(dayModel)
+//            return
+//        }
+//        // 滚动高度
+//        let pageHeight = KCalendarDayCellH + KCalendarMarginV
+//        selectedIndex = Int(scrollView.contentOffset.y / pageHeight)
+//        scrollView.setContentOffset(CGPoint(x: 0, y: pageHeight * CGFloat(selectedIndex)), animated: true)
+//
+//        let dayModel = self.dayModels[KCalendarColum * selectedIndex + 3]
+//        refreshDateLabel(dayModel)
     }
 }
 

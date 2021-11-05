@@ -18,8 +18,8 @@ public extension XJExtension where Base: UIView {
     static func create(bgColor: UIColor = UIColor.white,
                     cornerRadius: CGFloat? = nil,
                     borderColor: UIColor? = nil,
-                    borderWidth: CGFloat? = nil) -> UIView {
-        let view = UIView()
+                    borderWidth: CGFloat? = nil) -> Base {
+        let view = Base()
         view.backgroundColor = bgColor
         if let cornerRadius = cornerRadius {
             view.layer.cornerRadius = cornerRadius
@@ -32,6 +32,30 @@ public extension XJExtension where Base: UIView {
             view.layer.borderWidth = borderWidth
         }
         return view
+    }
+    
+    
+    /// 设置圆角和边框
+    /// - Parameters:
+    ///   - cornerRadius: 圆角半径
+    ///   - borderColor: 边框颜色
+    ///   - borderWidth: 边框宽度
+    /// - Returns: view
+    @discardableResult
+    func setLayer(cornerRadius: CGFloat? = nil,
+                    borderColor: UIColor? = nil,
+                    borderWidth: CGFloat? = nil) -> Base {
+        if let cornerRadius = cornerRadius {
+            self.base.layer.cornerRadius = cornerRadius
+            self.base.layer.masksToBounds = true
+        }
+        if let borderColor = borderColor {
+            self.base.layer.borderColor = borderColor.cgColor
+        }
+        if let borderWidth = borderWidth {
+            self.base.layer.borderWidth = borderWidth
+        }
+        return self.base
     }
 }
 
