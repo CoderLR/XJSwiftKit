@@ -204,6 +204,7 @@
 		3650EA1D2722A9A3009874A1 /* XJTestTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */; };
 		3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */; };
 		3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFED2735107A00475C9F /* XJHeartView.swift */; };
+		366D2E812738B25D00702287 /* XJHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D2E802738B25D00702287 /* XJHeartViewController.swift */; };
 		369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D127293FEF00BC7798 /* XJSearchViewController.swift */; };
 		369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */; };
 		369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863DB272944CD00BC7798 /* XJSearchView.swift */; };
@@ -472,6 +473,7 @@
 		3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTransitionController.swift; sourceTree = "<group>"; };
 		3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTextViewViewController.swift; sourceTree = "<group>"; };
 		3665CFED2735107A00475C9F /* XJHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartView.swift; sourceTree = "<group>"; };
+		366D2E802738B25D00702287 /* XJHeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartViewController.swift; sourceTree = "<group>"; };
 		369863D127293FEF00BC7798 /* XJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchViewController.swift; sourceTree = "<group>"; };
 		369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
 		369863DB272944CD00BC7798 /* XJSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchView.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				36BE42EA272B9914005C1830 /* XJTestBannerViewController.swift */,
 				3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */,
 				3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */,
+				366D2E802738B25D00702287 /* XJHeartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1493,6 +1496,7 @@
 				36F520B42718292000759876 /* UILabel+Extension.swift in Sources */,
 				36102FEA272009F20001FF14 /* CLLocation+Extension.swift in Sources */,
 				3610305F27210E490001FF14 /* YSContentSizeTool.swift in Sources */,
+				366D2E812738B25D00702287 /* XJHeartViewController.swift in Sources */,
 				36D0C8DA2719200D008C4013 /* XJPathConfig.swift in Sources */,
 				18B4D53C2626EC6D00555F1E /* XJLocalizedTool.swift in Sources */,
 				36D0C8D227190FFF008C4013 /* XJAppInfo.swift in Sources */,

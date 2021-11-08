@@ -141,8 +141,8 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             let calendarVc = XJTestCalendarViewController()
             self.pushVC(calendarVc)
         } else if indexPath.row == 14 {
-            let calendarVc = XJTestCalendarViewController2()
-            self.pushVC(calendarVc)
+            let heartVc = XJHeartViewController()
+            self.pushVC(heartVc)
         }
     }
 }

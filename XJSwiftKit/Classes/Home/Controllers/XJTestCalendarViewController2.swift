@@ -14,24 +14,17 @@ class XJTestCalendarViewController2: XJBaseViewController {
         return calendar
     }()
     
-    lazy var heartView: XJHeartView = {
-        let heart = XJHeartView(frame: self.view.bounds)
-        return heart
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "日历控件"
 
-//        print("\(KCalendarSeriesViewH)")
-//        self.view.addSubview(calendarSeriesView)
-//        calendarSeriesView.dateSelectChangeBlock = { model in
-//            print("------------\(model.year)-\(model.month)-\(model.day)-------------")
-//            print("------------\(model.chineseYear)-\(model.chineseMonth)-\(model.chineseDay)-------------")
-//        }
-        
-        self.view.addSubview(heartView)
+        print("\(KCalendarSeriesViewH)")
+        self.view.addSubview(calendarSeriesView)
+        calendarSeriesView.dateSelectChangeBlock = { model in
+            print("------------\(model.year)-\(model.month)-\(model.day)-------------")
+            print("------------\(model.chineseYear)-\(model.chineseMonth)-\(model.chineseDay)-------------")
+        }
     }
 
 }

@@ -73,11 +73,11 @@ class XJHeartView: UIView {
         // 右上
         for i in 0..<8 {
             let view = UIView()
-            view.backgroundColor = UIColor.blue
+            view.backgroundColor = extinctColor
             self.addSubview(view)
-            view.layer.cornerRadius = 5
+            view.layer.cornerRadius = 8
             view.layer.masksToBounds = true
-            view.size = CGSize(width: 10, height: 10)
+            view.size = CGSize(width: 16, height: 16)
             view.center = getPointCenter(center: rightCenter, angle: CGFloat(-20 + i * 20))
             rightUpArray.append(view)
         }
@@ -85,11 +85,11 @@ class XJHeartView: UIView {
         // 右下
         for b in 0..<8 {
             let view = UIView()
-            view.backgroundColor = UIColor.blue
+            view.backgroundColor = extinctColor
             self.addSubview(view)
-            view.layer.cornerRadius = 5
+            view.layer.cornerRadius = 8
             view.layer.masksToBounds = true
-            view.size = CGSize(width: 10, height: 10)
+            view.size = CGSize(width: 16, height: 16)
             let offsetX: CGFloat = CGFloat(b) * (CGFloat(sqrt(2) * R) / 7) + 10.0
             view.center = CGPoint(x: centerX + offsetX, y: centerY + (CGFloat(sqrt(2) * R) - offsetX))
             rightDownArray.append(view)
@@ -98,11 +98,11 @@ class XJHeartView: UIView {
         // 左上
         for j in 0..<8 {
             let view = UIView()
-            view.backgroundColor = UIColor.blue
+            view.backgroundColor = extinctColor
             self.addSubview(view)
-            view.layer.cornerRadius = 5
+            view.layer.cornerRadius = 8
             view.layer.masksToBounds = true
-            view.size = CGSize(width: 10, height: 10)
+            view.size = CGSize(width: 16, height: 16)
             view.center = getPointCenter(center: leftCenter, angle: CGFloat(60 + j * 20))
             leftUpArray.append(view)
         }
@@ -110,24 +110,29 @@ class XJHeartView: UIView {
         // 左下
         for a in 0..<8 {
             let view = UIView()
-            view.backgroundColor = UIColor.blue
+            view.backgroundColor = extinctColor
             self.addSubview(view)
-            view.layer.cornerRadius = 5
+            view.layer.cornerRadius = 8
             view.layer.masksToBounds = true
-            view.size = CGSize(width: 10, height: 10)
+            view.size = CGSize(width: 16, height: 16)
             let offsetX: CGFloat = CGFloat(a) * (CGFloat(sqrt(2) * R) / 7) + 10.0
             view.center = CGPoint(x: centerX - offsetX, y: centerY + (CGFloat(sqrt(2) * R) - offsetX))
             leftDownArray.append(view)
         }
         
+        // 顺时针360
         rightUpArray = rightUpArray.reversed()
         rightDownArray = rightDownArray.reversed()
-        leftDownArray = leftDownArray.reversed()
+        leftUpArray = leftUpArray.reversed()
+        allArray = rightUpArray + rightDownArray + leftDownArray + leftUpArray
         
-        leftArray = leftUpArray + leftDownArray
+        // 逆时针180
+        let leftUpArr: [UIView] = leftUpArray.reversed()
+        let leftDownArr: [UIView] = leftDownArray.reversed()
+        leftArray = leftUpArr + leftDownArr
+        
+        // 顺时针180
         rightArray = rightUpArray + rightDownArray
-        
-        allArray = leftUpArray + leftDownArray + rightDownArray + rightUpArray
     }
     
     func getPointCenter(center: CGPoint, angle: CGFloat) -> CGPoint {
@@ -152,5 +157,4 @@ class XJHeartView: UIView {
             path.stroke()
         }
     }
-
 }
