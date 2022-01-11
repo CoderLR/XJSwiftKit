@@ -205,6 +205,11 @@
 		3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */; };
 		3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFED2735107A00475C9F /* XJHeartView.swift */; };
 		366D2E812738B25D00702287 /* XJHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D2E802738B25D00702287 /* XJHeartViewController.swift */; };
+		368AAD69278D5AC700FAD32E /* YSShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD68278D5AC700FAD32E /* YSShareView.swift */; };
+		368AAD75278D670400FAD32E /* icon_share_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD71278D670400FAD32E /* icon_share_weixin@3x.png */; };
+		368AAD76278D670400FAD32E /* icon_share_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD72278D670400FAD32E /* icon_share_weixin@2x.png */; };
+		368AAD77278D670400FAD32E /* icon_share_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD73278D670400FAD32E /* icon_share_circle@2x.png */; };
+		368AAD78278D670400FAD32E /* icon_share_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD74278D670400FAD32E /* icon_share_circle@3x.png */; };
 		369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D127293FEF00BC7798 /* XJSearchViewController.swift */; };
 		369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */; };
 		369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863DB272944CD00BC7798 /* XJSearchView.swift */; };
@@ -474,6 +479,11 @@
 		3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTextViewViewController.swift; sourceTree = "<group>"; };
 		3665CFED2735107A00475C9F /* XJHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartView.swift; sourceTree = "<group>"; };
 		366D2E802738B25D00702287 /* XJHeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartViewController.swift; sourceTree = "<group>"; };
+		368AAD68278D5AC700FAD32E /* YSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSShareView.swift; sourceTree = "<group>"; };
+		368AAD71278D670400FAD32E /* icon_share_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_weixin@3x.png"; sourceTree = "<group>"; };
+		368AAD72278D670400FAD32E /* icon_share_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_weixin@2x.png"; sourceTree = "<group>"; };
+		368AAD73278D670400FAD32E /* icon_share_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_circle@2x.png"; sourceTree = "<group>"; };
+		368AAD74278D670400FAD32E /* icon_share_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_circle@3x.png"; sourceTree = "<group>"; };
 		369863D127293FEF00BC7798 /* XJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchViewController.swift; sourceTree = "<group>"; };
 		369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
 		369863DB272944CD00BC7798 /* XJSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchView.swift; sourceTree = "<group>"; };
@@ -736,6 +746,7 @@
 		36102EC6271FBEFF0001FF14 /* YSKit */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD67278D5AAB00FAD32E /* YSShare */,
 				3639E2D4272FC9CF004D16B5 /* YSCalendar */,
 				361030CE272177360001FF14 /* Resource */,
 				361030A727215E1D0001FF14 /* YSQRScan */,
@@ -881,6 +892,7 @@
 		361030CE272177360001FF14 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD70278D670400FAD32E /* share */,
 				3639E309273128CD004D16B5 /* calendar */,
 				361030CF272177360001FF14 /* refresh */,
 				3610311E272177370001FF14 /* scan */,
@@ -1149,6 +1161,25 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		368AAD67278D5AAB00FAD32E /* YSShare */ = {
+			isa = PBXGroup;
+			children = (
+				368AAD68278D5AC700FAD32E /* YSShareView.swift */,
+			);
+			path = YSShare;
+			sourceTree = "<group>";
+		};
+		368AAD70278D670400FAD32E /* share */ = {
+			isa = PBXGroup;
+			children = (
+				368AAD71278D670400FAD32E /* icon_share_weixin@3x.png */,
+				368AAD72278D670400FAD32E /* icon_share_weixin@2x.png */,
+				368AAD73278D670400FAD32E /* icon_share_circle@2x.png */,
+				368AAD74278D670400FAD32E /* icon_share_circle@3x.png */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 		36D0C8F6271934BA008C4013 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,9 +1318,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3610312B272177370001FF14 /* refreshing_white_05@2x.png in Resources */,
+				368AAD75278D670400FAD32E /* icon_share_weixin@3x.png in Resources */,
 				36103140272177370001FF14 /* pulling_white_18@2x.png in Resources */,
+				368AAD77278D670400FAD32E /* icon_share_circle@2x.png in Resources */,
 				18B4D4432626D36E00555F1E /* LaunchScreen.storyboard in Resources */,
 				3610313B272177370001FF14 /* pulling_white_02@2x.png in Resources */,
+				368AAD78278D670400FAD32E /* icon_share_circle@3x.png in Resources */,
 				3610313E272177370001FF14 /* pulling_white_14@2x.png in Resources */,
 				3610315A272177370001FF14 /* refreshing_03@2x.png in Resources */,
 				36103159272177370001FF14 /* pulling_10@2x.png in Resources */,
@@ -1352,6 +1386,7 @@
 				3610312A272177370001FF14 /* pulling_white_11@2x.png in Resources */,
 				36103125272177370001FF14 /* pulling_white_25@2x.png in Resources */,
 				36103154272177370001FF14 /* pulling_12@2x.png in Resources */,
+				368AAD76278D670400FAD32E /* icon_share_weixin@2x.png in Resources */,
 				36103149272177370001FF14 /* refreshing_07@2x.png in Resources */,
 				36103164272177370001FF14 /* pulling_21@2x.png in Resources */,
 				36103146272177370001FF14 /* pulling_white_08@2x.png in Resources */,
@@ -1504,6 +1539,7 @@
 				369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */,
 				361A2F962717DC7C00AC6551 /* MBProgressHUD+Extension.swift in Sources */,
 				36102F6F271FBEFF0001FF14 /* YSRefreshGifHeader.m in Sources */,
+				368AAD69278D5AC700FAD32E /* YSShareView.swift in Sources */,
 				369B973927267E9700D518E2 /* XJTestViewController.swift in Sources */,
 				3610305527210D080001FF14 /* YSAsyncTool.swift in Sources */,
 				361A2FA0271814F500AC6551 /* XJShareConfig.swift in Sources */,

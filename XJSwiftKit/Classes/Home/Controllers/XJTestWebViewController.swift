@@ -12,18 +12,15 @@ class XJTestWebViewController: XJWKWebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.shareActionBlock = {
+            YSShareView(topShareInfos: YSShareInfo.getShareInfos(0),
+                        bottomShareInfos: YSShareInfo.getShareInfos(1)).show { (type) in
+                if type == .wechat {
+                    print("分享到微信")
+                } else if type == .circle {
+                    print("分享到朋友圈")
+                }
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

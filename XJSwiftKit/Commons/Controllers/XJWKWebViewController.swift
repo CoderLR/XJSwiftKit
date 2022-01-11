@@ -51,6 +51,8 @@ class XJWKWebViewController: XJBaseViewController {
     
     /// url
     fileprivate var webUrl: String = ""
+    
+    /// 控制器弹出方式
     fileprivate var isPushed: Bool = true
     
     /// 控制进度条动画

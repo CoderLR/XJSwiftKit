@@ -29,7 +29,7 @@ class XJHomeViewController: XJBaseViewController {
                                         "Landspce",
                                         "searchVc",
                                         "PageCalendar",
-                                        "SeriesCalendar"]
+                                        "HeartLighting"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +37,6 @@ class XJHomeViewController: XJBaseViewController {
         self.title = "首页"
         
         setupUI()
-        
-        let a: String? = nil
-        let b: String? = "haha"
-        let c = a ?? b
-        
-        print("sqrt = \(sqrt(2))")
     }
     
     func setupUI() {
