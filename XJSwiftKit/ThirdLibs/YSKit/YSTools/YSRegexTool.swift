@@ -140,4 +140,12 @@ public struct YSRegexTool {
         let isMatch: Bool = pred.evaluate(with: userIdCard)
         return isMatch
     }
+    
+    // MARK: 1.7、 判断是否是数字
+    ///  判断是数字
+    /// - Parameter text: 字符串
+    /// - Returns: 返回结果
+    public static func validateNumber(_ text: String, pattern: String = JKRegexDigitalType.type1.rawValue) -> Bool {
+        return match(text, pattern: pattern)
+    }
 }

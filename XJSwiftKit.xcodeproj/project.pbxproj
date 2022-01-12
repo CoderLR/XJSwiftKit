@@ -203,13 +203,20 @@
 		3639E31927322DE2004D16B5 /* XJTestCalendarViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */; };
 		3650EA1D2722A9A3009874A1 /* XJTestTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */; };
 		3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */; };
-		3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665CFED2735107A00475C9F /* XJHeartView.swift */; };
-		366D2E812738B25D00702287 /* XJHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D2E802738B25D00702287 /* XJHeartViewController.swift */; };
 		368AAD69278D5AC700FAD32E /* YSShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD68278D5AC700FAD32E /* YSShareView.swift */; };
 		368AAD75278D670400FAD32E /* icon_share_weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD71278D670400FAD32E /* icon_share_weixin@3x.png */; };
 		368AAD76278D670400FAD32E /* icon_share_weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD72278D670400FAD32E /* icon_share_weixin@2x.png */; };
 		368AAD77278D670400FAD32E /* icon_share_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD73278D670400FAD32E /* icon_share_circle@2x.png */; };
 		368AAD78278D670400FAD32E /* icon_share_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 368AAD74278D670400FAD32E /* icon_share_circle@3x.png */; };
+		368AAD7E278D7F2800FAD32E /* YSCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD7D278D7F2800FAD32E /* YSCodeView.swift */; };
+		368AAD86278D822300FAD32E /* XJCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD85278D822300FAD32E /* XJCodeViewController.swift */; };
+		368AAD8B278EA80800FAD32E /* XJMineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD8A278EA80800FAD32E /* XJMineCell.swift */; };
+		368AAD92278EA89300FAD32E /* XJMineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD91278EA89300FAD32E /* XJMineModel.swift */; };
+		368AAD9A278EAC5600FAD32E /* XJMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AAD99278EAC5600FAD32E /* XJMineHeaderView.swift */; };
+		368AADA4278EB7D000FAD32E /* XJHeartViewController+Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AADA1278EB7D000FAD32E /* XJHeartViewController+Mode.swift */; };
+		368AADA5278EB7D000FAD32E /* XJHeartViewController+Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AADA2278EB7D000FAD32E /* XJHeartViewController+Lighting.swift */; };
+		368AADA6278EB7D000FAD32E /* XJHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AADA3278EB7D000FAD32E /* XJHeartViewController.swift */; };
+		368AADAB278EB7DA00FAD32E /* XJHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368AADAA278EB7DA00FAD32E /* XJHeartView.swift */; };
 		369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D127293FEF00BC7798 /* XJSearchViewController.swift */; };
 		369863D7272940DF00BC7798 /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */; };
 		369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369863DB272944CD00BC7798 /* XJSearchView.swift */; };
@@ -477,13 +484,20 @@
 		3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestCalendarViewController2.swift; sourceTree = "<group>"; };
 		3650EA1C2722A9A3009874A1 /* XJTestTransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTransitionController.swift; sourceTree = "<group>"; };
 		3665CFE52734C6D400475C9F /* XJTestTextViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestTextViewViewController.swift; sourceTree = "<group>"; };
-		3665CFED2735107A00475C9F /* XJHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartView.swift; sourceTree = "<group>"; };
-		366D2E802738B25D00702287 /* XJHeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJHeartViewController.swift; sourceTree = "<group>"; };
 		368AAD68278D5AC700FAD32E /* YSShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSShareView.swift; sourceTree = "<group>"; };
 		368AAD71278D670400FAD32E /* icon_share_weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_weixin@3x.png"; sourceTree = "<group>"; };
 		368AAD72278D670400FAD32E /* icon_share_weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_weixin@2x.png"; sourceTree = "<group>"; };
 		368AAD73278D670400FAD32E /* icon_share_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_circle@2x.png"; sourceTree = "<group>"; };
 		368AAD74278D670400FAD32E /* icon_share_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share_circle@3x.png"; sourceTree = "<group>"; };
+		368AAD7D278D7F2800FAD32E /* YSCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSCodeView.swift; sourceTree = "<group>"; };
+		368AAD85278D822300FAD32E /* XJCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJCodeViewController.swift; sourceTree = "<group>"; };
+		368AAD8A278EA80800FAD32E /* XJMineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJMineCell.swift; sourceTree = "<group>"; };
+		368AAD91278EA89300FAD32E /* XJMineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJMineModel.swift; sourceTree = "<group>"; };
+		368AAD99278EAC5600FAD32E /* XJMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJMineHeaderView.swift; sourceTree = "<group>"; };
+		368AADA1278EB7D000FAD32E /* XJHeartViewController+Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XJHeartViewController+Mode.swift"; sourceTree = "<group>"; };
+		368AADA2278EB7D000FAD32E /* XJHeartViewController+Lighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XJHeartViewController+Lighting.swift"; sourceTree = "<group>"; };
+		368AADA3278EB7D000FAD32E /* XJHeartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJHeartViewController.swift; sourceTree = "<group>"; };
+		368AADAA278EB7DA00FAD32E /* XJHeartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJHeartView.swift; sourceTree = "<group>"; };
 		369863D127293FEF00BC7798 /* XJSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchViewController.swift; sourceTree = "<group>"; };
 		369863D6272940DF00BC7798 /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
 		369863DB272944CD00BC7798 /* XJSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJSearchView.swift; sourceTree = "<group>"; };
@@ -652,6 +666,7 @@
 		18B4D47D2626D88400555F1E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD9E278EB7AC00FAD32E /* Heart */,
 				18B4D47E2626D88400555F1E /* Home */,
 				18B4D4E12626E43600555F1E /* Mine */,
 			);
@@ -711,7 +726,7 @@
 				36BE42EA272B9914005C1830 /* XJTestBannerViewController.swift */,
 				3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */,
 				3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */,
-				366D2E802738B25D00702287 /* XJHeartViewController.swift */,
+				368AAD85278D822300FAD32E /* XJCodeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -719,6 +734,7 @@
 		18B4D4E12626E43600555F1E /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD90278EA84D00FAD32E /* ViewModels */,
 				18B4D4E42626E43600555F1E /* Controllers */,
 				361A2F6C2716CFC700AC6551 /* Views */,
 			);
@@ -746,6 +762,7 @@
 		36102EC6271FBEFF0001FF14 /* YSKit */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD7C278D7F1800FAD32E /* YSCodeView */,
 				368AAD67278D5AAB00FAD32E /* YSShare */,
 				3639E2D4272FC9CF004D16B5 /* YSCalendar */,
 				361030CE272177360001FF14 /* Resource */,
@@ -1050,6 +1067,7 @@
 			isa = PBXGroup;
 			children = (
 				361A2E592716B25C00AC6551 /* XJFileModel.swift */,
+				368AAD91278EA89300FAD32E /* XJMineModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -1077,7 +1095,6 @@
 		361A2E862716B73800AC6551 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3665CFED2735107A00475C9F /* XJHeartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1121,6 +1138,8 @@
 		361A2F6C2716CFC700AC6551 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				368AAD8A278EA80800FAD32E /* XJMineCell.swift */,
+				368AAD99278EAC5600FAD32E /* XJMineHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1178,6 +1197,48 @@
 				368AAD74278D670400FAD32E /* icon_share_circle@3x.png */,
 			);
 			path = share;
+			sourceTree = "<group>";
+		};
+		368AAD7C278D7F1800FAD32E /* YSCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				368AAD7D278D7F2800FAD32E /* YSCodeView.swift */,
+			);
+			path = YSCodeView;
+			sourceTree = "<group>";
+		};
+		368AAD90278EA84D00FAD32E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		368AAD9E278EB7AC00FAD32E /* Heart */ = {
+			isa = PBXGroup;
+			children = (
+				368AAD9F278EB7AC00FAD32E /* Controllers */,
+				368AADA0278EB7AC00FAD32E /* Views */,
+			);
+			path = Heart;
+			sourceTree = "<group>";
+		};
+		368AAD9F278EB7AC00FAD32E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				368AADA3278EB7D000FAD32E /* XJHeartViewController.swift */,
+				368AADA2278EB7D000FAD32E /* XJHeartViewController+Lighting.swift */,
+				368AADA1278EB7D000FAD32E /* XJHeartViewController+Mode.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		368AADA0278EB7AC00FAD32E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				368AADAA278EB7DA00FAD32E /* XJHeartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		36D0C8F6271934BA008C4013 /* Api */ = {
@@ -1497,6 +1558,7 @@
 				36102F9E272004F00001FF14 /* Bundle+Extension.swift in Sources */,
 				18B4D49B2626DA1000555F1E /* XJUserInfo.swift in Sources */,
 				3639E2F22730ECBA004D16B5 /* YSCalendarConfig.swift in Sources */,
+				368AAD86278D822300FAD32E /* XJCodeViewController.swift in Sources */,
 				36A9A940271E795D00119AF2 /* UIAlertController+Extension.swift in Sources */,
 				36102F22271FBEFF0001FF14 /* YSDatePickerView.swift in Sources */,
 				361A2E782716B40300AC6551 /* XJCentralLog.swift in Sources */,
@@ -1505,12 +1567,14 @@
 				3610301627201DBE0001FF14 /* UISlider+Extension.swift in Sources */,
 				361A2EBB2716C54500AC6551 /* NSArray+Unicode.m in Sources */,
 				36102FDB2720088E0001FF14 /* Float+Extension.swift in Sources */,
+				368AAD7E278D7F2800FAD32E /* YSCodeView.swift in Sources */,
 				3639E2D6272FC9E5004D16B5 /* YSCalendarPageView.swift in Sources */,
 				361A2EFC2716C89100AC6551 /* XJSizeTool.swift in Sources */,
 				36D0C8EC27193145008C4013 /* XJRequestConfig.swift in Sources */,
 				361A2F282716CCD400AC6551 /* JXPhotoBrowserAnimatedTransitioning.swift in Sources */,
 				369B97412726A10600D518E2 /* XJVideoPlayerView.swift in Sources */,
 				369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */,
+				368AADAB278EB7DA00FAD32E /* XJHeartView.swift in Sources */,
 				36A9A948271EA2AA00119AF2 /* UITextField+Extension.swift in Sources */,
 				36A9A91B271D6C5500119AF2 /* UIImageView+Extension.swift in Sources */,
 				361A2F2E2716CCD400AC6551 /* JXPhotoBrowserImageCell.swift in Sources */,
@@ -1530,8 +1594,8 @@
 				3639E2DE272FCFD1004D16B5 /* YSCalendarCell.swift in Sources */,
 				36F520B42718292000759876 /* UILabel+Extension.swift in Sources */,
 				36102FEA272009F20001FF14 /* CLLocation+Extension.swift in Sources */,
+				368AAD9A278EAC5600FAD32E /* XJMineHeaderView.swift in Sources */,
 				3610305F27210E490001FF14 /* YSContentSizeTool.swift in Sources */,
-				366D2E812738B25D00702287 /* XJHeartViewController.swift in Sources */,
 				36D0C8DA2719200D008C4013 /* XJPathConfig.swift in Sources */,
 				18B4D53C2626EC6D00555F1E /* XJLocalizedTool.swift in Sources */,
 				36D0C8D227190FFF008C4013 /* XJAppInfo.swift in Sources */,
@@ -1540,9 +1604,12 @@
 				361A2F962717DC7C00AC6551 /* MBProgressHUD+Extension.swift in Sources */,
 				36102F6F271FBEFF0001FF14 /* YSRefreshGifHeader.m in Sources */,
 				368AAD69278D5AC700FAD32E /* YSShareView.swift in Sources */,
+				368AADA4278EB7D000FAD32E /* XJHeartViewController+Mode.swift in Sources */,
 				369B973927267E9700D518E2 /* XJTestViewController.swift in Sources */,
 				3610305527210D080001FF14 /* YSAsyncTool.swift in Sources */,
 				361A2FA0271814F500AC6551 /* XJShareConfig.swift in Sources */,
+				368AADA6278EB7D000FAD32E /* XJHeartViewController.swift in Sources */,
+				368AAD92278EA89300FAD32E /* XJMineModel.swift in Sources */,
 				3639E2ED2730EC9C004D16B5 /* YSDayModel.swift in Sources */,
 				36102FAE2720068B0001FF14 /* DispatchQueue+Extension.swift in Sources */,
 				36102FA6272005470001FF14 /* Data+Extension.swift in Sources */,
@@ -1591,7 +1658,6 @@
 				361A2EBC2716C54500AC6551 /* NSString+Unicode.m in Sources */,
 				3610305A27210D720001FF14 /* YSEKEventTool.swift in Sources */,
 				361A2E662716B2F500AC6551 /* UIView+Extension.swift in Sources */,
-				3665CFEE2735107A00475C9F /* XJHeartView.swift in Sources */,
 				18B4D4372626D36C00555F1E /* AppDelegate.swift in Sources */,
 				18B4D5012626E59D00555F1E /* XJTextConfig.swift in Sources */,
 				18B4D4E72626E45E00555F1E /* XJHomeViewController.swift in Sources */,
@@ -1620,9 +1686,11 @@
 				3610307E272115400001FF14 /* YSDbConst.swift in Sources */,
 				361A2F2B2716CCD400AC6551 /* JXPhotoBrowserZoomAnimator.swift in Sources */,
 				369B97B42727DA9600D518E2 /* XJTestVideoPlayerController.swift in Sources */,
+				368AAD8B278EA80800FAD32E /* XJMineCell.swift in Sources */,
 				36A9A971271EA47400119AF2 /* Array+Extension.swift in Sources */,
 				361A2F762716DA5F00AC6551 /* UIImage+Extension.swift in Sources */,
 				361030332721001D0001FF14 /* UIStackView+Extension.swift in Sources */,
+				368AADA5278EB7D000FAD32E /* XJHeartViewController+Lighting.swift in Sources */,
 				369B972F272643AE00D518E2 /* XJSegmentView.swift in Sources */,
 				361A2E792716B40300AC6551 /* XJDeviceTool.swift in Sources */,
 				3610307F272115400001FF14 /* YSDbInfo.swift in Sources */,

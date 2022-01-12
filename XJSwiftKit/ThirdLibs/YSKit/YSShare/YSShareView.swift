@@ -96,7 +96,7 @@ class YSShareView: UIView {
     /// 标题
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = KLargeFont
+        label.font = KDefaultFont
         label.textColor = Color_666666_666666
         label.backgroundColor = UIColor.clear
         label.textAlignment = .center

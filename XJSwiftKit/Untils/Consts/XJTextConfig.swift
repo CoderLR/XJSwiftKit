@@ -14,4 +14,5 @@ import Foundation
 //let KTabbarMineTitle: String = XJLocalizedTool.getString("tabbar_mine")
 
 let KTabbarHomeTitle: String = "首页"
+let KTabbarHeartTitle: String = "心型"
 let KTabbarMineTitle: String = "我的"

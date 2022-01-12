@@ -12,6 +12,9 @@ import Foundation
 let KTabbarHomeNormalImage = UIImage(named: "tab_icon_home_normal") ?? UIImage()
 let KTabbarHomeSelectImage = UIImage(named: "tab_icon_home_selected") ?? UIImage()
 
+let KTabbarHeartNormalImage = UIImage(named: "tab_icon_heart_normal") ?? UIImage()
+let KTabbarHeartSelectImage = UIImage(named: "tab_icon_heart_selected") ?? UIImage()
+
 let KTabbarMineNormalImage = UIImage(named: "tab_icon_mine_normal") ?? UIImage()
 let KTabbarMineSelectImage = UIImage(named: "tab_icon_mine_selected") ?? UIImage()
 

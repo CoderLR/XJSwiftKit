@@ -29,7 +29,7 @@ class XJHomeViewController: XJBaseViewController {
                                         "Landspce",
                                         "searchVc",
                                         "PageCalendar",
-                                        "HeartLighting"]
+                                        "CodeView"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,8 +135,8 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             let calendarVc = XJTestCalendarViewController()
             self.pushVC(calendarVc)
         } else if indexPath.row == 14 {
-            let heartVc = XJHeartViewController()
-            self.pushVC(heartVc)
+            let codeVc = XJCodeViewController()
+            self.pushVC(codeVc)
         }
     }
 }

@@ -34,9 +34,11 @@ class XJTabBarViewController: UITabBarController {
         
         let homeVc = setupTabBarItem(controller: XJHomeViewController(), title: KTabbarHomeTitle, image: KTabbarHomeNormalImage, selectedImage: KTabbarHomeSelectImage)
         
+        let heartVc = setupTabBarItem(controller: XJHeartViewController(), title: KTabbarHeartTitle, image: KTabbarHeartNormalImage, selectedImage: KTabbarHeartSelectImage)
+        
         let mineVc = setupTabBarItem(controller: XJMineViewController(), title: KTabbarMineTitle, image: KTabbarMineNormalImage, selectedImage: KTabbarMineSelectImage)
         
-        self.viewControllers = [homeVc, mineVc];
+        self.viewControllers = [homeVc, heartVc, mineVc];
     }
     
     func setupTabBarItem(controller: UIViewController, title: String, image: UIImage?, selectedImage: UIImage?) -> UINavigationController{
