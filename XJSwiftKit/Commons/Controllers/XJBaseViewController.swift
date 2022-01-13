@@ -230,13 +230,14 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 下拉刷新
-    func setRefreshHeader(_ scrollView: UIScrollView, refreshBlock: (() -> ())?) {
+    func setRefreshHeader(_ scrollView: UIScrollView, ignoredContentInsetTop: CGFloat = 0, refreshBlock: (() -> ())?) {
         self.refreshScrollView = scrollView
         let refreshHeader = YSRefreshHeader.init {
             if let refreshBlock = refreshBlock { refreshBlock() }
         }
         refreshHeader.lastUpdatedTimeLabel?.isHidden = true
         refreshHeader.stateLabel?.textColor = Color_999999_999999
+        refreshHeader.ignoredScrollViewContentInsetTop = ignoredContentInsetTop
         scrollView.mj_header = refreshHeader
     }
     

@@ -7,6 +7,84 @@
 
 import UIKit
 
+//class XJMineViewController: XJBaseViewController {
+//
+//    /// tableView
+//    lazy var tableView: UITableView = {
+//        let tableView = UITableView(frame: self.view.bounds, style: .grouped)
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        //tableView.separatorStyle = .none
+//        // 适配ios11
+//        if #available(iOS 11.0, *) {
+//
+//            tableView.estimatedSectionHeaderHeight = 0
+//            tableView.estimatedSectionFooterHeight = 0
+//            tableView.contentInsetAdjustmentBehavior = .never
+//        }
+//        return tableView
+//    }()
+//
+//    /// headerView
+//    lazy var headerView: XJMineHeaderView = {
+//        //let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 200))
+//        let header = XJMineHeaderView(frame: CGRect(x: 0, y: -200, width: KScreenW, height: 200))
+//        return header
+//    }()
+//
+//    /// 数据源
+//    var mineModels: [[XJMineModel]] = XJMineModel.getMineModels()
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        self.fd_prefersNavigationBarHidden = true
+//        self.title = "我的"
+//
+//        steupUI()
+//    }
+//
+//    func steupUI() {
+//        self.view.addSubview(tableView)
+//        //tableView.tableHeaderView = headerView
+//
+//        tableView.contentInset = UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0)
+//
+//        tableView.addSubview(headerView)
+//
+//        self.setRefreshHeader(tableView, ignoredContentInsetTop: 200 - KStatusBarH) { [weak self] in
+//            print("下拉刷新")
+//            guard let self = self else { return }
+//            DispatchQueue.global().asyncAfter(deadline: .now() + 2)  {
+//                self.endRefreshHeader()
+//            }
+//        }
+//
+//        if let mjHeader = self.tableView.mj_header {
+//            self.tableView.bringSubviewToFront(mjHeader)
+//        }
+//    }
+//
+//}
+//
+//// MARK: - UIScrollViewDelegate
+//extension XJMineViewController: UIScrollViewDelegate {
+//
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let offsetY = scrollView.contentOffset.y
+////        print("offsetY = \(offsetY)")
+//        let height = offsetY >= -200 ? 200 : -offsetY
+//
+//
+//        self.headerView.frame = CGRect(x: 0, y: -height, width: KScreenW, height: height)
+//    }
+//}
+
+
+
+
+import UIKit
+
 class XJMineViewController: XJBaseViewController {
     
     /// tableView
@@ -27,6 +105,7 @@ class XJMineViewController: XJBaseViewController {
     
     /// headerView
     lazy var headerView: XJMineHeaderView = {
+        //let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 200))
         let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 200))
         return header
     }()
@@ -46,6 +125,19 @@ class XJMineViewController: XJBaseViewController {
     func steupUI() {
         self.view.addSubview(tableView)
         tableView.tableHeaderView = headerView
+    
+        self.setRefreshHeader(tableView, ignoredContentInsetTop: -KStatusBarH) { [weak self] in
+            print("下拉刷新")
+            guard let self = self else { return }
+
+            DispatchQueue.global().asyncAfter(deadline: .now() + 1)  {
+                self.endRefreshHeader()
+            }
+        }
+        
+        if let mjHeader = self.tableView.mj_header {
+            self.tableView.bringSubviewToFront(mjHeader)
+        }
     }
 
 }

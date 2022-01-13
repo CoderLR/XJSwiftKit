@@ -23,7 +23,7 @@ class XJMineCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.font = UIFont.systemFont(ofSize: 17)
-        lb.textColor = UIColor.black
+        lb.textColor = Color_333333_333333
         lb.backgroundColor = UIColor.clear
         lb.textAlignment = .left
         return lb

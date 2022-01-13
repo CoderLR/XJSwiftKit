@@ -22,6 +22,8 @@
 - (void)prepare {
     [super prepare];
     
+    self.backgroundColor = [UIColor whiteColor];
+    
     // 添加label
     UILabel *label = [[UILabel alloc] init];
     label.textColor = [UIColor redColor];

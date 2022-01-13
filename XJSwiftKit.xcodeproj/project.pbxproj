@@ -155,6 +155,9 @@
 		36103170272177370001FF14 /* qrcode_image_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36103120272177370001FF14 /* qrcode_image_back@3x.png */; };
 		36103171272177370001FF14 /* qrcode_image_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36103121272177370001FF14 /* qrcode_image_close@2x.png */; };
 		36103172272177370001FF14 /* qrcode_image_open@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36103122272177370001FF14 /* qrcode_image_open@2x.png */; };
+		36179D6C278FD5AC00981602 /* ParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36179D69278FD5AC00981602 /* ParallaxHeaderMode.swift */; };
+		36179D6D278FD5AC00981602 /* UIScrollView+ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36179D6A278FD5AC00981602 /* UIScrollView+ParallaxHeader.swift */; };
+		36179D6E278FD5AC00981602 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36179D6B278FD5AC00981602 /* ParallaxHeader.swift */; };
 		361A2E542716B1E900AC6551 /* XJRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2E532716B1E900AC6551 /* XJRequestManager.swift */; };
 		361A2E5A2716B25C00AC6551 /* XJFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2E592716B25C00AC6551 /* XJFileModel.swift */; };
 		361A2E662716B2F500AC6551 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361A2E652716B2F500AC6551 /* UIView+Extension.swift */; };
@@ -431,6 +434,9 @@
 		36103120272177370001FF14 /* qrcode_image_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_image_back@3x.png"; sourceTree = "<group>"; };
 		36103121272177370001FF14 /* qrcode_image_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_image_close@2x.png"; sourceTree = "<group>"; };
 		36103122272177370001FF14 /* qrcode_image_open@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qrcode_image_open@2x.png"; sourceTree = "<group>"; };
+		36179D69278FD5AC00981602 /* ParallaxHeaderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderMode.swift; sourceTree = "<group>"; };
+		36179D6A278FD5AC00981602 /* UIScrollView+ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ParallaxHeader.swift"; sourceTree = "<group>"; };
+		36179D6B278FD5AC00981602 /* ParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
 		361A2E532716B1E900AC6551 /* XJRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJRequestManager.swift; sourceTree = "<group>"; };
 		361A2E592716B25C00AC6551 /* XJFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJFileModel.swift; sourceTree = "<group>"; };
 		361A2E652716B2F500AC6551 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -1027,6 +1033,16 @@
 			path = scan;
 			sourceTree = "<group>";
 		};
+		36179D68278FD5AC00981602 /* ParallaxHeader */ = {
+			isa = PBXGroup;
+			children = (
+				36179D69278FD5AC00981602 /* ParallaxHeaderMode.swift */,
+				36179D6A278FD5AC00981602 /* UIScrollView+ParallaxHeader.swift */,
+				36179D6B278FD5AC00981602 /* ParallaxHeader.swift */,
+			);
+			path = ParallaxHeader;
+			sourceTree = "<group>";
+		};
 		361A2E332716AFC600AC6551 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1055,7 @@
 		361A2E342716AFC600AC6551 /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				36179D68278FD5AC00981602 /* ParallaxHeader */,
 				36102EC6271FBEFF0001FF14 /* YSKit */,
 				361A2F042716CCD400AC6551 /* JXPhotoBrowser */,
 				361A2EB22716C54500AC6551 /* KJPrintUnicode */,
@@ -1576,6 +1593,7 @@
 				369863DC272944CD00BC7798 /* XJSearchView.swift in Sources */,
 				368AADAB278EB7DA00FAD32E /* XJHeartView.swift in Sources */,
 				36A9A948271EA2AA00119AF2 /* UITextField+Extension.swift in Sources */,
+				36179D6D278FD5AC00981602 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				36A9A91B271D6C5500119AF2 /* UIImageView+Extension.swift in Sources */,
 				361A2F2E2716CCD400AC6551 /* JXPhotoBrowserImageCell.swift in Sources */,
 				18B4D4962626D9AC00555F1E /* XJWKWebViewController.swift in Sources */,
@@ -1651,6 +1669,7 @@
 				18B4D48C2626D91700555F1E /* XJNavigationViewController.swift in Sources */,
 				36103001272014770001FF14 /* UIFont+Extension.swift in Sources */,
 				361A2E9A2716BD2800AC6551 /* XJReachabilityListing.swift in Sources */,
+				36179D6E278FD5AC00981602 /* ParallaxHeader.swift in Sources */,
 				36A9A967271EA3EA00119AF2 /* UISwitch+Extension.swift in Sources */,
 				369B973427267E1500D518E2 /* XJTestSegmentController.swift in Sources */,
 				36D0C8DF2719243B008C4013 /* XJAppConfig.swift in Sources */,
@@ -1696,6 +1715,7 @@
 				3610307F272115400001FF14 /* YSDbInfo.swift in Sources */,
 				36102F96271FFADB0001FF14 /* XJExtension.swift in Sources */,
 				36102F21271FBEFF0001FF14 /* YSActivityIndicatorView+Extension.swift in Sources */,
+				36179D6C278FD5AC00981602 /* ParallaxHeaderMode.swift in Sources */,
 				36102F20271FBEFF0001FF14 /* YSActivityIndicatorView.swift in Sources */,
 				361A2F302716CCD400AC6551 /* JXPhotoBrowserLog.swift in Sources */,
 				3610300C272018020001FF14 /* UIPageControl+Extension.swift in Sources */,

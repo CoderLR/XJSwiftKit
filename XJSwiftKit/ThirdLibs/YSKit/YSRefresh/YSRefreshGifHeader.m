@@ -79,7 +79,7 @@
     
     
     // logo icon_mine_bg_image
-    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_launchImage_top"]];
+    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     logo.contentMode = UIViewContentModeScaleToFill;
     logo.backgroundColor = [UIColor whiteColor];
     [self insertSubview:logo atIndex:0];
