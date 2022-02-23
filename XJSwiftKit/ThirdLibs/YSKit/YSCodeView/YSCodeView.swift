@@ -22,7 +22,7 @@ class YSCodeView: UIView {
     fileprivate var numStr: String = ""
 
     // 显示背景
-    fileprivate var isShowBg: Bool = true
+    fileprivate var isDebug: Bool = false
     
     // 显示控件数组
     fileprivate var numLabelArray: [UILabel] = []
@@ -54,12 +54,12 @@ class YSCodeView: UIView {
     }
     
     // 加载UI
-    func setupUI() {
+    fileprivate func setupUI() {
         
         textfield.delegate = self
         textfield.borderStyle = .none
         textfield.font = UIFont.systemFont(ofSize: 30)
-        if !isShowBg {
+        if !isDebug {
             textfield.textColor = UIColor.clear // 字体颜色
             textfield.backgroundColor = UIColor.clear // 背景颜色
             textfield.tintColor = UIColor.clear

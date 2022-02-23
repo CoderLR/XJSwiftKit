@@ -71,7 +71,7 @@ class XJMineCell: UITableViewCell {
     }
     
     // 加载UI
-    func setupUI() {
+    fileprivate func setupUI() {
         contentView.addSubview(iconImgView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(arrowImgView)

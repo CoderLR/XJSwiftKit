@@ -29,7 +29,8 @@ class XJHomeViewController: XJBaseViewController {
                                         "Landspce",
                                         "searchVc",
                                         "PageCalendar",
-                                        "CodeView"]
+                                        "CodeView",
+                                        "BgScrollView"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class XJHomeViewController: XJBaseViewController {
         setupUI()
     }
     
-    func setupUI() {
+    fileprivate func setupUI() {
         tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
@@ -137,6 +138,9 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.row == 14 {
             let codeVc = XJCodeViewController()
             self.pushVC(codeVc)
+        } else if indexPath.row == 15 {
+            let scrollVc = XJBgScrollViewController()
+            self.pushVC(scrollVc)
         }
     }
 }

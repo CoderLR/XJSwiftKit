@@ -25,7 +25,7 @@ public enum XJScreenOrientation {
 }
 
 class XJBaseViewController: UIViewController {
-
+    
     /// 当前网络状态
     var netStatus: XJNetStatus = .UnReachable
     
@@ -46,6 +46,19 @@ class XJBaseViewController: UIViewController {
                                          text: "暂时没有数据~")
         empty.isHidden = true
         return empty
+    }()
+    
+    /// 滚动视图
+    lazy var bgScrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.view.height - KNavBarH))
+        scrollView.backgroundColor = UIColor.white
+        scrollView.tag = 100
+        
+        // 适配ios11
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        return scrollView
     }()
     
     /// 选择相册
@@ -72,7 +85,7 @@ class XJBaseViewController: UIViewController {
 
         // 默认背景色
         self.view.backgroundColor = Color_FFFFFF_151515
-    
+        
         // 返回
         self.setupBackItem()
         
@@ -103,6 +116,35 @@ class XJBaseViewController: UIViewController {
     
     deinit {
         print("\(self.classForCoder) -- dealloc")
+    }
+}
+
+// MARK: - 滚动容器
+extension XJBaseViewController {
+    // 设置滚动容器
+    @objc func setBgScrollView() {
+        self.view.insertSubview(self.bgScrollView, at: 0)
+    }
+    
+    // 移除滚动容器
+    @objc func removeBgScrollView() {
+        if view.viewWithTag(100) == nil { return }
+        self.bgScrollView.removeFromSuperview()
+    }
+
+    // 设置contentOffset
+    @objc func setBgContentOffset(_ contentOffset: CGPoint) {
+        self.bgScrollView.contentOffset = contentOffset
+    }
+    
+    // 设置contentSize
+    @objc func setBgContentSize(_ contentSize: CGSize) {
+        self.bgScrollView.contentSize = contentSize
+    }
+    
+    // 设置contentInset
+    @objc func setBgContentInset(_ contentInset: UIEdgeInsets) {
+        self.bgScrollView.contentInset = contentInset
     }
 }
 

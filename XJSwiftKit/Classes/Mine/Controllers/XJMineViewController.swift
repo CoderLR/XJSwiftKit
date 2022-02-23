@@ -41,10 +41,10 @@ import UIKit
 //        self.fd_prefersNavigationBarHidden = true
 //        self.title = "我的"
 //
-//        steupUI()
+//        setupUI()
 //    }
 //
-//    func steupUI() {
+//    fileprivate func setupUI() {
 //        self.view.addSubview(tableView)
 //        //tableView.tableHeaderView = headerView
 //
@@ -85,6 +85,8 @@ import UIKit
 
 import UIKit
 
+let KMineHeaderH: CGFloat = 136 + KStatusBarH
+
 class XJMineViewController: XJBaseViewController {
     
     /// tableView
@@ -92,6 +94,7 @@ class XJMineViewController: XJBaseViewController {
         let tableView = UITableView(frame: self.view.bounds, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
+        //tableView.backgroundColor = UIColor.clear
         //tableView.separatorStyle = .none
         // 适配ios11
         if #available(iOS 11.0, *) {
@@ -106,7 +109,7 @@ class XJMineViewController: XJBaseViewController {
     /// headerView
     lazy var headerView: XJMineHeaderView = {
         //let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 200))
-        let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: 200))
+        let header = XJMineHeaderView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: KMineHeaderH))
         return header
     }()
     
@@ -115,18 +118,18 @@ class XJMineViewController: XJBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.fd_prefersNavigationBarHidden = true
         self.title = "我的"
+
         
-        steupUI()
+        setupUI()
     }
     
-    func steupUI() {
+    fileprivate func setupUI() {
         self.view.addSubview(tableView)
         tableView.tableHeaderView = headerView
-    
-        self.setRefreshHeader(tableView, ignoredContentInsetTop: -KStatusBarH) { [weak self] in
+
+        self.setRefreshHeader(tableView, ignoredContentInsetTop: (filletScreen() == true ? -KStatusBarH : 0)) { [weak self] in
             print("下拉刷新")
             guard let self = self else { return }
 
@@ -134,7 +137,7 @@ class XJMineViewController: XJBaseViewController {
                 self.endRefreshHeader()
             }
         }
-        
+
         if let mjHeader = self.tableView.mj_header {
             self.tableView.bringSubviewToFront(mjHeader)
         }

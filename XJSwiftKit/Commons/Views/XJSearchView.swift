@@ -50,7 +50,7 @@ class XJSearchView: UIView {
     }
     
     // 加载UI
-    func setupUI() {
+    fileprivate func setupUI() {
         
         titleLabel = UILabel.xj.create(bgColor: UIColor.clear,
                           text: "搜索历史",

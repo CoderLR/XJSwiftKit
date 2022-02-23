@@ -14,13 +14,13 @@ class XJTestTableViewController: XJBaseViewController {
 
         self.title = "空数据"
         
-        steupUI()
+        setupUI()
     }
 }
 
 extension XJTestTableViewController {
     
-    func steupUI() {
+    fileprivate func setupUI() {
         let tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self

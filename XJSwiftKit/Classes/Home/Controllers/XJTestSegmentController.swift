@@ -17,7 +17,7 @@ class XJTestSegmentController: XJBaseViewController {
         setupUI()
     }
     
-    func setupUI() {
+    fileprivate func setupUI() {
         
         let titleArray = ["OC", "Swift", "C++", "Java"]
         var childControllers : [UIViewController] = [UIViewController]()

@@ -243,6 +243,7 @@
 		36A9A971271EA47400119AF2 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9A970271EA47400119AF2 /* Array+Extension.swift */; };
 		36A9A976271EA48500119AF2 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9A975271EA48500119AF2 /* Dictionary+Extension.swift */; };
 		36A9A97B271EA4E500119AF2 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9A97A271EA4E500119AF2 /* UITextView+Extension.swift */; };
+		36BAAAF427C5CA04001AB6D3 /* XJBgScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BAAAF327C5CA04001AB6D3 /* XJBgScrollViewController.swift */; };
 		36BE42EB272B9914005C1830 /* XJTestBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BE42EA272B9914005C1830 /* XJTestBannerViewController.swift */; };
 		36D0C8D227190FFF008C4013 /* XJAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0C8D127190FFF008C4013 /* XJAppInfo.swift */; };
 		36D0C8DA2719200D008C4013 /* XJPathConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D0C8D92719200D008C4013 /* XJPathConfig.swift */; };
@@ -527,6 +528,7 @@
 		36A9A970271EA47400119AF2 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		36A9A975271EA48500119AF2 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		36A9A97A271EA4E500119AF2 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		36BAAAF327C5CA04001AB6D3 /* XJBgScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJBgScrollViewController.swift; sourceTree = "<group>"; };
 		36BE42EA272B9914005C1830 /* XJTestBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestBannerViewController.swift; sourceTree = "<group>"; };
 		36D0C8D127190FFF008C4013 /* XJAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJAppInfo.swift; sourceTree = "<group>"; };
 		36D0C8D92719200D008C4013 /* XJPathConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJPathConfig.swift; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 				3639E2E7272FD347004D16B5 /* XJTestCalendarViewController.swift */,
 				3639E31827322DE2004D16B5 /* XJTestCalendarViewController2.swift */,
 				368AAD85278D822300FAD32E /* XJCodeViewController.swift */,
+				36BAAAF327C5CA04001AB6D3 /* XJBgScrollViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1300,6 +1303,7 @@
 				18B4D4312626D36C00555F1E /* Resources */,
 				AF09A10BDBB22546DA9E2A7C /* [CP] Embed Pods Frameworks */,
 				9A7C7A4AAB41C8B333DB86CB /* [CP] Copy Pods Resources */,
+				36C80BAA279959FA00A05D59 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1507,6 +1511,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		36C80BAA279959FA00A05D59 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path\n";
+		};
 		3B7F1BFE2462F6AE48945BDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1606,6 +1627,7 @@
 				36D0C8F8271934BA008C4013 /* XJUserApi.swift in Sources */,
 				369863D227293FEF00BC7798 /* XJSearchViewController.swift in Sources */,
 				36102FB32720069F0001FF14 /* FileManager+Extension.swift in Sources */,
+				36BAAAF427C5CA04001AB6D3 /* XJBgScrollViewController.swift in Sources */,
 				361A2F2C2716CCD400AC6551 /* JXPhotoBrowserView.swift in Sources */,
 				3639E2FA2730EDE4004D16B5 /* YSCalendarSeriesView.swift in Sources */,
 				3665CFE62734C6D400475C9F /* XJTestTextViewViewController.swift in Sources */,

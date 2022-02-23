@@ -64,7 +64,7 @@ class XJMineHeaderView: UIView {
     }
     
     // 加载UI
-    func setupUI() {
+    fileprivate func setupUI() {
         self.addSubview(iconView)
         self.addSubview(titleLabel)
         self.addSubview(subTitleLabel)
