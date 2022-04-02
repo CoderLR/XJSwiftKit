@@ -77,9 +77,6 @@
 		36CCA2CD27F7FFBE0057353F /* JXPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19527F7FFBD0057353F /* JXPhotoBrowser.swift */; };
 		36CCA2CE27F7FFBE0057353F /* YSActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19827F7FFBD0057353F /* YSActivityIndicatorView.swift */; };
 		36CCA2CF27F7FFBE0057353F /* YSActivityIndicatorView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19927F7FFBD0057353F /* YSActivityIndicatorView+Extension.swift */; };
-		36CCA2D027F7FFBE0057353F /* YSLocalFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19B27F7FFBD0057353F /* YSLocalFileModel.swift */; };
-		36CCA2D127F7FFBE0057353F /* YSSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19C27F7FFBD0057353F /* YSSandboxViewController.swift */; };
-		36CCA2D227F7FFBE0057353F /* YSLocalFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19D27F7FFBD0057353F /* YSLocalFileCell.swift */; };
 		36CCA2D327F7FFBE0057353F /* YSCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA19F27F7FFBD0057353F /* YSCodeView.swift */; };
 		36CCA2D427F7FFBE0057353F /* YSDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA1A127F7FFBD0057353F /* YSDatePickerView.swift */; };
 		36CCA2D527F7FFBE0057353F /* YSRuntimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA1A327F7FFBD0057353F /* YSRuntimeTool.swift */; };
@@ -280,6 +277,9 @@
 		36CCA39827F7FFBE0057353F /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA28D27F7FFBD0057353F /* CGFloat+Extension.swift */; };
 		36CCA39927F7FFBE0057353F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA28E27F7FFBD0057353F /* Array+Extension.swift */; };
 		36CCA39A27F7FFBE0057353F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA28F27F7FFBE0057353F /* AppDelegate.swift */; };
+		36F9979527F839E000FDC440 /* YSLocalFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9979227F839E000FDC440 /* YSLocalFileModel.swift */; };
+		36F9979627F839E000FDC440 /* YSSandboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9979327F839E000FDC440 /* YSSandboxViewController.swift */; };
+		36F9979727F839E000FDC440 /* YSLocalFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F9979427F839E000FDC440 /* YSLocalFileCell.swift */; };
 		B2D3D5702EE85631B63FC2D4 /* Pods_XJSwiftKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9277064848EF321555086C09 /* Pods_XJSwiftKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -379,9 +379,6 @@
 		36CCA19527F7FFBD0057353F /* JXPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXPhotoBrowser.swift; sourceTree = "<group>"; };
 		36CCA19827F7FFBD0057353F /* YSActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSActivityIndicatorView.swift; sourceTree = "<group>"; };
 		36CCA19927F7FFBD0057353F /* YSActivityIndicatorView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YSActivityIndicatorView+Extension.swift"; sourceTree = "<group>"; };
-		36CCA19B27F7FFBD0057353F /* YSLocalFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSLocalFileModel.swift; sourceTree = "<group>"; };
-		36CCA19C27F7FFBD0057353F /* YSSandboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSSandboxViewController.swift; sourceTree = "<group>"; };
-		36CCA19D27F7FFBD0057353F /* YSLocalFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSLocalFileCell.swift; sourceTree = "<group>"; };
 		36CCA19F27F7FFBD0057353F /* YSCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSCodeView.swift; sourceTree = "<group>"; };
 		36CCA1A127F7FFBD0057353F /* YSDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSDatePickerView.swift; sourceTree = "<group>"; };
 		36CCA1A327F7FFBD0057353F /* YSRuntimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSRuntimeTool.swift; sourceTree = "<group>"; };
@@ -592,6 +589,9 @@
 		36CCA28D27F7FFBD0057353F /* CGFloat+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		36CCA28E27F7FFBD0057353F /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		36CCA28F27F7FFBE0057353F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		36F9979227F839E000FDC440 /* YSLocalFileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YSLocalFileModel.swift; path = YSSandbox/YSLocalFileModel.swift; sourceTree = "<group>"; };
+		36F9979327F839E000FDC440 /* YSSandboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YSSandboxViewController.swift; path = YSSandbox/YSSandboxViewController.swift; sourceTree = "<group>"; };
+		36F9979427F839E000FDC440 /* YSLocalFileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YSLocalFileCell.swift; path = YSSandbox/YSLocalFileCell.swift; sourceTree = "<group>"; };
 		745A682833E7561CA4A67938 /* Pods-XJSwiftKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJSwiftKit.debug.xcconfig"; path = "Target Support Files/Pods-XJSwiftKit/Pods-XJSwiftKit.debug.xcconfig"; sourceTree = "<group>"; };
 		9277064848EF321555086C09 /* Pods_XJSwiftKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XJSwiftKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A775376F3D9304AFCDE72789 /* Pods-XJSwiftKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XJSwiftKit.release.xcconfig"; path = "Target Support Files/Pods-XJSwiftKit/Pods-XJSwiftKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -900,6 +900,9 @@
 			children = (
 				36CCA19727F7FFBD0057353F /* YSActivityIndicator */,
 				36CCA19A27F7FFBD0057353F /* YSSandbox */,
+				36F9979427F839E000FDC440 /* YSLocalFileCell.swift */,
+				36F9979227F839E000FDC440 /* YSLocalFileModel.swift */,
+				36F9979327F839E000FDC440 /* YSSandboxViewController.swift */,
 				36CCA19E27F7FFBD0057353F /* YSCodeView */,
 				36CCA1A027F7FFBD0057353F /* YSDatePicker */,
 				36CCA1A227F7FFBD0057353F /* YSTools */,
@@ -927,9 +930,6 @@
 		36CCA19A27F7FFBD0057353F /* YSSandbox */ = {
 			isa = PBXGroup;
 			children = (
-				36CCA19B27F7FFBD0057353F /* YSLocalFileModel.swift */,
-				36CCA19C27F7FFBD0057353F /* YSSandboxViewController.swift */,
-				36CCA19D27F7FFBD0057353F /* YSLocalFileCell.swift */,
 			);
 			path = YSSandbox;
 			sourceTree = "<group>";
@@ -1706,6 +1706,7 @@
 				36CCA29727F7FFBE0057353F /* XJTestTransitionController.swift in Sources */,
 				36CCA29227F7FFBE0057353F /* XJBgScrollViewController.swift in Sources */,
 				36CCA37927F7FFBE0057353F /* UIViewController+Extension.swift in Sources */,
+				36F9979627F839E000FDC440 /* YSSandboxViewController.swift in Sources */,
 				36CCA39427F7FFBE0057353F /* Dictionary+Extension.swift in Sources */,
 				36CCA2BA27F7FFBE0057353F /* XJSegmentView.swift in Sources */,
 				36CCA34B27F7FFBE0057353F /* YSDbInfo.swift in Sources */,
@@ -1720,6 +1721,7 @@
 				36CCA37127F7FFBE0057353F /* UILabel+Extension.swift in Sources */,
 				36CCA2A127F7FFBE0057353F /* XJTestBannerViewController.swift in Sources */,
 				36CCA2A427F7FFBE0057353F /* XJTestCalendarViewController2.swift in Sources */,
+				36F9979527F839E000FDC440 /* YSLocalFileModel.swift in Sources */,
 				36CCA2CF27F7FFBE0057353F /* YSActivityIndicatorView+Extension.swift in Sources */,
 				36CCA2DB27F7FFBE0057353F /* YSPrintTool.swift in Sources */,
 				36CCA36327F7FFBE0057353F /* XJSizeConst.swift in Sources */,
@@ -1751,14 +1753,12 @@
 				36CCA35427F7FFBE0057353F /* ParallaxHeaderMode.swift in Sources */,
 				36CCA35027F7FFBE0057353F /* NSDictionary+Unicode.m in Sources */,
 				36CCA35D27F7FFBE0057353F /* XJLocalizedTool.swift in Sources */,
-				36CCA2D227F7FFBE0057353F /* YSLocalFileCell.swift in Sources */,
 				36CCA37827F7FFBE0057353F /* UITabBarController+Extension.swift in Sources */,
 				36CCA39927F7FFBE0057353F /* Array+Extension.swift in Sources */,
 				36CCA36E27F7FFBE0057353F /* UIAlertController+Extension.swift in Sources */,
 				36CCA39027F7FFBE0057353F /* String+Extension.swift in Sources */,
 				36CCA38927F7FFBE0057353F /* NSObject+Extension.swift in Sources */,
 				36CCA2B727F7FFBE0057353F /* XJBaseViewController.swift in Sources */,
-				36CCA2D127F7FFBE0057353F /* YSSandboxViewController.swift in Sources */,
 				36CCA39127F7FFBE0057353F /* DateFormatter+Extension.swift in Sources */,
 				36CCA35A27F7FFBE0057353F /* XJRequestConfig.swift in Sources */,
 				36CCA35127F7FFBE0057353F /* NSObject+SafeSwizzle.m in Sources */,
@@ -1790,6 +1790,7 @@
 				36CCA34927F7FFBE0057353F /* YSDayPageCell.swift in Sources */,
 				36CCA39227F7FFBE0057353F /* Bool+Extension.swift in Sources */,
 				36CCA34D27F7FFBE0057353F /* YSDbConst.swift in Sources */,
+				36F9979727F839E000FDC440 /* YSLocalFileCell.swift in Sources */,
 				36CCA37427F7FFBE0057353F /* UIView+Extension.swift in Sources */,
 				36CCA2C827F7FFBE0057353F /* JXPhotoBrowserView.swift in Sources */,
 				36CCA34827F7FFBE0057353F /* YSCalendarPageView.swift in Sources */,
@@ -1858,7 +1859,6 @@
 				36CCA37F27F7FFBE0057353F /* UITextField+Extension.swift in Sources */,
 				36CCA34227F7FFBE0057353F /* YSQRCodeViewController.swift in Sources */,
 				36CCA37727F7FFBE0057353F /* UISlider+Extension.swift in Sources */,
-				36CCA2D027F7FFBE0057353F /* YSLocalFileModel.swift in Sources */,
 				36CCA34C27F7FFBE0057353F /* YSDbTool.swift in Sources */,
 				36CCA2CB27F7FFBE0057353F /* JXPhotoBrowserFadeAnimator.swift in Sources */,
 				36CCA38627F7FFBE0057353F /* CLLocation+Extension.swift in Sources */,

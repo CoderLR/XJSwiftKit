@@ -73,7 +73,8 @@ class YSLocalFileModel: NSObject {
         
         for file in searchFiles {
             let filePath = path + "/" + file
-            let attributes = FileManager.xj.fileAttributes(path: filePath)!
+            print("filePath--------------\(filePath)----------")
+            guard let attributes = FileManager.xj.fileAttributes(path: filePath) else { continue }
 
             print("--------------\(file)----------")
             print("文件类型：\(attributes[FileAttributeKey.type]!)")

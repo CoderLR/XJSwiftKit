@@ -17,14 +17,13 @@ class YSSandboxViewController: XJBaseViewController {
     
     /// 数据模型
     var fileModels: [YSLocalFileModel] = []
+    
+    var tableView: UITableView = UITableView()
 
     convenience init(_ localPath: String = FileManager.xj.homeDirectory(), lastPath: String = "SandBox") {
         self.init(nibName: nil, bundle: nil)
         self.localPath = localPath
         self.lastPath = lastPath
-        
-        // 获取数据源
-        self.fileModels = YSLocalFileModel(path: localPath).getLocalFiles()
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -43,6 +42,14 @@ class YSSandboxViewController: XJBaseViewController {
         setupUI()
         
         //test()
+        DispatchQueue.global().async {
+            // 获取数据源
+            self.fileModels = YSLocalFileModel(path: self.localPath).getLocalFiles()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func test() {
@@ -69,7 +76,7 @@ extension YSSandboxViewController {
     
     fileprivate func setupUI() {
         
-        let tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
