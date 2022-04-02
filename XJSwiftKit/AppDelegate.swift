@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/4/14.
 //
@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = XJTabBarViewController()
+        window?.rootViewController = initRootVC()
         window?.makeKeyAndVisible()
         
         initApp()
@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// App初始化
     func initApp() {
         
+        /// 沙盒路径
         print(NSHomeDirectory())
         
         /// 键盘
@@ -44,6 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// DB创建
         //DB.createTable(USER_TABLE_NAME)
         DB.createTable(SEARCH_TABLE_NAME)
+    }
+    
+    /// App初始化根控制器
+    func initRootVC() -> UIViewController {
+        
+        let centerVc = XJTabBarViewController()
+        let leftVc = XJLeftViewController()
+        
+        let mmVc = MMDrawerController(center: centerVc, leftDrawerViewController: leftVc)
+        mmVc?.showsShadow = true
+        mmVc?.maximumLeftDrawerWidth = 200
+        mmVc?.openDrawerGestureModeMask = MMOpenDrawerGestureMode(rawValue: 0)
+        mmVc?.closeDrawerGestureModeMask = .all
+        mmVc?.setDrawerVisualStateBlock(MMDrawerVisualState.parallaxVisualStateBlock(withParallaxFactor: 2.0))
+        return mmVc!
     }
     
     /// 在这里写支持的旋转方向，为了防止横屏方向，应用启动时候界面变为横屏模式

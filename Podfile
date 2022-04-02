@@ -58,5 +58,11 @@ target 'XJSwiftKit' do
   
   # Carousel
   pod 'FSPagerView'
+  
+  # Drawer
+  pod 'MMDrawerController'
+  
+  # Calendar
+  pod 'FSCalendar'
 
 end

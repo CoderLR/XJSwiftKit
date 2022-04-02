@@ -1,6 +1,6 @@
 //
 //  XJTestSegmentController.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/10/25.
 //
@@ -19,7 +19,7 @@ class XJTestSegmentController: XJBaseViewController {
     
     fileprivate func setupUI() {
         
-        let titleArray = ["OC", "Swift", "C++", "Java"]
+        let titleArray = ["OC", "Swift", "C++", "Java", "JavaScript", "sqile"]
         var childControllers : [UIViewController] = [UIViewController]()
         
         for i in 0..<titleArray.count {
@@ -28,7 +28,8 @@ class XJTestSegmentController: XJBaseViewController {
         }
         
         let segmentVc = XJSegmentViewController(titleArray: titleArray,
-                                            childControllers: childControllers)
+                                            childControllers: childControllers,
+                                            segmentMode: .scroll)
         segmentVc.addToParentController(viewController: self)
     }
 }

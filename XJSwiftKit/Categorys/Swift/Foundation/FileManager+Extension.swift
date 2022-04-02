@@ -1,6 +1,6 @@
 //
 //  FileManager+Extension.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/10/20.
 //
@@ -586,7 +586,7 @@ public extension XJExtension where Base: FileManager {
             convertedValue /= 1024
             multiplyFactor += 1
         }
-        return String(format: "%4.2f %@", convertedValue, tokens[multiplyFactor])
+        return String(format: "%4.f %@", convertedValue, tokens[multiplyFactor])
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  XJSegmentView.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/10/25.
 //
@@ -27,7 +27,7 @@ class XJSegmentView: UIView {
     var segmentMode: XJSegmentMode = .normal
     
     /// 标题间距
-    let margin: CGFloat = 20
+    let margin: CGFloat = 30
     
     /// 提起颜色RGB
     fileprivate var kNormalRGB: (CGFloat, CGFloat, CGFloat) {

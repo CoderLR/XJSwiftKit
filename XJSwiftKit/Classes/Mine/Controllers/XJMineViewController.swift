@@ -1,6 +1,6 @@
 //
 //  XJMineViewController.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/4/14.
 //
@@ -119,25 +119,52 @@ class XJMineViewController: XJBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fd_prefersNavigationBarHidden = true
-        self.title = "我的"
-
         
+        /// 不要直接使用title，会导致tabbar顺序错乱
+        self.navigationItem.title = "我的"
+
         setupUI()
+    }
+    
+    /// 避免侧滑返回刷新控件显示
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setRefresh(false)
+    }
+    
+    /// 避免侧滑返回刷新控件显示
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setRefresh(true)
     }
     
     fileprivate func setupUI() {
         self.view.addSubview(tableView)
         tableView.tableHeaderView = headerView
+    }
+    
+    /// 设置header
+    fileprivate func setRefresh(_ dissmiss: Bool) {
+        if dissmiss {
+            self.setRefreshHeader(tableView, ignoredContentInsetTop: 0) { [weak self] in
+                print("下拉刷新")
+                guard let self = self else { return }
 
-        self.setRefreshHeader(tableView, ignoredContentInsetTop: (filletScreen() == true ? -KStatusBarH : 0)) { [weak self] in
-            print("下拉刷新")
-            guard let self = self else { return }
+                DispatchQueue.global().asyncAfter(deadline: .now() + 1)  {
+                    self.endRefreshHeader()
+                }
+            }
+        } else {
+            self.setRefreshHeader(tableView, ignoredContentInsetTop: (filletScreen() == true ? -KStatusBarH : 0)) { [weak self] in
+                print("下拉刷新")
+                guard let self = self else { return }
 
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1)  {
-                self.endRefreshHeader()
+                DispatchQueue.global().asyncAfter(deadline: .now() + 1)  {
+                    self.endRefreshHeader()
+                }
             }
         }
-
+        
         if let mjHeader = self.tableView.mj_header {
             self.tableView.bringSubviewToFront(mjHeader)
         }
@@ -173,6 +200,10 @@ extension XJMineViewController: UITableViewDelegate, UITableViewDataSource {
     // 点击cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model: XJMineModel = self.mineModels[indexPath.section][indexPath.row]
+        let detailVc = XJMineDetailViewController(model.title)
+        self.pushVC(detailVc)
     }
     
     // 返回header

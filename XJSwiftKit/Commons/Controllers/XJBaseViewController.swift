@@ -1,6 +1,6 @@
 //
 //  XJBaseViewController.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/4/14.
 //
@@ -11,7 +11,7 @@ import ZLPhotoBrowser
 
 // MARK: - App运行状态
 public enum XJAppRunStatus {
-    case Active
+    case active
     case inActive
     case background
     case foreground
@@ -186,7 +186,7 @@ extension XJBaseViewController {
     /// 监听App变活跃
     @objc fileprivate func becomeActive() {
         if let appRunStatusBlock = self.appRunStatusBlock {
-            appRunStatusBlock(.Active)
+            appRunStatusBlock(.active)
         }
     }
     
@@ -216,12 +216,12 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 系统默认push控制器
-    func pushVC(_ viewController: UIViewController, animated: Bool = true) {
+    @objc func pushVC(_ viewController: UIViewController, animated: Bool = true) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
     /// 系统默认present控制器
-    func presentVC(_ viewController: UIViewController, animated: Bool = true) {
+    @objc func presentVC(_ viewController: UIViewController, animated: Bool = true) {
         viewController.modalPresentationStyle = .fullScreen
         self.present(viewController, animated: animated, completion: nil)
     }
@@ -230,7 +230,7 @@ extension XJBaseViewController {
     /// - Parameters:
     ///   - viewController: 跳转控制器
     ///   - animationType: 转场动画类型
-    func pushVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
+    @objc func pushVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
         //self.navigationController?.wxs_pushViewController(viewController, animationType: animationType)
         
         self.navigationController?.wxs_pushViewController(viewController, makeTransition: { (transition) in
@@ -244,7 +244,7 @@ extension XJBaseViewController {
     /// - Parameters:
     ///   - viewController: 跳转控制器
     ///   - animationType: 转场动画类型
-    func presentVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
+    @objc func presentVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
         //self.wxs_present(viewController, animationType: animationType) {}
         self.wxs_present(viewController) { (transition) in
             transition?.animationType = animationType
@@ -254,14 +254,14 @@ extension XJBaseViewController {
     }
     
     /// pop控制器
-    func popVC(animated: Bool = true) {
+    @objc func popVC(animated: Bool = true) {
         /// 横屏下要先进行转换竖屏操作
         if UIApplication.shared.statusBarOrientation != .portrait { self.rotatePortraitOrientation() }
         self.navigationController?.popViewController(animated: animated)
     }
     
     /// dismiss控制器
-    func dismissVC(animated: Bool = true) {
+    @objc func dismissVC(animated: Bool = true) {
         /// 横屏下要先进行转换竖屏操作
         if UIApplication.shared.statusBarOrientation != .portrait { self.rotatePortraitOrientation() }
         self.dismiss(animated: animated, completion: nil)
@@ -272,7 +272,7 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 下拉刷新
-    func setRefreshHeader(_ scrollView: UIScrollView, ignoredContentInsetTop: CGFloat = 0, refreshBlock: (() -> ())?) {
+    @objc  func setRefreshHeader(_ scrollView: UIScrollView, ignoredContentInsetTop: CGFloat = 0, refreshBlock: (() -> ())?) {
         self.refreshScrollView = scrollView
         let refreshHeader = YSRefreshHeader.init {
             if let refreshBlock = refreshBlock { refreshBlock() }
@@ -284,12 +284,12 @@ extension XJBaseViewController {
     }
     
     /// 下拉刷新完成
-    func endRefreshHeader() {
+    @objc  func endRefreshHeader() {
         self.refreshScrollView?.mj_header?.endRefreshing()
     }
     
     /// 上拉刷新
-    func setRefreshFooter(_ scrollView: UIScrollView, refreshBlock: (() -> ())?) {
+    @objc func setRefreshFooter(_ scrollView: UIScrollView, refreshBlock: (() -> ())?) {
         self.refreshScrollView = scrollView
         let refreshFooter = MJRefreshBackNormalFooter.init {
             if let refreshBlock = refreshBlock { refreshBlock() }
@@ -298,12 +298,12 @@ extension XJBaseViewController {
     }
     
     /// 上拉刷新完成
-    func endRefreshFooter() {
+    @objc func endRefreshFooter() {
         self.refreshScrollView?.mj_footer?.endRefreshing()
     }
     
     /// 上拉刷新完成没有更多数据
-    func endRefreshFooterNoMoreData() {
+    @objc func endRefreshFooterNoMoreData() {
         self.refreshScrollView?.mj_footer?.endRefreshingWithNoMoreData()
     }
 }
@@ -311,7 +311,7 @@ extension XJBaseViewController {
 // MARK: - NetWork
 extension XJBaseViewController {
     
-    func showDisconnectView(_ isHidden: Bool) {
+    @objc func showDisconnectView(_ isHidden: Bool) {
         disconnectView.isHidden = isHidden
         if isHidden == false { self.view.bringSubviewToFront(disconnectView) }
     }
@@ -331,7 +331,7 @@ extension XJBaseViewController {
     
     /// 显示指示器
     /// - Parameter text: 显示文字
-    func showHUD(_ text: String = "") {
+    @objc func showHUD(_ text: String = "") {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
                 YSActivityIndicatorView.showHUD(self.view, text: text)
@@ -342,7 +342,7 @@ extension XJBaseViewController {
     }
     
     /// 隐藏指示器
-    func dismissHUD() {
+    @objc func dismissHUD() {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
                 YSActivityIndicatorView.dismissHUD(self.view)
@@ -354,7 +354,7 @@ extension XJBaseViewController {
     
     /// 显示文字
     /// - Parameter text: 显示文字
-    func showText(_ text: String) {
+    @objc func showText(_ text: String) {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
                 MBProgressHUD.showText(text: text)
@@ -366,7 +366,7 @@ extension XJBaseViewController {
     
     /// 显示成功
     /// - Parameter text: 显示文字
-    func showSuccess(_ text: String = "") {
+    @objc func showSuccess(_ text: String = "") {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
                 MBProgressHUD.showSuccess(text: text)
@@ -378,7 +378,7 @@ extension XJBaseViewController {
     
     /// 显示失败
     /// - Parameter text: 显示文字
-    func showFail(_ text: String = "") {
+    @objc func showFail(_ text: String = "") {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
                 MBProgressHUD.showFail(text: text)
@@ -422,7 +422,7 @@ extension XJBaseViewController {
      */
     
     /// 旋转到横屏
-    func rotateLandscapeOrientation() {
+    @objc func rotateLandscapeOrientation() {
         print("1---Landscape---click----\(UIApplication.shared.statusBarOrientation.rawValue)")
         if UIApplication.shared.statusBarOrientation != .portrait { return }
         print("1---rotateLandscapeOrientation")
@@ -434,7 +434,7 @@ extension XJBaseViewController {
     }
     
     /// 旋转到竖屏
-    func rotatePortraitOrientation() {
+    @objc func rotatePortraitOrientation() {
         print("2---Portrait---click----\(UIApplication.shared.statusBarOrientation.rawValue)")
         if UIApplication.shared.statusBarOrientation == .portrait { return }
         print("2---rotatePortraitOrientation")
@@ -450,7 +450,7 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 选择相册图片
-    func showImagePicker() {
+    @objc func showImagePicker() {
         let config = ZLPhotoConfiguration.default()
 
         // You can first determine whether the asset is allowed to be selected.

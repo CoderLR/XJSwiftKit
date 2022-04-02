@@ -5,12 +5,25 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - FSCalendar (2.8.2)
   - FSPagerView (0.8.3)
   - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.6)
   - Kingfisher (6.3.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.6.1)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
@@ -40,12 +53,14 @@ DEPENDENCIES:
   - DZNEmptyDataSet (= 1.8.1)
   - FDFullscreenPopGesture
   - FMDB (= 2.7.5)
+  - FSCalendar
   - FSPagerView
   - HandyJSON (= 5.0.2)
   - IQKeyboardManagerSwift
   - Kingfisher
   - MBProgressHUD
   - MJRefresh
+  - MMDrawerController
   - NVActivityIndicatorView
   - ReachabilitySwift (= 4.3.0)
   - RxCocoa (= 5.0.0)
@@ -64,12 +79,14 @@ SPEC REPOS:
     - DZNEmptyDataSet
     - FDFullscreenPopGesture
     - FMDB
+    - FSCalendar
     - FSPagerView
     - HandyJSON
     - IQKeyboardManagerSwift
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
+    - MMDrawerController
     - NVActivityIndicatorView
     - ReachabilitySwift
     - RxCocoa
@@ -86,12 +103,14 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
@@ -103,6 +122,6 @@ SPEC CHECKSUMS:
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZLPhotoBrowser: 193f779936f49a3f485100009efb8e0b8b3fb2fe
 
-PODFILE CHECKSUM: a17c99874b10876699cfa64df956338fa2dacf77
+PODFILE CHECKSUM: 16a04f07e62ba03de760375e18a0bebe7492f138
 
 COCOAPODS: 1.10.0

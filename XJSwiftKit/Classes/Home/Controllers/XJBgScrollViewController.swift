@@ -1,6 +1,6 @@
 //
 //  XJBgScrollViewController.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by xj on 2022/2/23.
 //

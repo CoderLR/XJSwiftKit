@@ -1,6 +1,6 @@
 //
 //  XJEmptyDataView.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/10/14.
 //
@@ -21,7 +21,7 @@ class XJEmptyDataView: UIView {
         self.addSubview(bgImgView)
         bgImgView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-bgImgView.height)
+            make.centerY.equalToSuperview().offset(-bgImgView.height - 40)
         }
         
         titleLabel = UILabel.xj.create(text: text, textColor: Color_666666_666666, font: 15)

@@ -1,6 +1,6 @@
 //
 //  UIImageView+Extension.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/10/18.
 //
@@ -77,7 +77,7 @@ extension UIImageView {
     func setImage(url: String, options: KingfisherOptionsInfo? = nil) {
         
         
-        let placeholderImg = UIImage(named: "")
+        let placeholderImg = UIImage()
         var optionInfo: KingfisherOptionsInfo = []
         if let options = options {
             optionInfo = options

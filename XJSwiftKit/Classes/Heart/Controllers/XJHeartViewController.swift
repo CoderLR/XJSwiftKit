@@ -1,6 +1,6 @@
 //
 //  XJHeartViewController.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by xj on 2021/11/8.
 //
@@ -96,11 +96,20 @@ class XJHeartViewController: UIViewController {
     var tempRightUpView: UIView?
     var tempRightDownView: UIView?
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.extinctAll()
+        loopIndex = 0
+        self.heartMode = .one_clockwise_all
+        timer?.fireDate = .distantFuture
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loopIndex = 0
-        self.title = "流水灯"
+        /// 不要直接使用title，会导致tabbar顺序错乱
+        self.navigationItem.title = "流水灯"
         self.view.addSubview(heartView)
         self.createTimer(timeInterval, isFire: false)
     }

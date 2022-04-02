@@ -1,6 +1,6 @@
 //
 //  XJImageConfig.swift
-//  XJSwiftKit
+//  ShiJianYun
 //
 //  Created by Mr.Yang on 2021/4/14.
 //
@@ -26,3 +26,9 @@ let KNavCloseImage = UIImage(named: "icon_nav_close") ?? UIImage()
 
 // 导航分享
 let KNavShareImage = UIImage(named: "icon_nav_share") ?? UIImage()
+
+// 抽屉打开
+let KNavOpenDrawerImage = UIImage(named: "icon_nav_open") ?? UIImage()
+
+// 抽屉关闭
+let KNavCloseDrawerImage = UIImage(named: "icon_nav_close_drawer") ?? UIImage()
