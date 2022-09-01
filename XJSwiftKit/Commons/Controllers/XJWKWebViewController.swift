@@ -1,8 +1,8 @@
 //
 //  XJWKWebViewController.swift
-//  ShiJianYun
+//  LeiFengHao
 //
-//  Created by Mr.Yang on 2021/4/14.
+//  Created by xj on 2021/4/14.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import WebKit
 class XJWKWebViewController: XJBaseViewController {
     
     /// webView
-    fileprivate lazy var webView: WKWebView = {
+    lazy var webView: WKWebView = {
         let config = WKWebViewConfiguration()
         config.selectionGranularity = WKSelectionGranularity(rawValue: 1)!
         let webView = WKWebView(frame: CGRect.zero, configuration: config)
@@ -36,7 +36,7 @@ class XJWKWebViewController: XJBaseViewController {
     }()
     
     /// 关闭
-    fileprivate var closebtn: UIButton = {
+    fileprivate lazy var closebtn: UIButton = {
         let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_nav_close")
         button.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
         return button
@@ -50,7 +50,15 @@ class XJWKWebViewController: XJBaseViewController {
     }()
     
     /// url
-    fileprivate var webUrl: String = ""
+    var webUrl: String = ""
+    /// 本地路径
+    var pathUrl: String = ""
+    
+    /// 是否用html的title设置导航栏title
+    var isDisplayWebTitle: Bool = true
+    
+    ///交互监听数组
+    fileprivate var funcNames: [String] = []
     
     /// 控制器弹出方式
     fileprivate var isPushed: Bool = true
@@ -66,10 +74,17 @@ class XJWKWebViewController: XJBaseViewController {
     /// 分享
     var shareActionBlock: (() -> Void)?
     
-    /// 初始化
+    /// 初始化-远程url
     @objc convenience init(webUrl: String, isPushed: Bool = true) {
         self.init(nibName: nil, bundle: nil)
         self.webUrl = webUrl
+        self.isPushed = isPushed
+    }
+    
+    /// 初始化-本地url
+    @objc convenience init(pathUrl: String, isPushed: Bool = true) {
+        self.init(nibName: nil, bundle: nil)
+        self.pathUrl = pathUrl
         self.isPushed = isPushed
     }
     
@@ -81,33 +96,11 @@ class XJWKWebViewController: XJBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        webView.configuration.userContentController.add(self, name: "postlog")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        webView.configuration.userContentController.removeScriptMessageHandler(forName: "postlog")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = Color_FFFFFF_151515
-        
-        /// webview
-        self.view.addSubview(webView)
-        webView.snp.makeConstraints({ (make) in
-            make.left.right.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-        })
-        
-        /// 进度条
-        self.view.addSubview(progressView)
-        
-        /// 导航栏
-        closebtn.isHidden = !self.webView.canGoBack
+  
         self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: leftbtn),
                                                   UIBarButtonItem(customView: closebtn)]
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightbtn)]
@@ -115,14 +108,43 @@ class XJWKWebViewController: XJBaseViewController {
         /// 清缓存
         clearCache()
         
-        /// 加载地址
-        loadWebUrl()
-        
-        /// 添加监听
-        addObserver()
-        
-        /// 添加下拉刷新
-        addRefreshHeader()
+        // 初始化控制器没有指定url，交由子类去实现
+        if webUrl.count <= 0 { setUpWebUrl() }
+        if pathUrl.count <= 0 { setUpPathUrl() }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.view.addSubview(self.webView)
+            self.webView.snp.makeConstraints({ (make) in
+                make.left.right.top.equalToSuperview()
+                make.bottom.equalToSuperview()
+            })
+            self.view.addSubview(self.progressView)
+            
+            /// 导航栏
+            self.closebtn.isHidden = true
+
+            /// 添加监听
+            self.addObserver()
+    
+            /// 添加下拉刷新
+            self.addRefreshHeader()
+            
+            /// 加载地址-远端
+            if self.webUrl.count > 0 { self.loadWebUrl() }
+            /// 加载地址-本地
+            if self.pathUrl.count > 0 { self.loadPathUrl() }
+            
+        }
+    }
+    
+    /// 如果初始化控制器没有指定url，子类重写该方法
+    func setUpWebUrl() {
+        // self.webUrl = "http://www.baidu.com"
+    }
+    
+    /// 如果初始化控制器没有指定url，子类重写该方法
+    func setUpPathUrl() {
+        // self.pathUrl = ""
     }
     
     deinit {
@@ -146,21 +168,32 @@ class XJWKWebViewController: XJBaseViewController {
     private func removeObserver() {
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
         webView.removeObserver(self, forKeyPath: "title")
+        
+        if funcNames.count <= 0 { return }
+        for funcName in funcNames {
+            webView.configuration.userContentController.removeScriptMessageHandler(forName: funcName)
+        }
     }
 }
 
 // MARK: - WebView
 extension XJWKWebViewController {
     
-    /// 加载webview
+    /// 加载webview-远端
     func loadWebUrl() {
-        let encode_str:String = NSString.init(string: webUrl).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
-        if webUrl.contains(XJApiUrl ){
-            let localUrl = encode_str + "&lang=" + (XJLocalizedTool.localeIsChinese() ? "zh-CN" : "en-US")
-            webView.load(URLRequest(url: URL(string: localUrl)!))
-        }else{
-            webView.load(URLRequest(url: URL(string: encode_str)!))
+        guard let urlStr: String = NSString.init(string: webUrl).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) else {
+            print("log: webview urlStr is null"); return
         }
+        guard let webUrl = URL(string: urlStr) else {
+            print("log: webview url is null"); return
+        }
+        webView.load(URLRequest(url: webUrl))
+    }
+    
+    /// 加载webview-本地
+    func loadPathUrl() {
+        let localUrl = URL(fileURLWithPath: self.pathUrl)
+        webView.load(URLRequest(url: localUrl))
     }
     
     /// 下拉刷新
@@ -195,6 +228,11 @@ extension XJWKWebViewController {
         */
         self.didReceiveJSCallMessage = callBack
         webView.configuration.userContentController.add(self, name: funcName)
+        
+        /// 添加交互监听，用户释放清理
+        if !funcNames.contains(funcName) {
+            self.funcNames.append(funcName)
+        }
     }
     
     /// 原生调用JS
@@ -277,7 +315,9 @@ extension XJWKWebViewController {
         if keyPath == "estimatedProgress" {
             setProgress(progress: CGFloat(webView.estimatedProgress), animated: true)
         } else if (keyPath == "title") {
-            self.title = self.webView.title
+            if isDisplayWebTitle {
+                self.title = self.webView.title
+            }
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
@@ -324,7 +364,8 @@ extension XJWKWebViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
     
     /// 进程终止
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-        self.loadWebUrl()
+        if self.webUrl.count > 0 { self.loadWebUrl() }
+        if self.pathUrl.count > 0 { self.loadPathUrl() }
     }
     
     /// 在发送请求之前，决定是否跳转
@@ -366,7 +407,7 @@ extension XJWKWebViewController: WKNavigationDelegate, WKUIDelegate, WKScriptMes
         
         print("runJavaScriptAlertPanelWithMessage:" ,message)
         let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (action) in
+        let action = UIAlertAction(title: "确定", style: .default) { (action) in
             completionHandler()
         }
         alert.addAction(action)

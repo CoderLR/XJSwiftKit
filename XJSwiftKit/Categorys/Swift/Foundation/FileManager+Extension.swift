@@ -117,6 +117,16 @@ public extension XJExtension where Base: FileManager {
         let tmpDir = NSHomeDirectory() + "/tmp"
         return tmpDir
     }
+    
+    // MARK: 1.7、日志路径
+    /// 获取AppLog的完整路径名，用于存放日志文件
+    /// - Returns: AppLog的完整路径名
+    static func appLogDirectory() -> String {
+        //方法2
+        let logDir = self.DocumnetsDirectory() + "/AppLog"
+        self.createFolder(folderPath: logDir)
+        return logDir
+    }
 }
 
 // MARK:- 二、文件以及文件夹的操作 扩展

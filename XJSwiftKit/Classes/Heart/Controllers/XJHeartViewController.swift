@@ -72,8 +72,40 @@ enum XJHeartMode: Int {
     case odd_even                       // 奇偶切换
 }
 
+extension XJHeartViewController {
+    
+    fileprivate func setupUI() {
+        
+        self.view.addSubview(heartView)
+        
+        self.view.addSubview(closeBtn)
+        
+        closeBtn.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 44, height: 44))
+            make.left.equalTo(10)
+            make.top.equalTo(KStatusBarH)
+        }
+    }
+    
+    @objc func closeBtnClick(_ btn: UIButton) {
+        self.dismiss(animated: true) {
+            // 发送通知
+            NotificationCenter.default.post(name: KCloseHeartViewNotify, object: nil, userInfo: nil)
+        }
+    }
+}
+
 // MARK: - 控制器
 class XJHeartViewController: UIViewController {
+    
+    /// UI图
+    lazy var closeBtn: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.white
+        button.setImage(UIImage(named: "icon_nav_close"), for: .normal)
+        button.addTarget(self, action: #selector(closeBtnClick(_:)), for: .touchUpInside)
+        return button
+    }()
     
     /// UI图
     lazy var heartView: XJHeartView = {
@@ -108,9 +140,9 @@ class XJHeartViewController: UIViewController {
         super.viewDidLoad()
         
         loopIndex = 0
-        /// 不要直接使用title，会导致tabbar顺序错乱
-        self.navigationItem.title = "流水灯"
-        self.view.addSubview(heartView)
+        
+        setupUI()
+        
         self.createTimer(timeInterval, isFire: false)
     }
     

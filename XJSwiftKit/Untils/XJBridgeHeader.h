@@ -40,15 +40,17 @@
 // QRCode
 #import <SGQRCode/SGQRCode.h>
 
-// Transition
-#import <UINavigationController+WXSTransition.h>
-
 // Ping
 #import "YSPingServices.h"
 
 // Drawer
 #import <MMDrawerController/MMDrawerController.h>
 
+// Calendar
 #import <FSCalendar/FSCalendar.h>
+
+// InputBar
+#import "NDInputController.h"
+#import "NDEmojiAttributedString.h"
 
 #endif /* XJBridgeHeader_h */

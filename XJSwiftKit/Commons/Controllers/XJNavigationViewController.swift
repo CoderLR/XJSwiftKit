@@ -29,9 +29,19 @@ class XJNavigationViewController: UINavigationController, UIGestureRecognizerDel
         // 不透明
         self.navigationBar.isTranslucent = false
         
-        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: KLargeFont,NSAttributedString.Key.foregroundColor:Color_292A2D_DEDFDF]
-        let image = UIImage.xj.create(color: Color_FFFFFF_151515)
-        self.navigationBar.setBackgroundImage(image, for: .default)
+        // 适配iOS15导航栏问题
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundImage = UIImage.xj.create(color: Color_FFFFFF_151515)
+            appearance.titleTextAttributes = [NSAttributedString.Key.font: KLargeFont,NSAttributedString.Key.foregroundColor:Color_292A2D_DEDFDF]
+            navigationBar.standardAppearance = appearance
+            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        } else {
+            self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: KLargeFont,NSAttributedString.Key.foregroundColor:Color_292A2D_DEDFDF]
+            let image = UIImage.xj.create(color: Color_FFFFFF_151515)
+            self.navigationBar.setBackgroundImage(image, for: .default)
+        }
     }
     
 

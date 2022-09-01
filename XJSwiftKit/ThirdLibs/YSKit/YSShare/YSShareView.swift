@@ -1,6 +1,6 @@
 //
 //  YSShareView.swift
-//  ShiJianYun
+//  LeiFengHao
 //
 //  Created by xj on 2022/1/11.
 //
@@ -30,12 +30,14 @@ class YSShareInfo: NSObject {
     var shareType: YSShareType = .wechat
     
     /// 获取显示数据
+    /// type: 0 顶部 1底部
     /// - Returns: 返回要显示的数据
-    class func getShareInfos(_ type: Int) -> [YSShareInfo] {
+    class func getShareInfos(_ type: Int = 0) -> [YSShareInfo] {
+        if type == 1 { return [] }
         var shareInfos: [YSShareInfo] = []
-        for _ in 0..<6 {
+        for i in 0..<2 {
             let info = YSShareInfo()
-            if type == 0 {
+            if i == 0 {
                 info.imageName = "icon_share_weixin"
                 info.shareType = .wechat
                 info.title = "微信"
@@ -51,7 +53,7 @@ class YSShareInfo: NSObject {
 }
 
 // MARK: - 分享视图
-let KShareBgViewH = 240 + KHomeBarH
+
 
 typealias YSShareBlock = ((_ type: YSShareInfo.YSShareType) -> ())
 
@@ -61,8 +63,11 @@ class YSShareView: UIView {
     var topShareInfos: [YSShareInfo] = []
     var bottomShareInfos: [YSShareInfo] = []
     
+    /// 视图高度
+    var shareBgViewH: CGFloat = 180.0 + KHomeBarH
+    
     /// scrollView高度
-    var topShareH: CGFloat = KShareBgViewH - 80 - KHomeBarH
+    var topShareH: CGFloat = 0
     
     /// 分享回调
     var clickBlock: YSShareBlock?
@@ -84,7 +89,7 @@ class YSShareView: UIView {
     /// 背景view
     fileprivate lazy var bgView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: KScreenH, width: KScreenW, height: KShareBgViewH)
+        view.frame = CGRect(x: 0, y: KScreenH, width: KScreenW, height: self.shareBgViewH)
         view.backgroundColor = Color_FFFFFF_151515
         if filletScreen() {
             view.layer.cornerRadius = 5
@@ -120,8 +125,16 @@ class YSShareView: UIView {
         
         self.topShareInfos = topShareInfos
         self.bottomShareInfos = bottomShareInfos
+        
+        if bottomShareInfos.count > 0 {
+            self.shareBgViewH = 240.0 + KHomeBarH
+            self.topShareH = (self.shareBgViewH - 80.0 - KHomeBarH) * 0.5
+        } else {
+            self.topShareH = self.shareBgViewH - 80.0 - KHomeBarH
+        }
+        
 
-        self.frame = CGRect(x: 0, y: 0, width: KScreenW, height: KScreenH + KShareBgViewH)
+        self.frame = CGRect(x: 0, y: 0, width: KScreenW, height: KScreenH + self.shareBgViewH)
         self.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         self.initGesture()
@@ -144,52 +157,70 @@ class YSShareView: UIView {
         addSubview(bgView)
         
         bgView.addSubview(titleLabel)
-       
         bgView.addSubview(cancleBtn)
-        
-        self.topShareH *= 0.5
         bgView.addSubview(topScrollView)
-        bgView.addSubview(bottomScrollView)
-        
         addTopSubview()
-        addBottomSubview()
-     
+        
+        if bottomShareInfos.count > 0 {
+            bgView.addSubview(bottomScrollView)
+            addBottomSubview()
+        }
+            
         initSubviewFrame()
     }
     
     /// 添加顶部
     fileprivate func addTopSubview() {
-        let buttonWH: CGFloat = self.topShareH
+        let buttonH: CGFloat = self.topShareH
+        let isMore = topShareInfos.count > 4 ? true : false
         for i in 0..<topShareInfos.count {
             let button = UIButton()
             button.tag = i
             button.setTitle(topShareInfos[i].title, for: .normal)
             button.setTitleColor(Color_666666_666666, for: .normal)
             button.titleLabel?.font = KSmallFont
-            button.setImage(UIImage(named: topShareInfos[i].imageName), for: .normal)
-            button.frame = CGRect(x: CGFloat(i) * buttonWH, y: 0, width: buttonWH, height: buttonWH)
+            let image = UIImage(contentsOfFile: YSBundle.sharePath(topShareInfos[i].imageName))?.withRenderingMode(.alwaysOriginal)
+            button.setImage(image, for: .normal)
+            if isMore {
+                button.frame = CGRect(x: CGFloat(i) * buttonH, y: 0, width: buttonH, height: buttonH)
+            } else {
+                let buttonW = self.width / CGFloat(topShareInfos.count)
+                button.frame = CGRect(x: CGFloat(i) * buttonW, y: 0, width: buttonW, height: buttonH)
+            }
             button.xj.setImageTitleLayout(.imgTop, spacing: 8)
             button.addTarget(self, action: #selector(topBtnClick(_:)), for: .touchUpInside)
             topScrollView.addSubview(button)
-            topScrollView.contentSize = CGSize(width: buttonWH * CGFloat(topShareInfos.count), height: topScrollView.height)
+            if isMore {
+                topScrollView.contentSize = CGSize(width: buttonH * CGFloat(topShareInfos.count), height: topScrollView.height)
+            }
         }
     }
     
     /// 添加底部
     fileprivate func addBottomSubview() {
-        let buttonWH: CGFloat = self.topShareH
+        let buttonH: CGFloat = self.topShareH
+        let isMore = bottomShareInfos.count > 4 ? true : false
         for i in 0..<bottomShareInfos.count {
             let button = UIButton()
             button.tag = i
             button.setTitle(bottomShareInfos[i].title, for: .normal)
             button.setTitleColor(Color_666666_666666, for: .normal)
             button.titleLabel?.font = KSmallFont
-            button.setImage(UIImage(named: bottomShareInfos[i].imageName), for: .normal)
-            button.frame = CGRect(x: CGFloat(i) * buttonWH, y: 0, width: buttonWH, height: buttonWH)
+            let image = UIImage(contentsOfFile: YSBundle.sharePath(bottomShareInfos[i].imageName))?.withRenderingMode(.alwaysOriginal)
+            button.setImage(image, for: .normal)
+            
+            if isMore {
+                button.frame = CGRect(x: CGFloat(i) * buttonH, y: 0, width: buttonH, height: buttonH)
+            } else {
+                let buttonW = self.width / CGFloat(bottomShareInfos.count)
+                button.frame = CGRect(x: CGFloat(i) * buttonW, y: 0, width: buttonW, height: buttonH)
+            }
             button.xj.setImageTitleLayout(.imgTop, spacing: 8)
             button.addTarget(self, action: #selector(bottomBtnClick(_:)), for: .touchUpInside)
             bottomScrollView.addSubview(button)
-            bottomScrollView.contentSize = CGSize(width: buttonWH * CGFloat(bottomShareInfos.count), height: bottomScrollView.height)
+            if isMore {
+                bottomScrollView.contentSize = CGSize(width: buttonH * CGFloat(bottomShareInfos.count), height: bottomScrollView.height)
+            }
         }
     }
     
@@ -210,17 +241,19 @@ class YSShareView: UIView {
         }
         
         // 低部
-        bottomScrollView.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(topScrollView.snp.bottom)
-            make.height.equalTo(self.topShareH)
+        if bottomShareInfos.count > 0 {
+            bottomScrollView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.top.equalTo(topScrollView.snp.bottom)
+                make.height.equalTo(self.topShareH)
+            }
         }
-        
+
         // 取消
         cancleBtn.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.height.equalTo(40)
-            make.bottom.equalToSuperview().offset(-KHomeBarH)
+            make.bottom.equalTo(-KHomeBarH)
         }
     }
 }
@@ -239,7 +272,7 @@ extension YSShareView {
     func showInView(_ view: UIView) {
         UIView.animate(withDuration: 0.25, animations: {
             var point = self.center
-            point.y -= KShareBgViewH
+            point.y -= self.shareBgViewH
             self.center = point
         }, completion: nil)
         view.addSubview(self)
@@ -249,7 +282,7 @@ extension YSShareView {
     func dismiss() {
         UIView.animate(withDuration: 0.25, animations: {
             var point = self.center
-            point.y += KShareBgViewH
+            point.y += self.shareBgViewH
             self.center = point
         }, completion: {(finish) in
             self.removeFromSuperview()

@@ -53,13 +53,25 @@ class XJTabBarViewController: UITabBarController {
         // 不透明
         self.xjTabBar.isTranslucent = false
         
+        // 适配iOS15导航栏问题
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Color_333333_333333]
+            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Color_System]
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        }
+        
         xjTabBar.addBtnClickBlock = {[weak self]  in
             guard let self = self else { return }
             let heartVc = XJHeartViewController()
-            self.present(heartVc, animated: true, completion: nil)
+            self.xj_presentViewController(viewController: heartVc, animationType: .spreadFromBottom, completion: nil)
         }
         
         setupController()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(closeHeartViewNotify(notify:)), name: KCloseHeartViewNotify, object: nil)
     }
     
     fileprivate func setupUI() {
@@ -91,6 +103,11 @@ class XJTabBarViewController: UITabBarController {
         self.tabBar.tintColor = Color_System
         let navic = XJNavigationViewController(rootViewController: controller)
         return navic
+    }
+    
+    /// 登录成功
+    @objc func closeHeartViewNotify(notify: NSNotification) {
+//        setBtnAnimation(true)
     }
     
 }

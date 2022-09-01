@@ -538,4 +538,22 @@ public extension XJExtension where Base == Date {
     static func currentMonthDays() -> Int {
         return daysCount(year: Date.xj.currentDate.xj.year, month: Date.xj.currentDate.xj.month)
     }
+    
+    /// Date转字符串
+    /// - Returns: 时间字符串
+    static func currentTime() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        let timestr = format.string(from: Date())
+        return timestr
+    }
+    
+    /// Date转字符串
+    /// - Returns: 时间字符串
+    static func currentLogTime() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "yyyyMMdd"
+        let timestr = format.string(from: Date())
+        return timestr
+    }
 }

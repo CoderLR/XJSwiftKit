@@ -9,4 +9,8 @@ import Foundation
 
 // MARK: -  定义通知类型
 
-let KLoginSuccessNotify = "KLoginSuccessNotify"
+// 登录成功
+let KLoginSuccessNotify = NSNotification.Name(rawValue: "KLoginSuccessNotify")
+
+// 关闭心形灯
+let KCloseHeartViewNotify = NSNotification.Name(rawValue: "KCloseHeartViewNotify")

@@ -1,6 +1,6 @@
 //
 //  YSLocalFileCell.swift
-//  ShiJianYun
+//  LeiFengHao
 //
 //  Created by xj on 2022/3/2.
 //
@@ -51,7 +51,7 @@ class YSLocalFileCell: UITableViewCell {
     // 模型
     var fileModel: YSLocalFileModel? {
         didSet {
-            self.iconImgView.image = UIImage(named: getImageName(fileModel!.type))
+            self.iconImgView.image = getImage(fileModel!.type)
             self.titleLabel.text = fileModel?.fileName
             self.dateLabel.text = fileModel?.creaeDate
             self.sizeLabel.text = fileModel?.size
@@ -126,20 +126,20 @@ class YSLocalFileCell: UITableViewCell {
         
     }
     
-    /// 获取图片名
-    fileprivate func getImageName(_ type: YSLocalFileType) -> String {
-        var imgName: String = ""
+    /// 获取图片
+    fileprivate func getImage(_ type: YSLocalFileType) -> UIImage? {
+        var image: UIImage?
         switch type {
         case .db:
-            imgName = "icon_file_db"
+            image = UIImage(contentsOfFile: YSBundle.sandboxPath("icon_file_db"))?.withRenderingMode(.alwaysOriginal)
         case .folder:
-            imgName = "icon_file_folder"
+            image = UIImage(contentsOfFile: YSBundle.sandboxPath("icon_file_folder"))?.withRenderingMode(.alwaysOriginal)
         case .txt:
-            imgName = "icon_file_txt"
+            image = UIImage(contentsOfFile: YSBundle.sandboxPath("icon_file_txt"))?.withRenderingMode(.alwaysOriginal)
         default:
-            imgName = "icon_file_other"
+            image = UIImage(contentsOfFile: YSBundle.sandboxPath("icon_file_other"))?.withRenderingMode(.alwaysOriginal)
         }
-        return imgName
+        return image
     }
 
 }

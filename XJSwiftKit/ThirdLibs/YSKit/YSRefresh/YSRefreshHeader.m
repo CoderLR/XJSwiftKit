@@ -2,7 +2,7 @@
 //  YSRefreshHeader.m
 //  MyChat
 //
-//  Created by Mr.Yang on 2017/6/27.
+//  Created by xj on 2017/6/27.
 //  Copyright © 2017年 jiankangzhan. All rights reserved.
 //
 
@@ -37,26 +37,36 @@
     // 设置普通状态的动画图片
     NSMutableArray *idleImages = [NSMutableArray array];
     for (int i = 0; i <= 24; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"pulling_%02d", i]];
+        
+        
+        UIImage *image = [[UIImage imageWithContentsOfFile:[self getImagePath:[NSString stringWithFormat:@"pulling_%02d", i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [idleImages addObject:image];
     }
     [self setImages:idleImages forState:MJRefreshStateIdle];
     
     // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
     NSMutableArray *pullingImages = [NSMutableArray array];
-
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"pulling_%02d", 25]];
+    
+    UIImage *image = [[UIImage imageWithContentsOfFile:[self getImagePath:[NSString stringWithFormat:@"pulling_%02d", 25]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [pullingImages addObject:image];
     [self setImages:pullingImages forState:MJRefreshStatePulling];
     
     NSMutableArray *refreshingImages = [NSMutableArray array];
     for (int i = 1; i <= 12; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"refreshing_%02d", i]];
+        UIImage *image = [[UIImage imageWithContentsOfFile:[self getImagePath:[NSString stringWithFormat:@"refreshing_%02d", i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [refreshingImages addObject:image];
     }
 
     // 设置正在刷新状态的动画图片
     [self setImages:refreshingImages duration:0.7 forState:MJRefreshStateRefreshing];
+}
+
+
+/// 获取bundle的图片路径
+/// @param path 图片名
+- (NSString *)getImagePath:(NSString *)path {
+    NSString *boudlePath = [[NSBundle mainBundle] pathForResource:@"YSResource" ofType:@"bundle"];
+    return [NSString stringWithFormat:@"%@/refresh/black/%@",boudlePath, path];
 }
 
 - (void)placeSubviews {

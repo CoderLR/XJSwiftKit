@@ -1,6 +1,6 @@
 //
 //  YSSandboxViewController.swift
-//  ShiJianYun
+//  LeiFengHao
 //
 //  Created by xj on 2022/3/2.
 //
@@ -20,14 +20,17 @@ class YSSandboxViewController: XJBaseViewController {
     
     var tableView: UITableView = UITableView()
 
-    convenience init(_ localPath: String = FileManager.xj.homeDirectory(), lastPath: String = "SandBox") {
+    convenience init(localPath: String, lastPath: String) {
         self.init(nibName: nil, bundle: nil)
         self.localPath = localPath
         self.lastPath = lastPath
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        if self.localPath.count == 0 { self.localPath = FileManager.xj.homeDirectory() }
+        if self.lastPath.count == 0 { self.lastPath = "沙盒"}
     }
     
     required init?(coder: NSCoder) {
@@ -40,12 +43,11 @@ class YSSandboxViewController: XJBaseViewController {
         self.title = lastPath
         
         setupUI()
-        
-        //test()
+
         DispatchQueue.global().async {
             // 获取数据源
             self.fileModels = YSLocalFileModel(path: self.localPath).getLocalFiles()
-            
+
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -128,7 +130,7 @@ extension YSSandboxViewController: UITableViewDelegate, UITableViewDataSource {
             print("click----\(fileModel.fileName)")
          
             let nextPath = self.localPath + "/" + fileModel.fileName
-            let fileVc = YSSandboxViewController(nextPath, lastPath: fileModel.fileName)
+            let fileVc = YSSandboxViewController(localPath: nextPath, lastPath: fileModel.fileName)
             self.pushVC(fileVc)
         }
     }

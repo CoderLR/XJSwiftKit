@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS与原生交互</title>
+
+    <script>
+        
+        function nativeCallJS(data) {
+            var obj = eval(data);
+            alert("name = " + obj.name + " age = " + obj.age)
+        }
+
+        function buttonClick() {
+            var obj = {
+                'name': 'lisi',
+                'age': '20'
+            };
+            window.webkit.messageHandlers.JSCallNative.postMessage(obj);
+        }
+    </script>
+
+    <style>
+        .bg {
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn {
+            background-color: skyblue;
+            width: 200px;
+            height: 50px;
+            border-color: skyblue;
+            border-width: 1px;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="bg">
+        <button class="btn" onclick="buttonClick()">JS调用原生</button>
+    </div>
+</body>
+</html>

@@ -1,8 +1,8 @@
 //
 //  XJBaseViewController.swift
-//  ShiJianYun
+//  LeiFengHao
 //
-//  Created by Mr.Yang on 2021/4/14.
+//  Created by xj on 2021/4/14.
 //
 
 import UIKit
@@ -32,6 +32,9 @@ class XJBaseViewController: UIViewController {
     /// 上下拉刷新
     var refreshScrollView: UIScrollView?
     
+    /// 空白背景垂直方向偏移
+    var verticalOffset: CGFloat = 0
+    
     /// 断网显示
     lazy var disconnectView: XJNetDisconnectView = {
         let disconnect = XJNetDisconnectView(frame: self.view.bounds)
@@ -42,7 +45,7 @@ class XJBaseViewController: UIViewController {
     /// 空白页面显示
     lazy var emptyDataView: XJEmptyDataView = {
         let empty = XJEmptyDataView(frame: self.view.bounds,
-                                         imgName: "icon_empty_data",
+                                         imgName: "img_empty_wujilu",
                                          text: "暂时没有数据~")
         empty.isHidden = true
         return empty
@@ -53,6 +56,7 @@ class XJBaseViewController: UIViewController {
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: self.view.height - KNavBarH))
         scrollView.backgroundColor = UIColor.white
         scrollView.tag = 100
+        scrollView.isScrollEnabled = true
         
         // 适配ios11
         if #available(iOS 11.0, *) {
@@ -82,9 +86,13 @@ class XJBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // 默认背景色
         self.view.backgroundColor = Color_FFFFFF_151515
+        
+        // 设置标题
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: 20)]
         
         // 返回
         self.setupBackItem()
@@ -121,6 +129,25 @@ class XJBaseViewController: UIViewController {
 
 // MARK: - 滚动容器
 extension XJBaseViewController {
+    
+    func resetFrame(frame: CGRect) {
+        view.frame = frame
+        
+        var isContain = false
+        for view in self.view.subviews {
+            if view == bgScrollView {
+                isContain = true; break
+            }
+        }
+        if isContain == false { return }
+        bgScrollView.frame = CGRect(x: 0, y: 0, width: KScreenW, height: frame.height)
+        bgScrollView.snp.makeConstraints { make in
+            make.left.top.equalToSuperview()
+            make.width.equalTo(KScreenW)
+            make.height.equalTo(frame.height)
+        }
+    }
+    
     // 设置滚动容器
     @objc func setBgScrollView() {
         self.view.insertSubview(self.bgScrollView, at: 0)
@@ -230,27 +257,17 @@ extension XJBaseViewController {
     /// - Parameters:
     ///   - viewController: 跳转控制器
     ///   - animationType: 转场动画类型
-    @objc func pushVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
-        //self.navigationController?.wxs_pushViewController(viewController, animationType: animationType)
-        
-        self.navigationController?.wxs_pushViewController(viewController, makeTransition: { (transition) in
-            transition?.animationType = animationType
-            transition?.backGestureEnable = false
-            transition?.autoShowAndHideNavBar = false
-        })
+    func pushVC(_ viewController: UIViewController, animationType: XJTransitionAnimationType) {
+   
+        self.navigationController?.xj_pushViewController(viewController: viewController, animationType: animationType)
     }
     
     /// present转场动画
     /// - Parameters:
     ///   - viewController: 跳转控制器
     ///   - animationType: 转场动画类型
-    @objc func presentVC(_ viewController: UIViewController, animationType: WXSTransitionAnimationType) {
-        //self.wxs_present(viewController, animationType: animationType) {}
-        self.wxs_present(viewController) { (transition) in
-            transition?.animationType = animationType
-            transition?.backGestureEnable = false
-            transition?.autoShowAndHideNavBar = false
-        } completion: { }
+    func presentVC(_ viewController: UIViewController, animationType: XJTransitionAnimationType) {
+        self.xj_presentViewController(viewController: viewController, animationType: animationType, completion: nil)
     }
     
     /// pop控制器
@@ -258,6 +275,20 @@ extension XJBaseViewController {
         /// 横屏下要先进行转换竖屏操作
         if UIApplication.shared.statusBarOrientation != .portrait { self.rotatePortraitOrientation() }
         self.navigationController?.popViewController(animated: animated)
+    }
+    
+    /// pop根控制器
+    @objc func popRootVC(animated: Bool = true) {
+        /// 横屏下要先进行转换竖屏操作
+        if UIApplication.shared.statusBarOrientation != .portrait { self.rotatePortraitOrientation() }
+        self.navigationController?.popToRootViewController(animated: animated)
+    }
+    
+    /// pop某个控制器
+    @objc func popRootVC(viewController: UIViewController ,animated: Bool = true) {
+        /// 横屏下要先进行转换竖屏操作
+        if UIApplication.shared.statusBarOrientation != .portrait { self.rotatePortraitOrientation() }
+        self.navigationController?.popToViewController(viewController, animated: animated)
     }
     
     /// dismiss控制器
@@ -272,7 +303,7 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 下拉刷新
-    @objc  func setRefreshHeader(_ scrollView: UIScrollView, ignoredContentInsetTop: CGFloat = 0, refreshBlock: (() -> ())?) {
+    @objc func setRefreshHeader(_ scrollView: UIScrollView, ignoredContentInsetTop: CGFloat = 0, refreshBlock: (() -> ())?) {
         self.refreshScrollView = scrollView
         let refreshHeader = YSRefreshHeader.init {
             if let refreshBlock = refreshBlock { refreshBlock() }
@@ -284,7 +315,7 @@ extension XJBaseViewController {
     }
     
     /// 下拉刷新完成
-    @objc  func endRefreshHeader() {
+    @objc func endRefreshHeader() {
         self.refreshScrollView?.mj_header?.endRefreshing()
     }
     
@@ -334,22 +365,22 @@ extension XJBaseViewController {
     @objc func showHUD(_ text: String = "") {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
-                YSActivityIndicatorView.showHUD(self.view, text: text)
+                MBProgressHUD.showHUD(self.view, text: text)
                 return;
             }
         }
-        YSActivityIndicatorView.showHUD(self.view, text: text)
+        MBProgressHUD.showHUD(self.view, text: text)
     }
     
     /// 隐藏指示器
     @objc func dismissHUD() {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
-                YSActivityIndicatorView.dismissHUD(self.view)
+                MBProgressHUD.dismissHUD(self.view)
                 return;
             }
         }
-        YSActivityIndicatorView.dismissHUD(self.view)
+        MBProgressHUD.dismissHUD(self.view)
     }
     
     /// 显示文字
@@ -357,10 +388,12 @@ extension XJBaseViewController {
     @objc func showText(_ text: String) {
         if Thread.current != Thread.main {
             DispatchQueue.main.async {
+                MBProgressHUD.dismissHUD()
                 MBProgressHUD.showText(text: text)
                 return;
             }
         }
+        MBProgressHUD.dismissHUD()
         MBProgressHUD.showText(text: text)
     }
     
@@ -397,7 +430,7 @@ extension XJBaseViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
-        return 0
+        return verticalOffset
     }
     
     /// 显示空白视图 - 默认隐藏
@@ -450,9 +483,9 @@ extension XJBaseViewController {
 extension XJBaseViewController {
     
     /// 选择相册图片
-    @objc func showImagePicker() {
+    @objc func showImagePicker(_ maxSelectCount: Int = 9) {
         let config = ZLPhotoConfiguration.default()
-
+        config.maxSelectCount = maxSelectCount
         // You can first determine whether the asset is allowed to be selected.
         config.canSelectAsset = { (asset) -> Bool in
             return true
@@ -520,5 +553,38 @@ extension XJBaseViewController {
             }
         }
         self.showDetailViewController(camera, sender: nil)
+    }
+    
+    /// 保存image到相册
+    func saveToLibrary(image: UIImage, completionHandler:@escaping (Bool) -> Void) {
+        PHPhotoLibrary.requestAuthorization { (status) in
+            switch status {
+            case .authorized: //授权
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAsset(from: image)
+                }) { (success, error) in
+                    completionHandler(success)
+                }
+                break
+            case .denied: //未授权
+                break
+            case .notDetermined: //没有询问
+                break
+            case .restricted: //限制
+                break
+            default:
+                break
+            }
+        }
+    }
+}
+
+// MARK: - 屏幕常亮设置
+extension XJBaseViewController {
+    
+    /// 屏幕常亮
+    /// - Parameter isOn: true 常亮 false 取消常亮
+    @objc func setScreenLightingOn(_ isOn: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = isOn
     }
 }

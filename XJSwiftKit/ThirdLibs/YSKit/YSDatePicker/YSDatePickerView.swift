@@ -1,8 +1,8 @@
 //
 //  YSDatePickerView.swift
-//  ShiJianYun
+//  LeiFengHao
 //
-//  Created by Mr.Yang on 2021/10/19.
+//  Created by xj on 2021/10/19.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ class YSDatePickerView: UIView {
     fileprivate var dateFormatter = DateFormatter()
     
     /// select callback
-    fileprivate var selectDateBlock: ((_ date: String) -> ())?
+    public var selectDateBlock: ((_ date: String) -> ())?
     
     fileprivate lazy var bgView: UIView = {
         let view = UIView()

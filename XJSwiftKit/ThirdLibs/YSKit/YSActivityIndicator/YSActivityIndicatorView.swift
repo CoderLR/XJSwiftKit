@@ -1,8 +1,8 @@
 //
 //  YSActivityIndicatorView.swift
-//  ShiJianYun
+//  LeiFengHao
 //
-//  Created by Mr.Yang on 2021/10/20.
+//  Created by xj on 2021/10/20.
 //
 
 import UIKit

@@ -1,6 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
+pre_install do |installer|
+    remove_swiftui()
+end
+
 platform :ios, '11.0'
 target 'XJSwiftKit' do
   
@@ -47,9 +51,6 @@ target 'XJSwiftKit' do
   # Sqlite
   pod 'FMDB','2.7.5'
   
-  # Transition Animation
-  pod 'WXSTransition', '~> 1.2.1'
-  
   # Select Photo
   pod 'ZLPhotoBrowser'
   
@@ -64,5 +65,23 @@ target 'XJSwiftKit' do
   
   # Calendar
   pod 'FSCalendar'
+  
+  # Picker-OC
+  pod 'BRPickerView'
 
+  # keyChain
+  pod 'SAMKeychain'
+
+end
+
+def remove_swiftui
+  # 解决 xcode13 Release模式下SwiftUI报错问题
+  system("rm -rf ./Pods/Kingfisher/Sources/SwiftUI")
+  code_file = "./Pods/Kingfisher/Sources/General/KFOptionsSetter.swift"
+  code_text = File.read(code_file)
+  code_text.gsub!(/#if canImport\(SwiftUI\) \&\& canImport\(Combine\)(.|\n)+#endif/,'')
+  system("rm -rf " + code_file)
+  aFile = File.new(code_file, 'w+')
+  aFile.syswrite(code_text)
+  aFile.close()
 end

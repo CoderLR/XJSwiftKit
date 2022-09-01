@@ -19,10 +19,10 @@ class XJHomeViewController: XJBaseViewController {
     let btnLeft = UIButton(type: .custom)
     
     fileprivate var titles: [[String: Any]] = [
-                                                ["title": "控制器", "data": ["网页", "分段选择", "搜索"]],
+                                                ["title": "控制器", "data": ["网页", "分段选择", "搜索", "交互"]],
                                                 ["title": "工具", "data": ["沙盒", "Ping网络"]],
                                                 ["title": "媒体", "data": ["扫码", "选择相册", "相机"]],
-                                                ["title": "控件", "data": ["轮播图", "日期选择", "文本输入", "视频播放器", "日历控件", "验证码框"]],
+                                                ["title": "控件", "data": ["轮播图", "日期选择", "文本输入", "视频播放器", "日历控件", "验证码框", "表情框"]],
                                                 ["title": "背景", "data": ["空数据显示", "背景滚动"]],
                                                 ["title": "其他", "data": ["网络请求", "横竖屏"]]
                                               ]
@@ -63,7 +63,7 @@ class XJHomeViewController: XJBaseViewController {
         weak var weakSelf = self
         self.setRefreshHeader(tableView) {
             let vc = XJTestTransitionController()
-            weakSelf?.pushVC(vc, animationType: .sysPushFromBottom)
+            weakSelf?.presentVC(vc, animationType: .flipFromTop)
             weakSelf?.endRefreshHeader()
         }
     }
@@ -157,11 +157,14 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 let searchVc = XJTestSearchViewController()
                 self.pushVC(searchVc)
+            } else if indexPath.row == 3 {
+                let interactiveVc = XJTestInteractiveViewController()
+                self.pushVC(interactiveVc)
             }
             
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
-                let sandboxVc = YSSandboxViewController(FileManager.xj.homeDirectory(), lastPath: "SandBox")
+                let sandboxVc = YSSandboxViewController(localPath: FileManager.xj.homeDirectory(), lastPath: "SandBox")
                 self.pushVC(sandboxVc)
             } else if indexPath.row == 1 {
                 let pingVc = XJPingViewController()
@@ -196,6 +199,9 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 5 {
                 let codeVc = XJCodeViewController()
                 self.pushVC(codeVc)
+            } else if indexPath.row == 6 {
+                let emotionVc = XJTestInputBarViewController()
+                self.pushVC(emotionVc)
             }
         } else if indexPath.section == 4 {
             if indexPath.row == 0 {

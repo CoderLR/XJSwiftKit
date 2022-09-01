@@ -1,6 +1,6 @@
 //
 //   YSCalendarPageView.swift
-//  ShiJianYun
+//  LeiFengHao
 //
 //  Created by xj on 2021/11/1.
 //
@@ -23,14 +23,18 @@ class  YSCalendarPageView: UIView {
     
     /// 上月
     fileprivate lazy var lastBtn: UIButton = {
-        let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_calendar_last")
+        let button = UIButton(type: .custom)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(contentsOfFile: YSBundle.calendarPath("icon_calendar_last"))?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(lastBtnClick(_:)), for: .touchUpInside)
         return button
     }()
     
     /// 下月
     fileprivate lazy var nextBtn: UIButton = {
-        let button = UIButton.xj.create(bgColor: UIColor.clear, imageName: "icon_calendar_next")
+        let button = UIButton(type: .custom)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(contentsOfFile: YSBundle.calendarPath("icon_calendar_next"))?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(nextBtnClick(_:)), for: .touchUpInside)
         return button
     }()

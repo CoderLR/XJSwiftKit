@@ -1,8 +1,8 @@
 //
 //  YSQRCodeViewController.swift
-//  ShiJianYun
+//  LeiFengHao
 //
-//  Created by Mr.Yang on 2021/10/21.
+//  Created by xj on 2021/10/21.
 //
 
 import UIKit
@@ -40,17 +40,17 @@ class YSQRCodeViewController: XJBaseViewController {
     lazy var flashlightBtn: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 0.5 * (self.view.width - 30), y: 0.6 * self.view.height, width: 30, height: 30)
-        button.setBackgroundImage(UIImage(named: "qrcode_image_open"), for: .normal)
-        button.setBackgroundImage(UIImage(named: "qrcode_image_close"), for: .selected)
+        button.setBackgroundImage(UIImage(contentsOfFile: YSBundle.scanPath("qrcode_image_open"))?.withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setBackgroundImage(UIImage(contentsOfFile: YSBundle.scanPath("qrcode_image_close"))?.withRenderingMode(.alwaysOriginal), for: .selected)
         button.addTarget(self, action: #selector(flashlightBtnClick(_:)), for: .touchUpInside)
         return button
     }()
-    
+
     /// 返回
     lazy var backBtn: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 15, y: KStatusBarH + 6, width: 32, height: 32)
-        button.setBackgroundImage(UIImage(named: "qrcode_image_back"), for: .normal)
+        button.setBackgroundImage(UIImage(contentsOfFile: YSBundle.scanPath("qrcode_image_back"))?.withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(navBackBtnClick(_:)), for: .touchUpInside)
         return button
     }()

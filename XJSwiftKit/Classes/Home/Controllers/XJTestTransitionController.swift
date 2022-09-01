@@ -22,7 +22,8 @@ class XJTestTransitionController: XJBaseViewController {
         }
     }
     
-    override func touchesEstimatedPropertiesUpdated(_ touches: Set<UITouch>) {
-        self.popVC()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.dismissVC()
     }
+
 }
