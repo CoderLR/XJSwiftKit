@@ -45,7 +45,7 @@ class XJBaseViewController: UIViewController {
     /// 空白页面显示
     lazy var emptyDataView: XJEmptyDataView = {
         let empty = XJEmptyDataView(frame: self.view.bounds,
-                                         imgName: "img_empty_wujilu",
+                                         imgName: "icon_empty_data",
                                          text: "暂时没有数据~")
         empty.isHidden = true
         return empty

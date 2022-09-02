@@ -15,7 +15,7 @@ class XJLeftViewController: XJBaseViewController {
                                                 ["title": "控制器", "data": ["网页", "分段选择", "搜索", "交互"]],
                                                 ["title": "工具", "data": ["沙盒", "Ping网络"]],
                                                 ["title": "媒体", "data": ["扫码", "选择相册", "相机"]],
-                                                ["title": "控件", "data": ["轮播图", "日期选择", "文本输入", "视频播放器", "日历控件", "验证码框", "表情框"]],
+                                                ["title": "控件", "data": ["轮播图", "选择器", "文本输入", "视频播放器", "日历控件", "验证码框", "表情框"]],
                                                 ["title": "背景", "data": ["空数据显示", "背景滚动"]],
                                                 ["title": "其他", "data": ["网络请求", "横竖屏"]]
                                               ]
@@ -100,7 +100,7 @@ extension XJLeftViewController: UITableViewDelegate, UITableViewDataSource {
     // 修复header子控件属性
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header =  view as? UITableViewHeaderFooterView
-        header?.textLabel?.textColor = UIColor.orange
+        header?.textLabel?.textColor = Color_System
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

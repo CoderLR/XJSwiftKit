@@ -101,8 +101,8 @@ class XJHeartViewController: UIViewController {
     /// UI图
     lazy var closeBtn: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor.white
-        button.setImage(UIImage(named: "icon_nav_close"), for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setImage(UIImage(named: "icon_hud_error"), for: .normal)
         button.addTarget(self, action: #selector(closeBtnClick(_:)), for: .touchUpInside)
         return button
     }()

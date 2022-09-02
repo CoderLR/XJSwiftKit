@@ -53,4 +53,7 @@
 #import "NDInputController.h"
 #import "NDEmojiAttributedString.h"
 
+// Picker
+#import <BRPickerView/BRPickerView.h>
+
 #endif /* XJBridgeHeader_h */

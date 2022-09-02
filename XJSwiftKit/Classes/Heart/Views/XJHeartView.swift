@@ -41,6 +41,11 @@ class XJHeartView: UIView {
         
         self.backgroundColor = UIColor.white
         
+        let imagView = UIImageView(frame: CGRect(x: 0, y: 0, width: KScreenW, height: KScreenH))
+        imagView.contentMode = .scaleToFill
+        imagView.image = UIImage(named: "bg")
+        self.addSubview(imagView)
+        
         let centerX = self.width * 0.5
         let centerY = self.height * 0.5
         

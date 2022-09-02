@@ -108,6 +108,7 @@ class XJTabBarViewController: UITabBarController {
     /// 登录成功
     @objc func closeHeartViewNotify(notify: NSNotification) {
 //        setBtnAnimation(true)
+        self.xjTabBar.setBtnAnimation(false)
     }
     
 }

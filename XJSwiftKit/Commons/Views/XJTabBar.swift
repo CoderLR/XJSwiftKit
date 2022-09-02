@@ -70,7 +70,7 @@ extension XJTabBar {
     }
     
     /// 按钮旋转动画
-    fileprivate func setBtnAnimation(_ isSelect: Bool) {
+    func setBtnAnimation(_ isSelect: Bool) {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         animation.duration = 0.2;       //执行时间
