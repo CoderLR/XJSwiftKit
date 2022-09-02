@@ -97,6 +97,12 @@ extension XJLeftViewController: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
+    // 修复header子控件属性
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header =  view as? UITableViewHeaderFooterView
+        header?.textLabel?.textColor = UIColor.orange
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard let title = titles[section]["title"] as? String else { return "" }
         return title
@@ -116,7 +122,7 @@ extension XJLeftViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let webVc = XJTestWebViewController(webUrl: "https://www.cnblogs.com/yang-shuai/")
+                let webVc = XJTestWebViewController()
                 self.pushVC(webVc)
             } else if indexPath.row == 1 {
                 let sgVc = XJTestSegmentController()

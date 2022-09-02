@@ -149,7 +149,7 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let webVc = XJTestWebViewController(webUrl: "https://www.cnblogs.com/yang-shuai/")
+                let webVc = XJTestWebViewController()
                 self.pushVC(webVc)
             } else if indexPath.row == 1 {
                 let sgVc = XJTestSegmentController()

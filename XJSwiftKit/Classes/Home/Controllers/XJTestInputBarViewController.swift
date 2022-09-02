@@ -19,15 +19,16 @@ class XJTestInputBarViewController: XJBaseViewController {
         
         self.title = "富文本输入"
 
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.text = "这里显示你输入的内容..."
         label.textColor = UIColor.black
         self.view.addSubview(label)
         
         label.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(30)
-            make.height.equalTo(40)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.top.equalTo(10)
+            make.height.equalTo(25)
         }
         
         inputController.view.frame = CGRect(x: 0, y: self.view.height - 49 - KHomeBarH, width: self.view.width, height: 49 + KHomeBarH)

@@ -11,6 +11,8 @@ class XJTestWebViewController: XJWKWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.fd_interactivePopDisabled = true
 
         self.shareActionBlock = {
             YSShareView(topShareInfos: YSShareInfo.getShareInfos(0),
@@ -22,5 +24,9 @@ class XJTestWebViewController: XJWKWebViewController {
                 }
             }
         }
+    }
+    
+    override func setUpWebUrl() {
+        self.webUrl = "https://www.jianshu.com/u/d648df870a79"
     }
 }
