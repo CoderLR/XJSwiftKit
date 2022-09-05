@@ -12,11 +12,11 @@ class XJNavigationViewController: UINavigationController, UIGestureRecognizerDel
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return self.visibleViewController?.supportedInterfaceOrientations ?? .portrait
     }
-    
+
     override var shouldAutorotate: Bool {
         return self.visibleViewController?.shouldAutorotate ?? false
     }
-    
+
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return self.visibleViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
     }

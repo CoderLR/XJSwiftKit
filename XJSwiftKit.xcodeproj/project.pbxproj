@@ -98,7 +98,6 @@
 		36CCA29A27F7FFBE0057353F /* XJCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15327F7FFBC0057353F /* XJCodeViewController.swift */; };
 		36CCA29B27F7FFBE0057353F /* XJTestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15427F7FFBC0057353F /* XJTestTextViewViewController.swift */; };
 		36CCA29C27F7FFBE0057353F /* XJTestSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15527F7FFBC0057353F /* XJTestSearchViewController.swift */; };
-		36CCA29D27F7FFBE0057353F /* XJLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15627F7FFBC0057353F /* XJLeftViewController.swift */; };
 		36CCA29E27F7FFBE0057353F /* XJTestCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15727F7FFBC0057353F /* XJTestCalendarViewController.swift */; };
 		36CCA29F27F7FFBE0057353F /* XJPingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15827F7FFBC0057353F /* XJPingViewController.swift */; };
 		36CCA2A027F7FFBE0057353F /* XJTestRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CCA15927F7FFBC0057353F /* XJTestRequestViewController.swift */; };
@@ -361,7 +360,6 @@
 		36CCA15327F7FFBC0057353F /* XJCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJCodeViewController.swift; sourceTree = "<group>"; };
 		36CCA15427F7FFBC0057353F /* XJTestTextViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJTestTextViewViewController.swift; sourceTree = "<group>"; };
 		36CCA15527F7FFBC0057353F /* XJTestSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJTestSearchViewController.swift; sourceTree = "<group>"; };
-		36CCA15627F7FFBC0057353F /* XJLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJLeftViewController.swift; sourceTree = "<group>"; };
 		36CCA15727F7FFBC0057353F /* XJTestCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJTestCalendarViewController.swift; sourceTree = "<group>"; };
 		36CCA15827F7FFBC0057353F /* XJPingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJPingViewController.swift; sourceTree = "<group>"; };
 		36CCA15927F7FFBC0057353F /* XJTestRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJTestRequestViewController.swift; sourceTree = "<group>"; };
@@ -909,7 +907,6 @@
 			isa = PBXGroup;
 			children = (
 				36CCA15E27F7FFBC0057353F /* XJHomeViewController.swift */,
-				36CCA15627F7FFBC0057353F /* XJLeftViewController.swift */,
 				36CCA14927F7FFBC0057353F /* XJTestViewController.swift */,
 				36CCA14A27F7FFBC0057353F /* XJTestLandspaceController.swift */,
 				36CCA14B27F7FFBC0057353F /* XJBgScrollViewController.swift */,
@@ -1536,7 +1533,6 @@
 				36C40A9528C0ABCE00DC9F42 /* YSDbInfo.swift in Sources */,
 				36C40A2C28C0AAA700DC9F42 /* XJAuthorizationTool.swift in Sources */,
 				36C40A9D28C0ABCE00DC9F42 /* YSCoreDataTool.swift in Sources */,
-				36CCA29D27F7FFBE0057353F /* XJLeftViewController.swift in Sources */,
 				36CCA37D27F7FFBE0057353F /* UIPageControl+Extension.swift in Sources */,
 				36C40A9428C0ABCE00DC9F42 /* YSShareView.swift in Sources */,
 				36C40A8C28C0ABCE00DC9F42 /* YSBundle.swift in Sources */,

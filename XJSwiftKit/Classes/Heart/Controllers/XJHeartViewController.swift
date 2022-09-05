@@ -165,6 +165,7 @@ class XJHeartViewController: UIViewController {
     
     /// 触发定时器
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if timer?.fireDate == .distantPast { return }
         timer?.fireDate = .distantPast
     }
     

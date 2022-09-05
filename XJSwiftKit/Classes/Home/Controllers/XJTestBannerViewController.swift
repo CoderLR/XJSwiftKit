@@ -10,9 +10,9 @@ import FSPagerView
 
 class XJTestBannerViewController: XJBaseViewController {
     
-    fileprivate let imageNames = ["https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png",
-                                  "https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png",
-                                  "https://img2020.cnblogs.com/blog/775305/202111/775305-20211103173628943-209457087.png"]
+    fileprivate let imageNames = ["1.png",
+                                  "2.png",
+                                  "3.png"]
 
     lazy var pagerView: FSPagerView = {
         let pager = FSPagerView(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 240))
@@ -54,9 +54,8 @@ extension XJTestBannerViewController: FSPagerViewDataSource, FSPagerViewDelegate
     
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        //cell.imageView?.image = UIImage(named: self.imageNames[index])
-        cell.imageView?.setImage(url: self.imageNames[index], placeholder: "icon_launchImage_top")
-        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.image = UIImage(named: self.imageNames[index])
+        //cell.imageView?.setImage(url: self.imageNames[index], placeholder: "icon_launchImage_top")
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = "\(index)的描述"
         return cell

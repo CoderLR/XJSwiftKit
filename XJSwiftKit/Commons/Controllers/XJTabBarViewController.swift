@@ -20,11 +20,11 @@ class XJTabBarViewController: UITabBarController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return self.selectedViewController?.supportedInterfaceOrientations ?? .portrait
     }
-    
+
     override var shouldAutorotate: Bool {
         return self.selectedViewController?.shouldAutorotate ?? false
     }
-    
+
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return self.selectedViewController?.preferredInterfaceOrientationForPresentation ?? .portrait
     }
@@ -85,7 +85,7 @@ class XJTabBarViewController: UITabBarController {
     
     func setupController() {
         
-        let homeVc = setupTabBarItem(controller: XJHomeViewController(), title: KTabbarHomeTitle, image: KTabbarHomeNormalImage, selectedImage: KTabbarHomeSelectImage)
+        let homeVc = setupTabBarItem(controller: XJHomeViewController(type: 1), title: KTabbarHomeTitle, image: KTabbarHomeNormalImage, selectedImage: KTabbarHomeSelectImage)
         
         let _ = setupTabBarItem(controller: XJHeartViewController(), title: KTabbarHeartTitle, image: KTabbarHeartNormalImage, selectedImage: KTabbarHeartSelectImage)
         

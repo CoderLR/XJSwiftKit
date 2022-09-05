@@ -13,10 +13,19 @@ import ZLPhotoBrowser
 
 class XJHomeViewController: XJBaseViewController {
     
-    
     let disposeBag = DisposeBag()
     var tableView: UITableView!
     let btnLeft = UIButton(type: .custom)
+    
+    // 类型
+    var type: Int = 0
+    
+    // 配置
+    var headerTitleColor: UIColor = .gray
+    var separatorColor: UIColor = .lightGray
+    var tableViewBgColor: UIColor = Color_F0F0F0_F0F0F0
+    var cellColor: UIColor = .white
+    var cellTitleColor: UIColor = .black
     
     fileprivate var titles: [[String: Any]] = [
                                                 ["title": "控制器", "data": ["网页", "分段选择", "搜索", "交互"]],
@@ -26,6 +35,28 @@ class XJHomeViewController: XJBaseViewController {
                                                 ["title": "背景", "data": ["空数据显示", "背景滚动"]],
                                                 ["title": "其他", "data": ["网络请求", "横竖屏"]]
                                               ]
+    
+    
+    /// 初始化类型
+    /// - Parameter type: 0 left 1 home
+    convenience init(type: Int) {
+        self.init()
+        self.type = type
+        
+        if type == 1 {
+            self.tableViewBgColor = Color_F0F0F0_F0F0F0
+            self.separatorColor = .lightGray
+            self.headerTitleColor = .gray
+            self.cellColor = .white
+            self.cellTitleColor = .black
+        } else {
+            self.tableViewBgColor = .black
+            self.separatorColor = .white
+            self.headerTitleColor = Color_System
+            self.cellColor = .black
+            self.cellTitleColor = .white
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +77,7 @@ class XJHomeViewController: XJBaseViewController {
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+        tableView.backgroundColor = self.tableViewBgColor
         // 适配ios11
         if #available(iOS 11.0, *) {
             
@@ -54,12 +86,22 @@ class XJHomeViewController: XJBaseViewController {
             tableView.contentInsetAdjustmentBehavior = .never
         }
         tableView.tableFooterView = UIView()
+        tableView.separatorColor = self.separatorColor
         self.view.addSubview(tableView)
         
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        if type == 1 {
+            tableView.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            tableView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.top.equalToSuperview().offset(KStatusBarH)
+                make.bottom.equalToSuperview().offset(-KHomeBarH)
+            }
         }
         
+        if type == 0 { return }
         weak var weakSelf = self
         self.setRefreshHeader(tableView) {
             let vc = XJTestTransitionController()
@@ -87,6 +129,22 @@ class XJHomeViewController: XJBaseViewController {
         
     }
     
+    override func pushVC(_ viewController: UIViewController, animated: Bool = true) {
+        
+        // 抽屉未打开
+        if type == 1 {
+            self.navigationController?.pushViewController(viewController, animated: animated)
+            return
+        }
+        
+        // 抽屉打开
+        self.mm_drawerController.closeDrawer(animated: false) { (_) in
+            guard let tabbarVc = self.mm_drawerController.centerViewController as? XJTabBarViewController else { return }
+            let naVc = tabbarVc.selectedViewController as? XJNavigationViewController
+            naVc?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     /// 监听抽屉打开和关闭
     fileprivate func observer() {
         self.mm_drawerController.rx.observeWeakly(MMDrawerSide.self, "openSide").subscribe(onNext: {[weak self] (slider) in
@@ -97,7 +155,6 @@ class XJHomeViewController: XJBaseViewController {
             } else {
                 self.btnLeft.setImage(KNavCloseDrawerImage, for: .normal)
             }
-            
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
     }
 }
@@ -119,6 +176,8 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
         let reuseIdentifier = "UITableViewCell"
         
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        cell.backgroundColor = self.cellColor
+        cell.textLabel?.textColor = self.cellTitleColor
         let sectionData = titles[indexPath.section]["data"] as? [String]
         cell.textLabel?.text = sectionData?[indexPath.row]
         cell.accessoryType = .disclosureIndicator
@@ -128,6 +187,12 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
     // 返回cell的高度
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    // 修复header子控件属性
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header =  view as? UITableViewHeaderFooterView
+        header?.textLabel?.textColor = self.headerTitleColor
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

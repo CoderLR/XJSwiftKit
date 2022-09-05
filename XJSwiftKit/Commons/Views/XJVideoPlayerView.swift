@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class XJVideoPlayerView: UIImageView {
+class XJVideoPlayerView: UIView {
     
     /// 播放器
     var player: ZFPlayerController!
@@ -27,6 +27,11 @@ class XJVideoPlayerView: UIImageView {
         control.prepareShowLoading = true
         control.prepareShowControlView = false
         return control
+    }()
+    
+    lazy var containerView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
     }()
     
     /// 播放多个视频
@@ -51,7 +56,12 @@ class XJVideoPlayerView: UIImageView {
         
         self.backgroundColor = UIColor.white
         self.isUserInteractionEnabled = true
-        self.setImage(url: "", placeholder: "")
+        //self.setImage(url: "", placeholder: "")
+        
+        self.addSubview(self.containerView)
+        self.containerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         self.addObservers()
     }
@@ -61,6 +71,7 @@ class XJVideoPlayerView: UIImageView {
     }
     
     deinit {
+        print("\(self.classForCoder) -- dealloc")
         self.removeObservers()
     }
 }
@@ -75,13 +86,15 @@ extension XJVideoPlayerView {
         playerManager.shouldAutoPlay = true
         
         /// 初始化播放器
-        self.player = ZFPlayerController(playerManager: playerManager, containerView: self)
+        self.player = ZFPlayerController(playerManager: playerManager, containerView: self.containerView)
         
         /// 设置控制层
         self.player.controlView = self.controlView
         
         /// 设置退到后台继续播放
         self.player.pauseWhenAppResignActive = false
+        
+        //self.player.allowOrentitaionRotation = true
         
         /// 横竖屏切换
         self.player.orientationWillChange = { player, isFullScreen in
@@ -108,11 +121,11 @@ extension XJVideoPlayerView {
             }
             self.player.assetURLs = URLs
             self.player.playTheIndex(0)
-            self.controlView.showTitle("", cover: UIImage(named: "icon_launchImage_top"), fullScreenMode: .landscape)
+            self.controlView.showTitle("xixixixx", cover: UIImage(named: "icon_launchImage_top"), fullScreenMode: .landscape)
         } else {
             if let URL = NSURL(string: self.assetURL) as URL? {
                 self.player.assetURL = URL
-                self.controlView.showTitle("", cover: UIImage(named: "icon_launchImage_top"), fullScreenMode: .landscape)
+                self.controlView.showTitle("hahahaha", cover: UIImage(named: "icon_launchImage_top"), fullScreenMode: .landscape)
             }
         }
     }

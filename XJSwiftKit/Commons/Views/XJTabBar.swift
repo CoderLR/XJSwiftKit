@@ -49,10 +49,13 @@ class XJTabBar: UITabBar {
             } else {
                 button.frame = CGRect(x: btnWidth * 2, y: 0, width: btnWidth, height: 49)
             }
-            
         }
         
         heartBtn.size = CGSize(width: 60, height: 60)
+        if KHomeBarH == 0 {
+            heartBtn.size = CGSize(width: 49, height: 49)
+        }
+        
         heartBtn.frame = CGRect(x: 0.5 * (self.width - heartBtn.width), y: 0, width: heartBtn.width, height: heartBtn.height)
     }
 
