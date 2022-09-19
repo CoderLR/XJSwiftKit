@@ -15,15 +15,51 @@ class YSSandboxViewController: XJBaseViewController {
     /// 最后一级目录
     var lastPath: String = ""
     
+    /// 文本内容
+    var textContent: String = ""
+    
     /// 数据模型
     var fileModels: [YSLocalFileModel] = []
     
-    var tableView: UITableView = UITableView()
-
+    lazy var textView: UITextView = {
+        let textView = UITextView(frame: self.view.bounds)
+        textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        textView.isEditable = false // 是否可编辑
+        textView.isSelectable = true // 是否可选
+        textView.dataDetectorTypes = .link //只有网址加链接
+        return textView
+    }()
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: self.view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        //tableView.separatorStyle = .none
+        // 适配ios11
+        if #available(iOS 11.0, *) {
+            
+            tableView.estimatedSectionHeaderHeight = 0
+            tableView.estimatedSectionFooterHeight = 0
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
+        return tableView
+    }()
+    
     convenience init(localPath: String, lastPath: String) {
         self.init(nibName: nil, bundle: nil)
+        
         self.localPath = localPath
         self.lastPath = lastPath
+    }
+    
+    convenience init(localPath: String, lastPath: String, textContent: String) {
+        self.init(nibName: nil, bundle: nil)
+        
+        self.localPath = localPath
+        self.lastPath = lastPath
+        self.textContent = textContent
     }
     
     private override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -42,8 +78,15 @@ class YSSandboxViewController: XJBaseViewController {
 
         self.title = lastPath
         
-        setupUI()
+        print("localPath = \(localPath)")
+        let filePath = self.localPath as NSString
+        let type = YSLocalFileModel.getFileType(pathExt: filePath.pathExtension)
+        setupUI(type)
+        if type == .txt || type == .log { return }
 
+        setupUI(.folder)
+        
+        // .folder
         DispatchQueue.global().async {
             // 获取数据源
             self.fileModels = YSLocalFileModel(path: self.localPath).getLocalFiles()
@@ -76,21 +119,14 @@ class YSSandboxViewController: XJBaseViewController {
 
 extension YSSandboxViewController {
     
-    fileprivate func setupUI() {
+    fileprivate func setupUI(_ type: YSLocalFileType) {
         
-        tableView = UITableView(frame: self.view.bounds, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        //tableView.separatorStyle = .none
-        // 适配ios11
-        if #available(iOS 11.0, *) {
-            
-            tableView.estimatedSectionHeaderHeight = 0
-            tableView.estimatedSectionFooterHeight = 0
-            tableView.contentInsetAdjustmentBehavior = .never
+        if type == .txt || type == .log {
+            self.view.addSubview(self.textView)
+            self.textView.text = self.textContent
+            return
         }
+        
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
         
@@ -126,12 +162,24 @@ extension YSSandboxViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let fileModel = self.fileModels[indexPath.row]
+        print("click----\(fileModel.fileName)")
+        let nextPath = self.localPath + "/" + fileModel.fileName
+        
         if fileModel.type == .folder {
-            print("click----\(fileModel.fileName)")
-         
-            let nextPath = self.localPath + "/" + fileModel.fileName
             let fileVc = YSSandboxViewController(localPath: nextPath, lastPath: fileModel.fileName)
             self.pushVC(fileVc)
+        } else if (fileModel.type == .txt ||  fileModel.type == .log) {
+            
+            do {
+                let data = try Data(contentsOf: URL.init(fileURLWithPath: nextPath))
+                guard let str = String(data: data, encoding: .utf8) else { return }
+                print(str)
+                let fileVc = YSSandboxViewController(localPath: nextPath, lastPath: fileModel.fileName, textContent: str)
+                self.pushVC(fileVc)
+            } catch {
+                
+            }
+            
         }
     }
 }

@@ -40,3 +40,40 @@
  
  ---------------------------------------------------------
  */
+
+/*
+ 型号                       W    H  Nav Tab
+ iphone1G/3G/3GS          320  480  64  49  @1x
+
+ iphone4                  320  480  64  49  @2x
+
+ iphone5/SE(1/2)          320  568  64  49  @2x
+
+ iPhone 6/7/8/SE3         375  667  64  49  @2x
+ iPhone 6/7/8 plus        414  737  64  49
+
+ iPhone X                 375  812  88  83
+
+ iPhone XR                414  896  88  83  @2x
+ iPhone XS                375  812  88  83
+ iphone XS max            414  896  88  83
+
+ iphone11                 414  896  92  83  @2x
+ iphone11 pro             375  812  88  83
+ iphone11 pro max         414  896  88  83
+
+ iphone12 mini            375  812  94  83
+ iphone12                 390  844  91  83
+ iphone12 pro             390  844  91  83
+ iphone12 pro max         428  926  91  83
+
+ iphone13 mini            375  812  94  83
+ iphone13                 390  844  91  83
+ iphone13 pro             390  844  91  83
+ iphone13 pro max         428  926  91  83
+
+ iphone14                 390  844  91  83
+ iphone14 plus            428  926  91  83
+ iphone14 pro             393  852  103 83   54
+ iphone14 pro max         430  932  103 83   54
+*/

@@ -76,6 +76,25 @@ class XJBaseViewController: UIViewController {
     
     /// App是否活跃
     public var appRunStatusBlock: ((XJAppRunStatus) -> Void)?
+
+    /// 设置状态栏----------------------------------------------------------------------
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        //style为需要显示的样式 default、lightContent, (ios13 later: 有darkContent, default 会根据 是否是DarkMode，自主选择使用lightContent、darkContent）
+        return statusBarstyle
+    }
+    /// 设置状态栏切换动画
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .fade
+    }
+    /// 需要改变出，设置此值
+    var statusBarstyle: UIStatusBarStyle = .default {
+         didSet {
+             //此方法一定调用的，才可以
+             super.setNeedsStatusBarAppearanceUpdate()
+         }
+     }
+    /// 设置状态栏----------------------------------------------------------------------
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -576,15 +595,5 @@ extension XJBaseViewController {
                 break
             }
         }
-    }
-}
-
-// MARK: - 屏幕常亮设置
-extension XJBaseViewController {
-    
-    /// 屏幕常亮
-    /// - Parameter isOn: true 常亮 false 取消常亮
-    @objc func setScreenLightingOn(_ isOn: Bool) {
-        UIApplication.shared.isIdleTimerDisabled = isOn
     }
 }

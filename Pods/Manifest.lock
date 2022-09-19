@@ -12,6 +12,9 @@ PODS:
     - BRPickerView/Base
   - BRPickerView/StringPickerView (2.7.8):
     - BRPickerView/Base
+  - CocoaLumberjack/Core (3.7.4)
+  - CocoaLumberjack/Swift (3.7.4):
+    - CocoaLumberjack/Core
   - DZNEmptyDataSet (1.8.1)
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.7.5):
@@ -63,6 +66,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BRPickerView
+  - CocoaLumberjack/Swift
   - DZNEmptyDataSet (= 1.8.1)
   - FDFullscreenPopGesture
   - FMDB (= 2.7.5)
@@ -90,6 +94,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BRPickerView
+    - CocoaLumberjack
     - DZNEmptyDataSet
     - FDFullscreenPopGesture
     - FMDB
@@ -115,6 +120,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   BRPickerView: cdc9ef25f97914df653d1cda0fd8eeb27a5620f5
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -137,6 +143,6 @@ SPEC CHECKSUMS:
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZLPhotoBrowser: 193f779936f49a3f485100009efb8e0b8b3fb2fe
 
-PODFILE CHECKSUM: 0c29248b14f12980064c8b66f42d4e5c5d4cc48f
+PODFILE CHECKSUM: e8ea7f5acb657de05ccfa6b77bcca29cf4e74204
 
 COCOAPODS: 1.11.3

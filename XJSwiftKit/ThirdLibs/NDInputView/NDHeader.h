@@ -57,7 +57,7 @@
 #define TFaceView_Page_Height 30
 #define TFaceView_Line_Height 0.5
 #define TFaceView_Page_Color [UIColor colorNamed:@"Color_BCBCBC_56585A"]
-#define TFaceView_Line_Color [[UIColor colorNamed:@"color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
+#define TFaceView_Line_Color [[UIColor colorNamed:@"Color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
 #define TFaceView_Background_Color  [UIColor colorNamed:@"Color_F6F6F6"]
 
 //menu view
@@ -65,16 +65,16 @@
 #define TMenuView_Margin 6
 #define TMenuView_Menu_Height 40
 #define TMenuView_Line_Width 0.5
-#define TMenuView_Line_Color [[UIColor colorNamed:@"color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
+#define TMenuView_Line_Color [[UIColor colorNamed:@"Color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
 
 //more view
 #define TMoreView_Column_Count 4
 #define TMoreView_Section_Padding 30
 #define TMoreView_Margin 10
 #define TMoreView_Page_Height 30
-#define TMoreView_Page_Color [UIColor colorNamed:@"color_BCBCBC_56585A"]
+#define TMoreView_Page_Color [UIColor colorNamed:@"Color_BCBCBC_56585A"]
 #define TMoreView_Line_Height 0.5
-#define TMoreView_Line_Color [[UIColor colorNamed:@"color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
+#define TMoreView_Line_Color [[UIColor colorNamed:@"Color_BCBCBC_56585A"] colorWithAlphaComponent:0.6]
 #define TMoreView_Background_Color  [UIColor colorNamed:@"Color_F6F6F6"]
 
 //menu item cell

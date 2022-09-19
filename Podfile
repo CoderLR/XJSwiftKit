@@ -60,7 +60,7 @@ target 'XJSwiftKit' do
   # Carousel
   pod 'FSPagerView'
   
-  # Drawer
+  # Drawer/ CWLateralSlide
   pod 'MMDrawerController'
   
   # Calendar
@@ -71,6 +71,9 @@ target 'XJSwiftKit' do
 
   # keyChain
   pod 'SAMKeychain'
+  
+  # Log
+  pod 'CocoaLumberjack/Swift'
 
 end
 

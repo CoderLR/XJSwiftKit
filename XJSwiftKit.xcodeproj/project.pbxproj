@@ -13,6 +13,7 @@
 		18B4D4592626D36F00555F1E /* XJSwiftKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4D4582626D36F00555F1E /* XJSwiftKitUITests.swift */; };
 		18B4D5242626E8B300555F1E /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B4D5232626E8B300555F1E /* ColorAssets.xcassets */; };
 		18B4D5362626EB7100555F1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18B4D5382626EB7100555F1E /* Localizable.strings */; };
+		36749B4C28D84E87001888CB /* XJTestLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36749B4B28D84E87001888CB /* XJTestLogViewController.swift */; };
 		36C40A2A28C0AA9E00DC9F42 /* XJPrintTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C40A2928C0AA9E00DC9F42 /* XJPrintTool.swift */; };
 		36C40A2C28C0AAA700DC9F42 /* XJAuthorizationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C40A2B28C0AAA700DC9F42 /* XJAuthorizationTool.swift */; };
 		36C40A7428C0ABCE00DC9F42 /* YSAttributeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C40A2F28C0ABCE00DC9F42 /* YSAttributeLabel.swift */; };
@@ -250,6 +251,7 @@
 		18B4D52D2626EA6F00555F1E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		18B4D5372626EB7100555F1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		18B4D5392626EB7400555F1E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		36749B4B28D84E87001888CB /* XJTestLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XJTestLogViewController.swift; sourceTree = "<group>"; };
 		36C40A2928C0AA9E00DC9F42 /* XJPrintTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJPrintTool.swift; sourceTree = "<group>"; };
 		36C40A2B28C0AAA700DC9F42 /* XJAuthorizationTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XJAuthorizationTool.swift; sourceTree = "<group>"; };
 		36C40A2F28C0ABCE00DC9F42 /* YSAttributeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSAttributeLabel.swift; sourceTree = "<group>"; };
@@ -788,14 +790,14 @@
 		36C40AA728C0B21500DC9F42 /* NDInputView */ = {
 			isa = PBXGroup;
 			children = (
-				36C40AA828C0B21500DC9F42 /* Catagory */,
-				36C40AAB28C0B21500DC9F42 /* NDInputController.m */,
-				36C40AAC28C0B21500DC9F42 /* NDInputBar.m */,
-				36C40AAD28C0B21500DC9F42 /* Resources */,
-				36C40AB028C0B21500DC9F42 /* NDHeader.h */,
-				36C40AB128C0B21500DC9F42 /* NDInputController.h */,
 				36C40AB228C0B21500DC9F42 /* BaseUI */,
+				36C40AA828C0B21500DC9F42 /* Catagory */,
+				36C40AB028C0B21500DC9F42 /* NDHeader.h */,
 				36C40AC328C0B21500DC9F42 /* NDInputBar.h */,
+				36C40AAC28C0B21500DC9F42 /* NDInputBar.m */,
+				36C40AB128C0B21500DC9F42 /* NDInputController.h */,
+				36C40AAB28C0B21500DC9F42 /* NDInputController.m */,
+				36C40AAD28C0B21500DC9F42 /* Resources */,
 				36C40AC428C0B21500DC9F42 /* Tool */,
 			);
 			path = NDInputView;
@@ -927,6 +929,7 @@
 				36CCA15B27F7FFBC0057353F /* XJTestWebViewController.swift */,
 				36CCA15C27F7FFBC0057353F /* XJTest2CalendarViewController.xib */,
 				36CCA15D27F7FFBC0057353F /* XJTestCalendarViewController2.swift */,
+				36749B4B28D84E87001888CB /* XJTestLogViewController.swift */,
 				36C40ADE28C0B28C00DC9F42 /* XJTestInputBarViewController.swift */,
 				36C40AE028C0B2E100DC9F42 /* XJTestInteractiveViewController.swift */,
 			);
@@ -1640,6 +1643,7 @@
 				36CCA38727F7FFBE0057353F /* Int+Extension.swift in Sources */,
 				36C40ADF28C0B28C00DC9F42 /* XJTestInputBarViewController.swift in Sources */,
 				36CCA2A227F7FFBE0057353F /* XJTestWebViewController.swift in Sources */,
+				36749B4C28D84E87001888CB /* XJTestLogViewController.swift in Sources */,
 				36CCA38527F7FFBE0057353F /* NSAttributedString+Extension.swift in Sources */,
 				36CCA36827F7FFBE0057353F /* XJTextConfig.swift in Sources */,
 				36CCA2BE27F7FFBE0057353F /* XJSearchView.swift in Sources */,

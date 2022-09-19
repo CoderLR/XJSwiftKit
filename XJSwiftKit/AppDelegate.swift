@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// 沙盒路径
         print(NSHomeDirectory())
         
+        configTableViewSectionHeader()
+        
         /// 键盘
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "完成"
@@ -39,12 +42,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.toolbarTintColor = Color_System
         
+        /// 日志
+        DDLog.add(DDOSLogger.sharedInstance)
+        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+        DDLog.add(fileLogger)
+        
         /// 网络监听
         RL.listen()
         
         /// DB创建
         //DB.createTable(USER_TABLE_NAME)
         DB.createTable(SEARCH_TABLE_NAME)
+    }
+    
+    /// 适配iOS15的sectionHeader
+    func configTableViewSectionHeader() {
+        if #available(iOS 15.0, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
     }
     
     /// App初始化根控制器

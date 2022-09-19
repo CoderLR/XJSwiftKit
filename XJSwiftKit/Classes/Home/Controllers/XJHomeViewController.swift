@@ -10,6 +10,7 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import ZLPhotoBrowser
+import CocoaLumberjack
 
 class XJHomeViewController: XJBaseViewController {
     
@@ -20,16 +21,17 @@ class XJHomeViewController: XJBaseViewController {
     // 类型
     var type: Int = 0
     
-    // 配置
+    // 配置抽屉
     var headerTitleColor: UIColor = .gray
     var separatorColor: UIColor = .lightGray
     var tableViewBgColor: UIColor = Color_F0F0F0_F0F0F0
     var cellColor: UIColor = .white
     var cellTitleColor: UIColor = .black
     
+    // 数据源
     fileprivate var titles: [[String: Any]] = [
                                                 ["title": "控制器", "data": ["网页", "分段选择", "搜索", "交互"]],
-                                                ["title": "工具", "data": ["沙盒", "Ping网络"]],
+                                                ["title": "工具", "data": ["沙盒", "Ping网络", "日志"]],
                                                 ["title": "媒体", "data": ["扫码", "选择相册", "相机"]],
                                                 ["title": "控件", "data": ["轮播图", "选择器", "文本输入", "视频播放器", "日历控件", "验证码框", "表情框"]],
                                                 ["title": "背景", "data": ["空数据显示", "背景滚动"]],
@@ -63,6 +65,10 @@ class XJHomeViewController: XJBaseViewController {
 
         /// 不要直接使用title，会导致tabbar顺序错乱
         self.navigationItem.title = "首页"
+        
+        if type == 0 {
+            self.view.backgroundColor = UIColor.black
+        }
         
         setupLeftItem()
         
@@ -126,23 +132,22 @@ class XJHomeViewController: XJBaseViewController {
         } else {
             self.mm_drawerController.closeDrawer(animated: true, completion: nil)
         }
-        
     }
     
     override func pushVC(_ viewController: UIViewController, animated: Bool = true) {
         
-        // 抽屉未打开
+        // 首页跳转
         if type == 1 {
             self.navigationController?.pushViewController(viewController, animated: animated)
             return
         }
         
-        // 抽屉打开
-        self.mm_drawerController.closeDrawer(animated: false) { (_) in
-            guard let tabbarVc = self.mm_drawerController.centerViewController as? XJTabBarViewController else { return }
-            let naVc = tabbarVc.selectedViewController as? XJNavigationViewController
-            naVc?.pushViewController(viewController, animated: true)
-        }
+        // 抽屉跳转
+        self.mm_drawerController.closeDrawer(animated: true) { (_) in }
+        guard let tabbarVc = self.mm_drawerController.centerViewController as? XJTabBarViewController else { return }
+        let naVc = tabbarVc.selectedViewController as? XJNavigationViewController
+        naVc?.pushViewController(viewController, animated: false)
+        //self.mm_drawerController.present(viewController, animated: true)
     }
     
     /// 监听抽屉打开和关闭
@@ -152,8 +157,11 @@ class XJHomeViewController: XJBaseViewController {
             self.btnLeft.tag = slider?.rawValue ?? 0
             if self.btnLeft.tag == 0 {
                 self.btnLeft.setImage(KNavOpenDrawerImage, for: .normal)
+                self.statusBarstyle = .default
+                
             } else {
                 self.btnLeft.setImage(KNavCloseDrawerImage, for: .normal)
+                self.statusBarstyle = .lightContent
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
     }
@@ -234,6 +242,9 @@ extension XJHomeViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 1 {
                 let pingVc = XJPingViewController()
                 self.pushVC(pingVc)
+            } else if indexPath.row == 2 {
+                let logVc = XJTestLogViewController()
+                self.pushVC(logVc)
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 0 {

@@ -65,7 +65,7 @@
     [_micButton addTarget:self action:@selector(clickVoiceBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_micButton setImage:[UIImage imageNamed:NDResource(@"ToolViewInputVoice")] forState:UIControlStateNormal];
     [_micButton setImage:[UIImage imageNamed:NDResource(@"ToolViewInputVoiceHL")] forState:UIControlStateHighlighted];
-    [self addSubview:_micButton];
+    //[self addSubview:_micButton];
 
     _faceButton = [[UIButton alloc] init];
     [_faceButton addTarget:self action:@selector(clickFaceBtn:) forControlEvents:UIControlEventTouchUpInside];

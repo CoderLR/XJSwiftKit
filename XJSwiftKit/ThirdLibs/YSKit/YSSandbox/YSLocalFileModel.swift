@@ -44,6 +44,7 @@ enum YSLocalFileType {
     case xls    // 表格
     case plist  // plist文件
     case db     // 数据库文件
+    case log    // 日志文件
     case other   // 其他
 }
 
@@ -73,14 +74,14 @@ class YSLocalFileModel: NSObject {
         
         for file in searchFiles {
             let filePath = path + "/" + file
-            print("filePath--------------\(filePath)----------")
+            //print("filePath--------------\(filePath)----------")
             guard let attributes = FileManager.xj.fileAttributes(path: filePath) else { continue }
-
+            /*
             print("--------------\(file)----------")
             print("文件类型：\(attributes[FileAttributeKey.type]!)")
             print("文件大小：\(attributes[FileAttributeKey.size]!)")
             print("创建时间：\(attributes[FileAttributeKey.creationDate]!)")
-            print("修改时间：\(attributes[FileAttributeKey.modificationDate]!)")
+            print("修改时间：\(attributes[FileAttributeKey.modificationDate]!)")*/
 
             let model: YSLocalFileModel = YSLocalFileModel()
             model.path = path
@@ -91,7 +92,7 @@ class YSLocalFileModel: NSObject {
                 model.type = .folder
             } else if typeStr == "NSFileTypeRegular" {
                 let last = file as NSString
-                print("last = \(last.lastPathComponent)  \(last.pathExtension)")
+                //print("last = \(last.lastPathComponent)  \(last.pathExtension)")
                 model.type = YSLocalFileModel.getFileType(pathExt: last.pathExtension)
             }
             
@@ -111,7 +112,7 @@ class YSLocalFileModel: NSObject {
     }
     
     /// 根据文件后缀获取文件类型
-    fileprivate class func getFileType(pathExt: String) -> YSLocalFileType {
+    class func getFileType(pathExt: String) -> YSLocalFileType {
         var type: YSLocalFileType = .other
         switch pathExt.lowercased() {
         case "mp4", "avi":
@@ -130,6 +131,8 @@ class YSLocalFileModel: NSObject {
             type = .plist
         case "db":
             type = .db
+        case "log":
+            type = .log
         default:
             type = .other
         }
