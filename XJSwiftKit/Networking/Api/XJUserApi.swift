@@ -28,19 +28,20 @@ extension XJUserApi: RequestProtocol {
             
         }
     }
-//    1f67d3118a333df2ecb0d68173c2f93d1dcfe778
+
     var parameters: [String : Any]? {
+        let token: String = "a5e9b11506da4472bd44fafd033783b88ffb0275"
         switch self {
         case let .getUserDetail(uid):
             return ["uid": uid,
-                    "token": "1f67d3118a333df2ecb0d68173c2f93d1dcfe778"]
+                    "token": token]
             
         case .getUserThirdMessage(_):
             return ["tpuid_2": "o9_9fwXiPHp4f7HQnyQ6Wl2Xdv0M",
-                    "token": "1f67d3118a333df2ecb0d68173c2f93d1dcfe778"]
+                    "token": token]
             
         default:
-            return ["token": "1f67d3118a333df2ecb0d68173c2f93d1dcfe778",
+            return ["token": token,
                     "loginid": "4817"]
         }
     }

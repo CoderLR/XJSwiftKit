@@ -417,7 +417,7 @@ public extension XJExtension where Base: FileManager {
     
     // MARK: 2.13、判断目录是否可写
     static func judegeIsWritableFile(path: String) -> Bool {
-        return fileManager.isReadableFile(atPath: path)
+        return fileManager.isWritableFile(atPath: path)
     }
     
     // MARK: 2.14、判断目录是否可执行

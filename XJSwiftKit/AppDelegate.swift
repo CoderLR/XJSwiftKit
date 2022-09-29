@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import CocoaLumberjack
+import CoreTelephony
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fileLogger.rollingFrequency = 60 * 60 * 24 // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
+        
+        /// 检测网络是否可用
+        checkNetWork()
         
         /// 网络监听
         RL.listen()
@@ -92,6 +96,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return .allButUpsideDown
         }
         return .portrait
+    }
+    
+    /// 检查网络权限-触发网络权限弹窗
+    func checkNetWork() {
+        let cellulardata = CTCellularData()
+        var isNoNetToNet: Bool = false
+        cellulardata.cellularDataRestrictionDidUpdateNotifier = {(state) in
+            switch state {
+            case .notRestricted:
+                print("start-notRestricted") // 不限制
+                DispatchQueue.main.async {
+                    self.perform(#selector(self.fetchProtocolVersionReq), with: nil, afterDelay: isNoNetToNet ? 1 : 0)
+                }
+                isNoNetToNet = false
+                break
+            case .restricted:
+                //权限关闭的情况下 再次请求网络数据会弹出设置网络提示
+                print("start-restricted") //限制
+                self.perform(#selector(self.fetchProtocolVersionReq), on: .main, with: nil, waitUntilDone: true)
+                isNoNetToNet = true
+                break
+            case .restrictedStateUnknown:
+                print("restrictedStateUnknown")
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+    /// 主线程执行
+    @objc func fetchProtocolVersionReq() {
+        print("----------------------")
     }
     
     /// App注销活跃

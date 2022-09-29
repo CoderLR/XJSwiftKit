@@ -83,6 +83,21 @@ class XJTestLandspaceController: XJBaseViewController {
         
     }
     
+    // 添加通知监听
+    func addObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeRotate(notify:)), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    // 移除通知监听
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    // 监听重力感应
+    @objc func changeRotate(notify: Notification) {
+    
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .allButUpsideDown
     }

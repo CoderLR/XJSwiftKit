@@ -45,7 +45,7 @@ enum YSLocalFileType {
     case plist  // plist文件
     case db     // 数据库文件
     case log    // 日志文件
-    case other   // 其他
+    case other  // 其他
 }
 
 // MARK: - 本地文件模型
@@ -76,13 +76,13 @@ class YSLocalFileModel: NSObject {
             let filePath = path + "/" + file
             //print("filePath--------------\(filePath)----------")
             guard let attributes = FileManager.xj.fileAttributes(path: filePath) else { continue }
-            /*
+            
             print("--------------\(file)----------")
-            print("文件类型：\(attributes[FileAttributeKey.type]!)")
-            print("文件大小：\(attributes[FileAttributeKey.size]!)")
-            print("创建时间：\(attributes[FileAttributeKey.creationDate]!)")
-            print("修改时间：\(attributes[FileAttributeKey.modificationDate]!)")*/
-
+            print("文件类型：\(attributes[FileAttributeKey.type] ?? "")")
+            print("文件大小：\(attributes[FileAttributeKey.size] ?? "")")
+            print("创建时间：\(attributes[FileAttributeKey.creationDate] ?? "")")
+            print("修改时间：\(attributes[FileAttributeKey.modificationDate] ?? "")")
+            print("protectionKey：\(attributes[FileAttributeKey.referenceCount] ?? "")")
             let model: YSLocalFileModel = YSLocalFileModel()
             model.path = path
             model.fileName = file
@@ -94,6 +94,9 @@ class YSLocalFileModel: NSObject {
                 let last = file as NSString
                 //print("last = \(last.lastPathComponent)  \(last.pathExtension)")
                 model.type = YSLocalFileModel.getFileType(pathExt: last.pathExtension)
+                
+                // 隐藏文件不显示com.apple.mobile_container_manager.metadata.plist
+                if last.contains("metadata.plist") { continue }
             }
             
             let crDate = attributes[FileAttributeKey.creationDate] as? NSDate as Date?
