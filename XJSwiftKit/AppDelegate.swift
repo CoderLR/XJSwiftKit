@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var orientation: XJScreenOrientation = .portrait
+    var mmVc: MMDrawerController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -74,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let centerVc = XJTabBarViewController()
         let leftVc = XJHomeViewController(type: 0)
 
-        let mmVc = MMDrawerController(center: centerVc, leftDrawerViewController: leftVc)
+        mmVc = MMDrawerController(center: centerVc, leftDrawerViewController: leftVc)
         mmVc?.showsShadow = true
         mmVc?.maximumLeftDrawerWidth = KScreenW * 0.6
         mmVc?.openDrawerGestureModeMask = MMOpenDrawerGestureMode(rawValue: 0)
@@ -129,6 +130,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 主线程执行
     @objc func fetchProtocolVersionReq() {
         print("----------------------")
+    }
+    
+    /// 处理小组件点击事件
+    @objc func widgetClickAction(_ schemeUrl: String) {
+        
+        guard let tabbarVc = self.mmVc?.centerViewController as? XJTabBarViewController else { return }
+        
+        if schemeUrl.contains("home") {
+            tabbarVc.selectedIndex = 0
+        } else if schemeUrl.contains("heart") {
+            let heartVc = XJHeartViewController()
+            tabbarVc.xj_presentViewController(viewController: heartVc, animationType: .spreadFromBottom, completion: nil)
+        } else if schemeUrl.contains("mine") {
+            tabbarVc.selectedIndex = 1
+        }
+    }
+    
+    /// AppDelegate
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("交互 = \(url)")
+        self.perform(#selector(self.widgetClickAction(_:)), with: url.absoluteString, afterDelay: 0.2)
+        return true
     }
     
     /// App注销活跃

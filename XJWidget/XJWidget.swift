@@ -52,7 +52,7 @@ import Intents
 struct MainWidget: WidgetBundle {
     @WidgetBundleBuilder
     var body: some Widget {
-        XJNetWorkPicture(title: "NetWorkPicture", desc: "NetWorkPicture desc")
+        //XJNetWorkPicture(title: "NetWorkPicture", desc: "NetWorkPicture desc")
         XJAppData(title: "XJAppData", desc: "XJAppData desc")
     }
 }
