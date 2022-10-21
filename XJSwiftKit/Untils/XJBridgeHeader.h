@@ -37,6 +37,9 @@
 // sqllite
 #import <FMDB/FMDB.h>
 
+// Cache
+#import <YYCache/YYCache.h>
+
 // QRCode
 #import <SGQRCode/SGQRCode.h>
 

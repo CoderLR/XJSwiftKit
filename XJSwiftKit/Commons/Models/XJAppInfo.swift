@@ -28,6 +28,7 @@ class XJAppInfo: NSObject {
     var userInfo: XJUserInfo {
         set {
             self.archiver(object: newValue, file: KUserInfoPath)
+        
         }
         
         get {

@@ -12,7 +12,7 @@ enum XJScrollDirection {
     case next
 }
 
-protocol XJSegmentViewDelegate: class {
+protocol XJSegmentViewDelegate: AnyObject {
     func selectButtonIndex(_ index: Int)
 }
 

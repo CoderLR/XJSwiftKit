@@ -52,6 +52,7 @@ PODS:
   - SAMKeychain (1.5.3)
   - SGQRCode (3.5.0)
   - SnapKit (5.0.1)
+  - YYCache (1.0.4)
   - ZFPlayer (4.0.1):
     - ZFPlayer/Core (= 4.0.1)
   - ZFPlayer/AVPlayer (4.0.1):
@@ -85,6 +86,7 @@ DEPENDENCIES:
   - SAMKeychain
   - SGQRCode (= 3.5.0)
   - SnapKit
+  - YYCache
   - ZFPlayer (= 4.0.1)
   - ZFPlayer/AVPlayer (= 4.0.1)
   - ZFPlayer/ControlView (= 4.0.1)
@@ -114,6 +116,7 @@ SPEC REPOS:
     - SAMKeychain
     - SGQRCode
     - SnapKit
+    - YYCache
     - ZFPlayer
     - ZLPhotoBrowser
 
@@ -140,9 +143,10 @@ SPEC CHECKSUMS:
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SGQRCode: d92dd8bd2af665b7e0d76098c5b70e59d2a2609f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZLPhotoBrowser: 193f779936f49a3f485100009efb8e0b8b3fb2fe
 
-PODFILE CHECKSUM: e8ea7f5acb657de05ccfa6b77bcca29cf4e74204
+PODFILE CHECKSUM: f3e67779ed0023596c26b530f8fd1e77fbba77e9
 
 COCOAPODS: 1.11.3

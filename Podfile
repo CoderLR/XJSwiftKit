@@ -51,6 +51,9 @@ target 'XJSwiftKit' do
   # Sqlite
   pod 'FMDB','2.7.5'
   
+  # Cache Link/File/Sqlite
+  pod 'YYCache'
+  
   # Select Photo
   pod 'ZLPhotoBrowser'
   
